@@ -70,8 +70,12 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", ";f", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", ";l", "<cmd>Telescope live_grep<CR>", opts)
 
--- Bufferline
+-- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
+
+-- Bufferline
+keymap("n", "<Tab>", "<cmd>BufferLineMoveNext<CR>", opts)
+keymap("n", "<S-Tab>", "<cmd>BufferLineMovePrev<CR>", opts)
 
 -- Asyncrun
 -- AsyncTasks run

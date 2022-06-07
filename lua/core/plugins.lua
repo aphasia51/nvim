@@ -142,7 +142,7 @@ return packer.startup {
       after = { "nvim-lspconfig" },
     }
     use {
-      "tami5/lspsaga.nvim",
+      "glepnir/lspsaga.nvim",
       after = { "nvim-lspconfig", "nvim-cmp" },
     }
 

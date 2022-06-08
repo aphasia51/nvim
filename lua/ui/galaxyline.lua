@@ -6,11 +6,10 @@ vim.g.galaxyline_loaded = 1
 
 local gl = require("galaxyline")
 local gls = gl.section
-local diagnostic = require("galaxyline.providers.diagnostic")
+local diagnostic = require("galaxyline.provider_diagnostic")
 
 -- VistaPlugin = extension.vista_nearest
 
-local current_scheme = vim.g.colors_name
 local colors = {
   bg = "#2F3445", --#3E4452
   fg = "#8FBCBB",
@@ -53,6 +52,13 @@ local function has_file_type()
   return true
 end
 
+local checkwidth = function()
+  local squeeze_width = vim.fn.winwidth(0) / 2
+  if squeeze_width > 40 then
+    return true
+  end
+  return false
+end
 local buffer_not_empty = function()
   if vim.fn.empty(vim.fn.expand("%:t")) ~= 1 then
     return true
@@ -274,7 +280,7 @@ insert_left({
     provider = "FileIcon",
     condition = buffer_not_empty,
     highlight = {
-      require("galaxyline.providers.fileinfo").get_file_icon_color,
+      require("galaxyline.provider_fileinfo").get_file_icon_color,
       colors.bg,
     },
   },
@@ -363,7 +369,7 @@ insert_right({
       return " "
     end,
     highlight = { colors.bg },
-    condition = require("galaxyline.providers.vcs").get_git_branch
+    condition = require("galaxyline.provider_vcs").get_git_branch
   },
 })
 
@@ -372,7 +378,7 @@ insert_right({
     provider = function()
       return "  "
     end,
-    condition = require("galaxyline.providers.vcs").get_git_branch, --check_git_workspace,
+    condition = require("galaxyline.provider_vcs").get_git_branch, --check_git_workspace,
     highlight = { colors.orange, colors.bg },
   },
 })
@@ -380,7 +386,7 @@ insert_right({
 insert_right({
   GitBranch = {
     provider = "GitBranch",
-    condition = require("galaxyline.providers.vcs").get_git_branch,
+    condition = require("galaxyline.provider_vcs").get_git_branch,
     highlight = { colors.white, colors.bg },
   },
 })
@@ -391,20 +397,12 @@ insert_right({
       return " "
     end,
     highlight = { colors.bg, colors.bg },
-    condition = require("galaxyline.providers.vcs").get_git_branch,
+    condition = require("galaxyline.provider_vcs").get_git_branch,
   },
 })
 
 
 --insert_blank_line_at_left()
-
-local checkwidth = function()
-  local squeeze_width = vim.fn.winwidth(0) / 2
-  if squeeze_width > 40 then
-    return true
-  end
-  return false
-end
 
 insert_right({
   DiffAdd = {
@@ -439,7 +437,7 @@ insert_right({
       return " "
     end,
     highlight = { colors.bg },
-    condition = require("galaxyline.providers.vcs").get_git_branch,
+    condition = require("galaxyline.provider_vcs").get_git_branch,
   },
 })
 
@@ -485,8 +483,8 @@ insert_right({
 insert_right({
   PerCent = {
     provider = "LinePercent",
-    separator = " ",
-    separator_highlight = { colors.yellow, colors.black },
+    --separator = " ",
+    --separator_highlight = { colors.yellow, colors.black },
     condition = checkwidth,
     highlight = { colors.white, colors.black },
   },
@@ -562,9 +560,9 @@ local BufferTypeMap = {
 require("galaxyline").section.short_line_left = {
   {
     ShortLineLeftBufferType = {
-      highlight = { colors.orange, colors.bg },
+      highlight = { colors.dimblue, colors.bg },
       provider = function()
-        local name = BufferTypeMap[vim.bo.filetype] or " Editor"
+        local name = BufferTypeMap[vim.bo.filetype]  or " Window"
         return string.format("  %s", name)
       end,
       separator = " ",
@@ -573,9 +571,9 @@ require("galaxyline").section.short_line_left = {
   },
   {
     ShortLineLeftWindowNumber = {
-      highlight = { colors.violet, colors.black },
+      highlight = { colors.green, colors.black },
       provider = function()
-        return " " .. vim.api.nvim_win_get_number(vim.api.nvim_get_current_win())
+        return "^-^ " .. vim.api.nvim_win_get_number(vim.api.nvim_get_current_win())
       end,
       separator = "",
       separator_highlight = { colors.black, "#1F253A" },

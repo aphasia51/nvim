@@ -22,9 +22,9 @@ local kind_icons = {
 	Field = "",
 	Variable = "",
 
-	Class = "",
+	Class = "€",
 	Interface = "",
-	Module = "硫",
+	Module = "✪",
 	Property = "",
 	Unit = " ",
 	Value = "",
@@ -32,7 +32,7 @@ local kind_icons = {
 	Keyword = "ﱃ",
 	Snippet = "",
 	Color = "",
-	File = "",
+	File = "",
 	Reference = "Ꮢ",
 	Folder = "",
 	EnumMember = "",
@@ -78,7 +78,15 @@ cmp.setup({
     end,
 
   },
-
+  window = {
+    documentation = {
+      border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+    },
+    completion = {
+      border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+      winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
+    }
+  },
   mapping = {
     ["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), {
       "i",

@@ -1,9 +1,7 @@
 vim.cmd([[packadd nvim-lsp-installer]])
 vim.cmd([[packadd lspsaga.nvim]])
-vim.cmd([[packadd lspsaga.nvim]])
 vim.cmd([[packadd cmp-nvim-lsp]])
 local nvim_lsp = require("lspconfig")
-
 local saga = require("lspsaga")
 local lsp_installer = require("nvim-lsp-installer")
 
@@ -18,22 +16,44 @@ saga.init_lsp_saga({
 
 lsp_installer.setup({})
 
+vim.diagnostic.config({
+  --virtual_text = {
+  --  source = "always"
+  --},
+  virtual_text = false,
+  float = true,
+  signs = true,
+  underline = true,
+  update_in_insert = true,
+  severity_sort = false,
+})
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local function custom_attach()
-	require("lsp_signature").on_attach({
-		bind = true,
-		use_lspsaga = false,
-		floating_window = false,
-		fix_pos = false,
-		hint_enable = true,
-        hint_prefix = "🥵 ",  -- Panda for parameter
-		hi_parameter = "LspSignatureActiveParameter", --"Search",
-        max_height = 3,
-        max_width = 50,
-		handler_opts = { "shadw" },
-	})
+local function custom_attach(client)
+  if
+		client.name == "tsserver"
+		or client.name == "jsonls"
+		or client.name == "sumneko_lua"
+		or client.name == "html"
+		or client.name == "gopls"
+	then
+		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.document_range_formatting = false
+	end
+	--require("lsp_signature").on_attach({
+	--	bind = true,
+	--	use_lspsaga = false,
+	--	floating_window = false,
+	--	fix_pos = false,
+	--	hint_enable = false,
+  --  hint_prefix = "🥵 ",  -- Panda for parameter
+	--	hi_parameter = "LspSignatureActiveParameter", --"Search",
+  --  max_height = 3,
+  --  max_width = 50,
+	--	handler_opts = { "shadw" },
+	--})
 end
 
 local function switch_source_header_splitcmd(bufnr, splitcmd)
@@ -73,11 +93,12 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 						shadow = true,
 						unusedparams = true,
 						unusewrites = true,
+            staticcheck = true,
 					},
 				},
 			},
 		})
-	elseif server.name == "sumneko_lua" then
+  elseif server.name == "sumneko_lua" then
 		nvim_lsp.sumneko_lua.setup({
 			capabilities = capabilities,
 			on_attach = custom_attach,

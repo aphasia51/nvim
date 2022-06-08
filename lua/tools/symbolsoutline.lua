@@ -15,7 +15,7 @@ require("symbols-outline").setup {
         goto_location = "<Cr>",
         focus_location = "o",
         hover_symbol = "<C-space>",
-        toggle_preview = ";",
+        toggle_preview = "<leader>k",
         rename_symbol = "r",
         code_actions = "a",
     },

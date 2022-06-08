@@ -1,7 +1,6 @@
 -- vim:foldmethod=marker
 ---@diagnostic disable: different-requires
 -- Automatically download packer.nvim if it doesn't exist
-local options = "ui.theme"
 local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -29,6 +28,13 @@ return packer.startup {
 
     -- *** editor *** --
 
+    use {
+      "jose-elias-alvarez/null-ls.nvim",
+      config = function ()
+        require "editor.null-ls"
+      end,
+      after = { "nvim-lspconfig" },
+    }
     use {
       "iamcco/markdown-preview.nvim",
       run = function() vim.fn["mkdp#util#install"]() end,
@@ -114,11 +120,19 @@ return packer.startup {
     }
 
     use {
-      "yioneko/nvim-yati",
-      requires = "nvim-treesitter/nvim-treesitter",
-      ft = "py",
-      after = "nvim-treesitter"
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("editor.trouble")
+      end,
+      cmd = "TroubleToggle"
     }
+    --use {
+    --  "yioneko/nvim-yati",
+    --  requires = "nvim-treesitter/nvim-treesitter",
+    --  ft = "py",
+    --  after = "nvim-treesitter"
+    --}
 
     use {
       "glepnir/smartinput.nvim",
@@ -137,10 +151,10 @@ return packer.startup {
       event = "InsertEnter"
     }
 
-    use {
-      "ray-x/lsp_signature.nvim",
-      after = { "nvim-lspconfig" },
-    }
+    --use {
+    --  "ray-x/lsp_signature.nvim",
+    --  after = { "nvim-lspconfig" },
+    --}
     use {
       "glepnir/lspsaga.nvim",
       after = { "nvim-lspconfig", "nvim-cmp" },
@@ -178,7 +192,7 @@ return packer.startup {
     }
 
     use {
-      "NTBBloodbath/galaxyline.nvim",
+      "glepnir/galaxyline.nvim",
       config = function ()
         require "ui.galaxyline"
       end,
@@ -206,6 +220,14 @@ return packer.startup {
         config = function ()
             require "tools.lastplace"
         end
+    }
+
+    use {
+      "norcalli/nvim-colorizer.lua",
+      config = function ()
+        require "tools.colorizer"
+      end,
+      event = "BufReadPre"
     }
 
     use {

@@ -50,25 +50,34 @@ keymap("n", "J", "5j", opts)
 keymap("n", "K", "5k", opts)
 keymap("n", "L", "5l", opts)
 
+keymap("n", ".", "$", opts)
+keymap("n", ",", "0", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- Fast to move
+keymap("v", "<A-h>", "5h", opts)
+keymap("v", "<A-j>", "5j", opts)
+keymap("v", "<A-k>", "5k", opts)
+keymap("v", "<A-l>", "5l", opts)
 
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("v", ".", "$", opts)
+keymap("v", ",", "0", opts)
 
 -- *** Plugins keymaps *** --
 
 -- Telescope
 keymap("n", ";f", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", ";l", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", ";l", "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>", opts)
+keymap("n", ";d", "<cmd>Telescope diagnostics<CR>", opts)
 
 -- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
@@ -88,3 +97,12 @@ keymap("n", "<A-n>", "<cmd>NvimTreeFindFile<CR>", opts)
 
 -- Symbols outline
 keymap("n", "so", "<cmd>SymbolsOutline<CR>", opts)
+
+-- Null-ls
+keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+-- Lsp
+keymap("n", "ck", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+
+-- Trouble
+keymap("n", "<leader>d", "<cmd>TroubleToggle<CR>", opts)

@@ -125,8 +125,11 @@ return packer.startup {
       config = function()
         require("editor.trouble")
       end,
+      after = { "nvim-cmp" },
       cmd = "TroubleToggle"
     }
+
+    -- Formater
     --use {
     --  "yioneko/nvim-yati",
     --  requires = "nvim-treesitter/nvim-treesitter",

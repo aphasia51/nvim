@@ -83,8 +83,8 @@ keymap("n", ";d", "<cmd>Telescope diagnostics<CR>", opts)
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
 
 -- Bufferline
-keymap("n", "<Tab>", "<cmd>BufferLineMoveNext<CR>", opts)
-keymap("n", "<S-Tab>", "<cmd>BufferLineMovePrev<CR>", opts)
+keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)
+keymap("n", "<A-c>", "<cmd>BufferLineCloseRight<CR>", opts)
 
 -- Asyncrun
 -- AsyncTasks run

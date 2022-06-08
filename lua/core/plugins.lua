@@ -4,7 +4,6 @@
 local fn = vim.fn
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-
   fn.system { "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path }
   vim.cmd "packadd packer.nvim"
 end
@@ -12,7 +11,6 @@ end
 -- Automatically run :PackerCompile after every time this file is changed
 vim.api.nvim_create_augroup("packer_user_config", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePost", {
-
   group = "packer_user_config",
   pattern = "plugins.lua",
   command = "source <afile> | PackerCompile",
@@ -51,6 +49,7 @@ return packer.startup {
       config = function()
         require "editor.lspconfig"
       end,
+      after = { "impatient.nvim" },
     }
     use {
       "williamboman/nvim-lsp-installer",
@@ -73,7 +72,7 @@ return packer.startup {
       -- the completion core
     use {
       "hrsh7th/nvim-cmp",
-      after = "vim-vsnip",
+      after = { "vim-vsnip" },
       --event = "InsertEnter",
       config = function()
         require "editor.cmp"
@@ -105,7 +104,7 @@ return packer.startup {
       -- completion source for vsnip snippet plugin
     use {
       "hrsh7th/cmp-vsnip",
-      after = "nvim-cmp"
+      after = { "nvim-cmp" }
     }
 
       -- the snippet core
@@ -190,7 +189,7 @@ return packer.startup {
       config = function()
         require("ui.bufferline")
       end,
-      --event = "BufRead",
+      event = "BufReadPre",
       after = { "nvim-web-devicons" },
     }
 
@@ -200,7 +199,7 @@ return packer.startup {
         require "ui.galaxyline"
       end,
       requires = 'kyazdani42/nvim-web-devicons',
-      after = "nvim-web-devicons",
+      after = { "nvim-web-devicons" },
     }
 
     use {
@@ -212,7 +211,12 @@ return packer.startup {
     }
 
     -- *** Tools *** --
-    use { "lewis6991/impatient.nvim" }
+    use {
+      "lewis6991/impatient.nvim",
+      config = function ()
+        require "tools.impatient"
+      end
+    }
     use {
         "nvim-lua/plenary.nvim",
         after = { "impatient.nvim" },
@@ -257,6 +261,13 @@ return packer.startup {
       end
     }
 
+    --use {
+    --  'kevinhwang91/nvim-bqf',
+    --  config = function ()
+    --    require "tools.bqf"
+    --  end
+    --}
+
     use {
       "skywind3000/asyncrun.vim",
       cmd = { "AsyncRun" }
@@ -281,7 +292,7 @@ return packer.startup {
       requires = {
         'kyazdani42/nvim-web-devicons',
       },
-      after = "nvim-web-devicons",
+      after = { "nvim-web-devicons" },
       cmd = {
         "NvimTreeFindFile",
         "NvimTreeToggle",

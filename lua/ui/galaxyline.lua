@@ -455,8 +455,8 @@ insert_right({
 insert_right({
   LineInfo = {
     provider = "LineColumn",
-    separator = "  ",
-    separator_highlight = { colors.green, colors.bg },
+    --separator = "  ",
+    --separator_highlight = { colors.green, colors.bg },
     highlight = { colors.fg, colors.bg },
   },
 })

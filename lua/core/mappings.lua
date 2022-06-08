@@ -27,6 +27,9 @@ keymap("n", "<A-j>", "<C-w>j", opts)
 keymap("n", "<A-k>", "<C-w>k", opts)
 keymap("n", "<A-l>", "<C-w>l", opts)
 
+-- Delect the word under cursor and into insert mode
+keymap("n", "da", "dawa", opts)
+
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
@@ -88,7 +91,7 @@ keymap("n", "<A-c>", "<cmd>BufferLineCloseRight<CR>", opts)
 
 -- Asyncrun
 -- AsyncTasks run
-keymap("n", "r", ":AsyncTask file-run<CR>", opts)
+keymap("n", "r", "<cmd>AsyncTask file-run<CR>", opts)
 keymap("n", "<leader>r", ":AsyncTask file-build<CR>", opts)
 
 -- Nvim-Tree

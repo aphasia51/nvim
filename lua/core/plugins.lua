@@ -49,6 +49,7 @@ return packer.startup {
       config = function()
         require "editor.lspconfig"
       end,
+      event = { "BufReadPre" },
       after = { "impatient.nvim" },
     }
     use {
@@ -164,8 +165,8 @@ return packer.startup {
 
     use {
 	    "nvim-treesitter/nvim-treesitter",
-	    event = { "BufRead", "BufNewFile" },
-        run = ":TSUpdate",
+	    event = { "BufReadPre", "BufNewFile" },
+      run = ":TSUpdate",
 	    config = function ()
 	        require "ui.treesitter"
 	    end
@@ -223,6 +224,13 @@ return packer.startup {
     }
 
     use {
+      "glepnir/dashboard-nvim",
+      config = function ()
+        require "tools.dashboard"
+      end
+    }
+
+    use {
         "ethanholz/nvim-lastplace",
         config = function ()
             require "tools.lastplace"
@@ -234,7 +242,7 @@ return packer.startup {
       config = function ()
         require "tools.colorizer"
       end,
-      event = "BufReadPre"
+      event = { "BufReadPre" }
     }
 
     use {
@@ -243,7 +251,7 @@ return packer.startup {
         config = function ()
             require "tools.telescope"
         end,
-        requires = "nvim-lua/plenary.nvim"
+        --requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter"}
     }
 
     use {

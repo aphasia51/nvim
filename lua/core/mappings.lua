@@ -28,7 +28,7 @@ keymap("n", "<A-k>", "<C-w>k", opts)
 keymap("n", "<A-l>", "<C-w>l", opts)
 
 -- Delect the word under cursor and into insert mode
-keymap("n", "da", "dawa", opts)
+keymap("n", "da", "dawi", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -48,13 +48,13 @@ keymap("n", "<leader>bd", ":bd!<CR>", opts)
 keymap("i", "jk", "<ESC>", opts)
 
 -- Fast to move
-keymap("n", "H", "5h", opts)
+--keymap("n", "H", "5h", opts)
 keymap("n", "J", "5j", opts)
 keymap("n", "K", "5k", opts)
-keymap("n", "L", "5l", opts)
+--keymap("n", "L", "5l", opts)
 
-keymap("n", ".", "$", opts)
-keymap("n", ",", "0", opts)
+keymap("n", "L", "$", opts)
+keymap("n", "H", "0", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -105,7 +105,9 @@ keymap("n", "so", "<cmd>SymbolsOutline<CR>", opts)
 keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
 -- Lsp
-keymap("n", "ck", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "dk", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+keymap("n", "do", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+keymap("n", "dp", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 
 -- Trouble
 keymap("n", "<leader>d", "<cmd>TroubleToggle<CR>", opts)

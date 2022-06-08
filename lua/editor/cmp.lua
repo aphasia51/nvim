@@ -126,8 +126,8 @@ cmp.setup({
     end, { "i", "s" }),
   },
   sources = {
-    { name = "nvim_lsp", priority = 99 },
-    { name = "vsnip" },
+    { name = "nvim_lsp", priority = 98 },
+    { name = "vsnip", priority = 99 },
     { name = "buffer" },
     { name = "path" },
     { name = "dictionary", keyword_length = 2 },
@@ -135,6 +135,17 @@ cmp.setup({
   experimental = {
     ghost_text = true,
   },
+  --sorting = {
+  --  comparators = {
+  --    cmp.config.compare.offset,
+  --    cmp.config.compare.exact,
+  --    cmp.config.compare.score,
+  --    -- cmp.config.compare.kind,
+  --    cmp.config.compare.sort_text,
+  --    -- cmp.config.compare.length,
+  --    cmp.config.compare.order,
+  --  },
+  --}
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).

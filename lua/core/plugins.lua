@@ -131,21 +131,9 @@ return packer.startup {
 
     use {
       "ray-x/go.nvim",
-      config = function ()
-        require "tools.go"
-      end,
       ft = "go",
       after = { "impatient" }
     }
-
-
-    -- Formater
-    --use {
-    --  "yioneko/nvim-yati",
-    --  requires = "nvim-treesitter/nvim-treesitter",
-    --  ft = "py",
-    --  after = "nvim-treesitter"
-    --}
 
     use {
       "glepnir/smartinput.nvim",

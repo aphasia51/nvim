@@ -28,6 +28,17 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
+local signs = {
+  { name = "DiagnosticSignError", text = ' C', texthl = 'DiagnosticSignError' },
+  --{ name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
+  { name = "DiagnosticSignWarn", text = ' ', texthl = 'DiagnosticSignWarn' },
+  { name = "DiagnosticSignInfo", text = ' ', texthl = 'DiagnosticSignInfo' },
+  { name = "DiagnosticSignHint", text = ' ', texthl = 'DiagnosticSignHint' },
+}
+for _, sign in ipairs(signs) do
+  vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.texthl })
+end
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
@@ -42,18 +53,19 @@ local function custom_attach(client)
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
 	end
-	--require("lsp_signature").on_attach({
-	--	bind = true,
-	--	use_lspsaga = false,
-	--	floating_window = false,
-	--	fix_pos = false,
-	--	hint_enable = false,
-  --  hint_prefix = "🥵 ",  -- Panda for parameter
-	--	hi_parameter = "LspSignatureActiveParameter", --"Search",
-  --  max_height = 3,
-  --  max_width = 50,
-	--	handler_opts = { "shadw" },
-	--})
+	require("lsp_signature").on_attach({
+		bind = true,
+		use_lspsaga = false,
+		floating_window = false,
+		fix_pos = false,
+		hint_enable = false,
+    hint_prefix = "🥵 ",  -- Panda for parameter
+		hi_parameter = "LspSignatureActiveParameter", --"Search",
+    max_height = 3,
+    max_width = 50,
+		handler_opts = { "shadw" },
+    toggle_key = "<A-p>"
+	})
 end
 
 local function switch_source_header_splitcmd(bufnr, splitcmd)

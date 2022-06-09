@@ -1,5 +1,8 @@
 require("nvim-treesitter.configs").setup({
-  yati = { enable = true },
+  --yati = { enable = true },
+  -- indent = {
+  --   enable = true
+  -- },
   ensure_installed = { "go", "python", "lua", "bash" },
   highlight = {
     enable = true,

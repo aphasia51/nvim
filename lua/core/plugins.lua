@@ -49,7 +49,7 @@ return packer.startup {
       config = function()
         require "editor.lspconfig"
       end,
-      event = { "BufReadPre" },
+      --event = { "BufReadPre" },
       after = { "impatient.nvim" },
     }
     use {
@@ -129,6 +129,16 @@ return packer.startup {
       cmd = "TroubleToggle"
     }
 
+    use {
+      "ray-x/go.nvim",
+      config = function ()
+        require "tools.go"
+      end,
+      ft = "go",
+      after = { "impatient" }
+    }
+
+
     -- Formater
     --use {
     --  "yioneko/nvim-yati",
@@ -154,10 +164,10 @@ return packer.startup {
       event = "InsertEnter"
     }
 
-    --use {
-    --  "ray-x/lsp_signature.nvim",
-    --  after = { "nvim-lspconfig" },
-    --}
+    use {
+      "ray-x/lsp_signature.nvim",
+      after = { "nvim-lspconfig" },
+    }
     use {
       "glepnir/lspsaga.nvim",
       after = { "nvim-lspconfig", "nvim-cmp" },
@@ -174,7 +184,7 @@ return packer.startup {
 
     use {
       "kyazdani42/nvim-web-devicons",
-      after = { "impatient.nvim" },
+      --after = { "impatient.nvim" },
     }
 
     -- Theme
@@ -190,7 +200,7 @@ return packer.startup {
       config = function()
         require("ui.bufferline")
       end,
-      event = "BufReadPre",
+      --event = "BufReadPre",
       after = { "nvim-web-devicons" },
     }
 
@@ -221,6 +231,11 @@ return packer.startup {
     use {
         "nvim-lua/plenary.nvim",
         after = { "impatient.nvim" },
+    }
+
+    use {
+      "rainbowhxch/accelerated-jk.nvim",
+      after = { "impatient.nvim" },
     }
 
     use {

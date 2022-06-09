@@ -1,5 +1,5 @@
 local home = os.getenv('HOME')
-vim.g.dashboard_footer_icon = ' 😈 '
+vim.g.dashboard_footer_icon = ' ⏰ '
 vim.g.dashboard_preview_command = 'cat'
 vim.g.dashboard_preview_pipeline = 'lolcat -F 0.3'
 vim.g.dashboard_preview_file = home .. '/.config/nvim/static/neovim.cat'

@@ -21,6 +21,10 @@ vim.g.maplocalleader = " "
 -- Quickly quit
 keymap("n", "Q", "<cmd>q<CR>", opts)
 
+-- Faster move
+keymap('n', 'j', '<Plug>(accelerated_jk_gj)', {})
+keymap('n', 'k', '<Plug>(accelerated_jk_gk)', {})
+
 -- Better window navigation
 keymap("n", "<A-h>", "<C-w>h", opts)
 keymap("n", "<A-j>", "<C-w>j", opts)
@@ -54,7 +58,7 @@ keymap("n", "K", "5k", opts)
 --keymap("n", "L", "5l", opts)
 
 keymap("n", "L", "$", opts)
-keymap("n", "H", "0", opts)
+keymap("n", "H", "^", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -79,7 +83,7 @@ keymap("v", ",", "0", opts)
 
 -- Telescope
 keymap("n", ";f", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", ";l", "<cmd>lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>", opts)
+keymap("n", ";l", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", ";d", "<cmd>Telescope diagnostics<CR>", opts)
 
 -- Quickfix close
@@ -102,7 +106,9 @@ keymap("n", "<A-n>", "<cmd>NvimTreeFindFile<CR>", opts)
 keymap("n", "so", "<cmd>SymbolsOutline<CR>", opts)
 
 -- Null-ls
-keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+--keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+--keymap("n", "gf", "<cmd>lua require('go.format').goimport()<CR>", opts)
+keymap("n", "<leader>f", "<cmd>lua require'magic.format'.format()<CR>", opts)
 
 -- Lsp
 keymap("n", "dk", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)

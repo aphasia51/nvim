@@ -91,7 +91,7 @@ keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
 
 -- Bufferline
 keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)
-keymap("n", "<A-c>", "<cmd>BufferLineCloseRight<CR>", opts)
+keymap("n", "<leader>c", "<cmd>BufferLineCloseRight<CR>", opts)
 
 -- Asyncrun
 -- AsyncTasks run

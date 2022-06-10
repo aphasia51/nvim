@@ -103,7 +103,7 @@ keymap("n", "<A-m>", "<cmd>NvimTreeToggle<CR>", opts)
 keymap("n", "<A-n>", "<cmd>NvimTreeFindFile<CR>", opts)
 
 -- Symbols outline
-keymap("n", "so", "<cmd>SymbolsOutline<CR>", opts)
+keymap("n", "<leader>o", "<cmd>SymbolsOutline<CR>", opts)
 
 -- Null-ls
 --keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)

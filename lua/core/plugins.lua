@@ -131,7 +131,10 @@ return packer.startup {
 
     use {
       "ray-x/go.nvim",
-      ft = "go",
+      ft = { "go" },
+      config = function ()
+        require "tools.go"
+      end,
       after = { "impatient" }
     }
 

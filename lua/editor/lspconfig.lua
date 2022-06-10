@@ -29,8 +29,7 @@ vim.diagnostic.config({
 })
 
 local signs = {
-  { name = "DiagnosticSignError", text = ' C', texthl = 'DiagnosticSignError' },
-  --{ name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
+  { name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
   { name = "DiagnosticSignWarn", text = ' ', texthl = 'DiagnosticSignWarn' },
   { name = "DiagnosticSignInfo", text = ' ', texthl = 'DiagnosticSignInfo' },
   { name = "DiagnosticSignHint", text = ' ', texthl = 'DiagnosticSignHint' },

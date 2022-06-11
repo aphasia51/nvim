@@ -7,4 +7,4 @@ au({"BufWritePre"}, { pattern = "*.go", command = ":silent! lua require('go.form
 --vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
-
+vim.cmd([[autocmd FileType alpha set laststatus=0 | autocmd BufUnload <buffer> set laststatus=1]])

@@ -90,19 +90,15 @@ return packer.startup {
 
     use {
       "hrsh7th/cmp-nvim-lsp",
-      --event = "InsertEnter",
+      --event = { "BufReadPre" },
       after = { "nvim-cmp" }
     }
-
-
       -- completion source for word in current buffer
     use {
-      "hrsh7th/cmp-buffer",
-      after = { "nvim-cmp" }
+      "hrsh7th/cmp-buffer", after = { "nvim-cmp" }
     }
 
-
-      -- completion source for vsnip snippet plugin
+    --  -- completion source for vsnip snippet plugin
     use {
       "hrsh7th/cmp-vsnip",
       after = { "nvim-cmp" }
@@ -135,7 +131,7 @@ return packer.startup {
       config = function ()
         require "tools.go"
       end,
-      after = { "impatient" }
+      event = { "BufRead" }
     }
 
     use {
@@ -200,7 +196,7 @@ return packer.startup {
       config = function ()
         require "ui.galaxyline"
       end,
-      requires = 'kyazdani42/nvim-web-devicons',
+      requires = { 'kyazdani42/nvim-web-devicons' },
       after = { "nvim-web-devicons" },
     }
 
@@ -220,8 +216,8 @@ return packer.startup {
       end
     }
     use {
-        "nvim-lua/plenary.nvim",
-        after = { "impatient.nvim" },
+      "nvim-lua/plenary.nvim",
+      after = { "impatient.nvim" },
     }
 
     use {
@@ -230,17 +226,18 @@ return packer.startup {
     }
 
     use {
-      "glepnir/dashboard-nvim",
-      config = function ()
-        require "tools.dashboard"
-      end
+      "goolord/alpha-nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("tools.dashboard")
+      end,
     }
 
     use {
-        "ethanholz/nvim-lastplace",
-        config = function ()
-            require "tools.lastplace"
-        end
+      "ethanholz/nvim-lastplace",
+      config = function ()
+        require "tools.lastplace"
+      end
     }
 
     use {

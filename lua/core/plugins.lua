@@ -196,6 +196,7 @@ return packer.startup {
       config = function ()
         require "ui.galaxyline"
       end,
+      --event = { "BufReadPre" },
       requires = { 'kyazdani42/nvim-web-devicons' },
       after = { "nvim-web-devicons" },
     }
@@ -227,7 +228,7 @@ return packer.startup {
 
     use {
       "goolord/alpha-nvim",
-      requires = "kyazdani42/nvim-web-devicons",
+      --"glepnir/dashboard-nvim",
       config = function()
         require("tools.dashboard")
       end,
@@ -307,6 +308,7 @@ return packer.startup {
       cmd = {
         "NvimTreeFindFile",
         "NvimTreeToggle",
+        "NvimTreeRefresh"
       },
     }
 

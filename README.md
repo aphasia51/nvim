@@ -2,11 +2,10 @@
 Neovim configuration written in lua
 
 ## 💥Features
-- 👻 Less than 40 plugins
-- 🏂 The start speed is fast
-- 🥳 No useless plugin
+- 👻 Less than 50 plugins
+- 🏂 The start speed is fast(about 50ms)
 
 ### 👹Install
 ```
-git clone https://gitee.com/xiahuas/nvim.git ~/.config/nvim
+git clone https://github.com/xiahuas/nvim.git ~/.config/nvim
 ```

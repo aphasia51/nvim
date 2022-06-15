@@ -4,6 +4,11 @@
     "body": "const ${1:name} = ${2:value}",
     "description": "Snippet for a constant"
   },
+  "fast error": {
+    "prefix": "ce",
+    "body": "${1:name}, err := ${2:name}",
+    "description": "Snippet for fast error"
+  },
   "variable declaration": {
     "prefix": "var",
     "body": "var ${1:name} ${2:type}",

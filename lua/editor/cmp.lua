@@ -56,7 +56,8 @@ local source_menu = {
 }
 
 cmp.setup({
-
+  -- pre select
+  -- preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
       -- For `vsnip` user.

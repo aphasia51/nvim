@@ -117,3 +117,9 @@ keymap("n", "dp", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 
 -- Trouble
 keymap("n", "<leader>d", "<cmd>TroubleToggle<CR>", opts)
+
+-- Quick run
+keymap("n", "<A-r>", "<cmd> lua require'magic.quickrun'.run_command()<CR>", opts)
+
+--toggleterm
+keymap("n", "<leader>t", "<cmd>ToggleTerm<CR>", opts)

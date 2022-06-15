@@ -37,19 +37,28 @@ return packer.startup {
       "iamcco/markdown-preview.nvim",
       run = function() vim.fn["mkdp#util#install"]() end,
       ft = "markdown",
-      setup = function()
+      config= function()
         vim.g.mkdp_browser = "firefox"
         vim.g.mkdp_open_to_the_world = 1
         vim.g.mkdp_port = "57843"
+        vim.g.mkdp_page_title = 'MD-Aphasia'
       end,
     }
+    --use {
+    --  "davidgranstrom/nvim-markdown-preview",
+    --  ft = { "markdown" },
+    --  cmd = { "MarkdownPreview" },
+    --  config = function ()
+    --    vim.g.nvim_markdown_preview_theme = 'solarized-light'
+    --  end
+    --}
 
     use {
       "neovim/nvim-lspconfig",
       config = function()
         require "editor.lspconfig"
       end,
-      --event = { "BufReadPre" },
+      event = { "BufReadPre" },
       after = { "impatient.nvim" },
     }
     use {
@@ -63,6 +72,7 @@ return packer.startup {
         require "editor.autopairs"
       end,
     }
+
 
     use {
       "rafamadriz/friendly-snippets",
@@ -121,7 +131,6 @@ return packer.startup {
       config = function()
         require("editor.trouble")
       end,
-      after = { "nvim-cmp" },
       cmd = "TroubleToggle"
     }
 
@@ -155,6 +164,7 @@ return packer.startup {
       "ray-x/lsp_signature.nvim",
       after = { "nvim-lspconfig" },
     }
+
     use {
       "glepnir/lspsaga.nvim",
       after = { "nvim-lspconfig", "nvim-cmp" },
@@ -162,16 +172,17 @@ return packer.startup {
 
     use {
 	    "nvim-treesitter/nvim-treesitter",
-	    event = { "BufReadPre", "BufNewFile" },
-      run = ":TSUpdate",
+	    --event = { "BufReadPre", "BufNewFile" },
+      --run = ":TSUpdate",
 	    config = function ()
 	        require "ui.treesitter"
-	    end
+	    end,
+      --after = { "impatient" }
     }
 
     use {
       "kyazdani42/nvim-web-devicons",
-      --after = { "impatient.nvim" },
+      after = { "impatient.nvim" },
     }
 
     -- Theme
@@ -179,7 +190,7 @@ return packer.startup {
       "glepnir/zephyr-nvim",
       config = function ()
         require "ui.theme"
-      end
+      end,
       --after = "nvim-treesitter" with this, icons are no color
     }
     use {
@@ -196,9 +207,8 @@ return packer.startup {
       config = function ()
         require "ui.galaxyline"
       end,
-      --event = { "BufReadPre" },
+      event = { "BufRead", "BufNewFile" },
       requires = { 'kyazdani42/nvim-web-devicons' },
-      after = { "nvim-web-devicons" },
     }
 
     use {
@@ -210,6 +220,22 @@ return packer.startup {
     }
 
     -- *** Tools *** --
+
+    use {
+      "akinsho/toggleterm.nvim",
+      config = function ()
+        require "tools.toggleterm"
+      end
+    }
+
+    use {
+      "numToStr/Comment.nvim",
+      event = "BufRead",
+      config = function ()
+        require "editor.comment"
+      end
+    }
+
     use {
       "lewis6991/impatient.nvim",
       config = function ()
@@ -223,16 +249,17 @@ return packer.startup {
 
     use {
       "rainbowhxch/accelerated-jk.nvim",
-      after = { "impatient.nvim" },
+      --after = { "impatient.nvim" },
+      --event = { "BufReadPre", "BufNewFile" }
     }
 
-    use {
-      "goolord/alpha-nvim",
-      --"glepnir/dashboard-nvim",
-      config = function()
-        require("tools.dashboard")
-      end,
-    }
+    --use {
+    --  --"goolord/alpha-nvim",
+    --  "glepnir/dashboard-nvim",
+    --  config = function()
+    --    require("tools.dashboard")
+    --  end,
+    --}
 
     use {
       "ethanholz/nvim-lastplace",
@@ -258,12 +285,12 @@ return packer.startup {
         --requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter"}
     }
 
-    use {
-      "nathom/filetype.nvim",
-      config = function ()
-        require "tools.filetype"
-      end
-    }
+    --use {
+    --  "nathom/filetype.nvim",
+    --  config = function ()
+    --    require "tools.filetype"
+    --  end
+    --}
 
     use {
       "simrat39/symbols-outline.nvim",
@@ -301,9 +328,9 @@ return packer.startup {
       config = function()
         require("tools.nvim_tree")
       end,
-      requires = {
-        'kyazdani42/nvim-web-devicons',
-      },
+      --requires = {
+      --  'kyazdani42/nvim-web-devicons',
+      --},
       after = { "nvim-web-devicons" },
       cmd = {
         "NvimTreeFindFile",
@@ -314,7 +341,7 @@ return packer.startup {
 
     use {
       "dstein64/vim-startuptime",
-      cmd = "StartupTime"
+      cmd = { "StartupTime" }
     }
 
   end

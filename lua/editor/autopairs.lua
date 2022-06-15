@@ -47,7 +47,6 @@ npairs.add_rules({
     :with_pair(function(opts)
       local last_char = opts.line:sub(opts.col - 1, opts.col - 1)
       if last_char:match("[%w%=%s]") then
-
         return true
       end
       return false

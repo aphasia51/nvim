@@ -29,10 +29,10 @@ vim.diagnostic.config({
 })
 
 local signs = {
-  { name = "DiagnosticSignError", text = ' ', texthl = 'DiagnosticSignError' },
-  { name = "DiagnosticSignWarn", text = ' ', texthl = 'DiagnosticSignWarn' },
-  { name = "DiagnosticSignInfo", text = ' ﬤ', texthl = 'DiagnosticSignInfo' },
-  { name = "DiagnosticSignHint", text = ' ', texthl = 'DiagnosticSignHint' },
+  { name = "DiagnosticSignError", text = '', texthl = 'DiagnosticSignError' },
+  { name = "DiagnosticSignWarn", text = '', texthl = 'DiagnosticSignWarn' },
+  { name = "DiagnosticSignInfo", text = 'ﬤ', texthl = 'DiagnosticSignInfo' },
+  { name = "DiagnosticSignHint", text = '', texthl = 'DiagnosticSignHint' },
 
 }
 for _, sign in ipairs(signs) do

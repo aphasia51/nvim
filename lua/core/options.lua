@@ -33,7 +33,7 @@ vim.o.smartindent = true
 vim.o.ignorecase = true
 vim.o.smartcase = true
 -- 搜索不要高亮
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 -- 边输入边搜索
 vim.o.incsearch = true
 -- 命令行高为2，提供足够的显示空间
@@ -42,7 +42,7 @@ vim.o.cmdheight = 1
 vim.o.autoread = true
 vim.bo.autoread = true
 -- 禁止折行
-vim.wo.wrap = false
+vim.wo.wrap = true
 -- 光标在行首尾时<Left><Right>可以跳到下一行
 vim.o.whichwrap = "<,>,[,]"
 -- 允许隐藏被修改过的buffer
@@ -77,7 +77,8 @@ vim.opt.termguicolors = true
 -- 是否显示不可见字符
 vim.o.list = true
 -- 不可见字符的显示，这里只把空格显示为一个点
-vim.opt.listchars      = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←";
+vim.opt.listchars      = "tab:»·,nbsp:+,trail:▫,extends:→,precedes:←";
+vim.o.fillchars = "vert:█,fold:·"
 -- 补全增强
 vim.o.wildmenu = true
 -- Dont' pass messages to |ins-completin menu|
@@ -90,10 +91,22 @@ vim.o.showtabline = 2
 vim.o.showmode = false
 -- 配置剪切板
 -- vim.opt.clipboard = "unnamedplus"
-vim.opt.filetype = "plugin"
+-- vim.opt.filetype = "plugin"
+vim.o.iminsert = 0
+vim.o.grepprg = "rg --vimgrep"
+vim.o.grepformat = "%f:%l:%c:%m"
+vim.opt.runtimepath:remove({"/etc/xdg/nvim", "/etc/xdg/nvim/after", "/usr/share/vim/vimfiles"})
+vim.opt.wildignore:append(
+  "*/.git/*,*/__pycache__/*,*.pyc,*/node_modules/*," ..
+  "*.jpg,*.bmp,*.gif,*.png,*.jpeg"
+)
 
+vim.g.python_host_skip_check=1
+vim.g.python3_host_skip_check=1
 vim.g.python_host_prog = '/usr/bin/python'
 vim.g.python3_host_prog = '/usr/local/bin/python3'
+vim.g.loaded_python_provider = 0
+
 vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
 
 vim.g.loaded_gzip              = 0
@@ -114,4 +127,6 @@ vim.g.loaded_rrhelper          = 0
 vim.g.loaded_netrw             = 0
 vim.g.loaded_netrwPlugin       = 0
 vim.g.loaded_netrwSettings     = 0
+vim.g.did_load_filetypes       = 0
+vim.g.do_filetype_lua          = 1
 vim.g.loaded_netrwFileHandlers = 0

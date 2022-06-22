@@ -58,9 +58,10 @@ return packer.startup {
       config = function()
         require "editor.lspconfig"
       end,
-      event = { "BufReadPre" },
+      event = { "BufRead", "BufNewFile" },
       after = { "impatient.nvim" },
     }
+
     use {
       "williamboman/nvim-lsp-installer",
       after = { "nvim-lspconfig", "cmp-nvim-lsp" },
@@ -151,6 +152,15 @@ return packer.startup {
       end
     }
 
+    use {
+      "anuvyklack/pretty-fold.nvim",
+      requires = { "anuvyklack/nvim-keymap-amend" },
+      event = { "BufReadPre" },
+      config = function ()
+        require "editor.pretty-fold"
+      end
+    }
+
     -- *** UI *** --
     use {
       "onsails/lspkind-nvim",
@@ -167,6 +177,7 @@ return packer.startup {
 
     use {
       "glepnir/lspsaga.nvim",
+      branch = "features",
       after = { "nvim-lspconfig", "nvim-cmp" },
     }
 

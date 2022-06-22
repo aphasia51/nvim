@@ -57,8 +57,8 @@ keymap("n", "J", "5j", opts)
 keymap("n", "K", "5k", opts)
 --keymap("n", "L", "5l", opts)
 
-keymap("n", "L", "$", opts)
-keymap("n", "H", "^", opts)
+keymap("n", ".", "$", opts)
+keymap("n", ",", "^", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -123,3 +123,9 @@ keymap("n", "<A-r>", "<cmd> lua require'magic.quickrun'.run_command()<CR>", opts
 
 --toggleterm
 keymap("n", "<leader>t", "<cmd>ToggleTerm<CR>", opts)
+
+-- lsp_saga
+--keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.definition<CR>", opts)
+keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opts)
+

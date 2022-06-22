@@ -8,6 +8,7 @@ local lsp_installer = require("nvim-lsp-installer")
 -- Override diagnostics symbol
 
 saga.init_lsp_saga({
+  code_action_icon = '💡',
 	error_sign = "",
 	warn_sign = "",
 	hint_sign = "",
@@ -64,7 +65,7 @@ local function custom_attach(client)
     max_height = 3,
     max_width = 50,
 		handler_opts = { "shadw" },
-    toggle_key = "<A-p>"
+    toggle_key = "<leader>p"
 	})
 end
 
@@ -94,7 +95,10 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 	if server.name == "gopls" then
 		nvim_lsp.gopls.setup({
 			on_attach = custom_attach,
-			flags = { debounce_text_changes = 500 },
+			--[[ flags = {
+        debounce_text_changes = 800,
+        debounce_did_change_notify = 250,
+      }, ]]
 			capabilities = capabilities,
 			cmd = { "gopls", "-remote=auto" },
 			settings = {

@@ -112,8 +112,8 @@ keymap("n", "<leader>f", "<cmd>lua require'magic.format'.format()<CR>", opts)
 
 -- Lsp
 keymap("n", "dk", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-keymap("n", "do", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-keymap("n", "dp", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+-- keymap("n", "do", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+-- keymap("n", "dp", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 
 -- Trouble
 keymap("n", "<leader>d", "<cmd>TroubleToggle<CR>", opts)
@@ -125,7 +125,10 @@ keymap("n", "<A-r>", "<cmd> lua require'magic.quickrun'.run_command()<CR>", opts
 keymap("n", "<leader>t", "<cmd>ToggleTerm<CR>", opts)
 
 -- lsp_saga
---keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.definition<CR>", opts)
+keymap("n", "gd", "<cmd>Lspsaga signature_help<CR><CR>", opts)
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
-keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opts)
+-- keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opts)
+keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
+keymap("n", "dp", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+keymap("n", "do", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 

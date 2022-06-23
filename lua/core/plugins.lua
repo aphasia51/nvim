@@ -177,7 +177,6 @@ return packer.startup {
 
     use {
       "glepnir/lspsaga.nvim",
-      branch = "features",
       after = { "nvim-lspconfig", "nvim-cmp" },
     }
 

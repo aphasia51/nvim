@@ -55,15 +55,15 @@ local function custom_attach(client)
 		client.resolved_capabilities.document_range_formatting = false
 	end
 	require("lsp_signature").on_attach({
-		bind = true,
+		bind = false,
 		use_lspsaga = false,
 		floating_window = false,
 		fix_pos = false,
 		hint_enable = false,
     hint_prefix = "🥵 ",  -- Panda for parameter
 		hi_parameter = "LspSignatureActiveParameter", --"Search",
-    max_height = 3,
-    max_width = 50,
+    max_height = 4,
+    max_width = 60,
 		handler_opts = { "shadw" },
     toggle_key = "<leader>p"
 	})

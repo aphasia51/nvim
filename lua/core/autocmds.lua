@@ -12,12 +12,29 @@ vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 vim.cmd([[autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=0]])
 --vim.cmd([[autocmd CursorMoved lua vim.api.nvim_buf_delete(1, {})]])
 
+--vim.cmd [[
+--  "LSP 提示改为下划线
+--  hi DiagnosticUnderlineWarn gui=undercurl
+--  hi DiagnosticUnderlineError gui=undercurl
+--  hi DiagnosticUnderlineInfo gui=undercurl
+--  hi DiagnosticUnderlineHint gui=undercurl
+--
+--  " 新一行 不带上行的注释
+--  augroup newlineWithoutComment
+--    autocmd BufEnter * set fo-=c fo-=r fo-=o
+--  augroup end
+--]]
+
+-- vim.cmd([[autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })]])
+
 vim.cmd [[
-  hi DiffAdd ctermbg=4 guibg=#283b4D guifg=NONE
-  hi DiffDelete ctermfg=12 ctermbg=6 guibg=#3F2D3D  guifg=NONE
-  hi DiffChange ctermbg=5 guibg=#272D43 guifg=NONE
-  hi DiffText cterm=bold ctermbg=9 guibg=#394b70 guifg=NONE
-  hi Folded guibg=#2c313a
-  hi Search guibg=#515C6A guifg=NONE
-  hi IncSearch guibg=#515C6A guifg=NONE
+    augroup SqlsCommands
+        autocmd!
+        autocmd FileType sql nmap <silent><LocalLeader>rr <Plug>(sqls-execute-query)
+        autocmd FileType sql vmap <silent><LocalLeader>rr <Plug>(sqls-execute-query)
+        autocmd FileType sql nmap <silent><LocalLeader>rv <Plug>(sqls-execute-query-vertical)
+        autocmd FileType sql vmap <silent><LocalLeader>rv <Plug>(sqls-execute-query-vertical)
+        autocmd FileType sql nmap <silent><LocalLeader>sd <Plug>(sqls-switch-database)
+        autocmd FileType sql nmap <silent><LocalLeader>sc <Plug>(sqls-switch-connection)
+    augroup END
 ]]

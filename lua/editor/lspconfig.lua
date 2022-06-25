@@ -9,10 +9,12 @@ local lsp_installer = require("nvim-lsp-installer")
 
 saga.init_lsp_saga({
   code_action_icon = '💡',
-	error_sign = "",
-	warn_sign = "",
-	hint_sign = "",
-	infor_sign = "",
+  -- diagnostic_header_icon = {' ',' ',' ','ﴞ '},
+  diagnostic_header_icon = {'😡','😥','😤','😐'},
+  -- error_sign = "",
+  -- warn_sign = "",
+  -- hint_sign = "",
+  -- infor_sign = "",
 })
 
 lsp_installer.setup({})
@@ -21,7 +23,17 @@ vim.diagnostic.config({
   --virtual_text = {
   --  source = "always"
   --},
-  virtual_text = false,
+  virtual_text = {
+    -- only show virtual when error
+    severity = vim.diagnostic.severity.ERROR,
+    prefix = "",
+    format  = function (diagnostic)
+      if diagnostic.severity == vim.diagnostic.severity.ERROR then
+        return string.format("⏻: %s", diagnostic.message)
+      end
+      return diagnostic.message
+    end
+  },
   float = true,
   signs = true,
   underline = true,
@@ -114,6 +126,23 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
 				},
 			},
 		})
+
+  elseif server.name == "sqls" then
+    require'lspconfig'.sqls.setup{
+      on_attach = function(client, bufnr)
+        require('sqls').on_attach(client, bufnr)
+      end,
+      settings = {
+        sqls = {
+          connections = {
+            {
+              driver = 'mysql',
+              dataSourceName = 'xhs:asxhs@tcp(172.19.48.1:3306)/dahaizi',
+            },
+          },
+        },
+      },
+    }
   elseif server.name == "sumneko_lua" then
 		nvim_lsp.sumneko_lua.setup({
 			capabilities = capabilities,

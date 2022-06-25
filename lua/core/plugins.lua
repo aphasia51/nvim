@@ -27,6 +27,11 @@ return packer.startup {
     -- *** editor *** --
 
     use {
+      "nanotee/sqls.nvim",
+      ft = "sql"
+    }
+
+    use {
       "jose-elias-alvarez/null-ls.nvim",
       config = function ()
         require "editor.null-ls"
@@ -115,7 +120,7 @@ return packer.startup {
       after = { "nvim-cmp" }
     }
 
-      -- the snippet core
+    -- the snippet core
     use {
       "hrsh7th/vim-vsnip",
       after = { "friendly-snippets" }
@@ -146,7 +151,7 @@ return packer.startup {
 
     use {
       "glepnir/smartinput.nvim",
-      ft = "go",
+      ft = { "go", "sql" },
       config = function()
         require "editor.smart_input"
       end

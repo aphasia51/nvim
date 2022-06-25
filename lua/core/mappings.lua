@@ -88,6 +88,7 @@ keymap("n", ";d", "<cmd>Telescope diagnostics<CR>", opts)
 
 -- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
+keymap("n", "<S-z>", "<cmd>only<CR>", opts)
 
 -- Bufferline
 keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)
@@ -97,6 +98,8 @@ keymap("n", "<leader>c", "<cmd>BufferLineCloseRight<CR>", opts)
 -- AsyncTasks run
 keymap("n", "r", "<cmd>AsyncTask file-run<CR>", opts)
 keymap("n", "<leader>r", ":AsyncTask file-build<CR>", opts)
+keymap("n", "<leader>e", ":SqlsExecuteQuery<CR>", opts)
+
 
 -- Nvim-Tree
 keymap("n", "<A-m>", "<cmd>NvimTreeToggle<CR>", opts)
@@ -132,3 +135,5 @@ keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
 keymap("n", "dp", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 keymap("n", "do", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
+-- DBUI
+keymap("n", "<leader>db", "<cmd>Lspsaga lsp_finder<CR>", opts)

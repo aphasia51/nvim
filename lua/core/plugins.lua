@@ -187,12 +187,12 @@ return packer.startup {
 
     use {
 	    "nvim-treesitter/nvim-treesitter",
-	    event = { "BufRead", "BufNewFile" },
+	    -- event = { "BufRead", "BufNewFile" },
       run = ":TSUpdate",
 	    config = function ()
 	        require "ui.treesitter"
 	    end,
-      --after = { "impatient.nvim" }
+      after = { "impatient.nvim" }
     }
 
     use {
@@ -207,7 +207,7 @@ return packer.startup {
       config = function ()
         require "ui.theme"
       end,
-      event = { "BufReadPre", "BufNewFile", "BufWritePost" }
+      -- event = { "BufReadPre", "BufNewFile", "BufWritePost" }
       --after = "nvim-treesitter" with this, icons are no color
     }
     use {
@@ -251,7 +251,7 @@ return packer.startup {
     -- Packer
     use {
       'sindrets/diffview.nvim',
-      after = 'nvim-lua/plenary.nvim',
+      after = 'plenary.nvim',
       config = function ()
         require "tools.diffview"
       end

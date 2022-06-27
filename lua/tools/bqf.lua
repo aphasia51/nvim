@@ -1,10 +1,3 @@
-vim.cmd([[
-    hi BqfPreviewBorder guifg=#50a14f ctermfg=71
-    hi BqfPreviewFloat guifg=#50a14f ctermfg=71
-    hi BqfPreviewCursor guifg=#50a14f ctermfg=71
-    hi BqfPreviewRange guifg=#50a14f ctermfg=71
-]])
-
 require('bqf').setup({
     auto_enable = true,
     auto_resize_height = false, -- highly recommended enable

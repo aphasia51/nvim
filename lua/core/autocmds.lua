@@ -1,7 +1,7 @@
 local au = vim.api.nvim_create_autocmd
 
 -- go settings
-au({"BufWritePre"}, { pattern = "*.go", command = ":silent! lua require('go.format').goimport()" })
+--au({"BufWritePre"}, { pattern = "*.go", command = ":silent! lua require('go.format').goimport()" })
 
 --vim.o.updatetime = 250
 --vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
@@ -26,15 +26,3 @@ vim.cmd([[autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> 
 --]]
 
 -- vim.cmd([[autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })]])
-
-vim.cmd [[
-    augroup SqlsCommands
-        autocmd!
-        autocmd FileType sql nmap <silent><LocalLeader>rr <Plug>(sqls-execute-query)
-        autocmd FileType sql vmap <silent><LocalLeader>rr <Plug>(sqls-execute-query)
-        autocmd FileType sql nmap <silent><LocalLeader>rv <Plug>(sqls-execute-query-vertical)
-        autocmd FileType sql vmap <silent><LocalLeader>rv <Plug>(sqls-execute-query-vertical)
-        autocmd FileType sql nmap <silent><LocalLeader>sd <Plug>(sqls-switch-database)
-        autocmd FileType sql nmap <silent><LocalLeader>sc <Plug>(sqls-switch-connection)
-    augroup END
-]]

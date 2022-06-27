@@ -10,7 +10,13 @@ local lsp_installer = require("nvim-lsp-installer")
 saga.init_lsp_saga({
   code_action_icon = '💡',
   -- diagnostic_header_icon = {' ',' ',' ','ﴞ '},
-  diagnostic_header_icon = {'😡','😥','😤','😐'},
+  diagnostic_header = {'😡','😥','😤','😐'},
+  code_action_lightbulb = {
+    enable = true,
+    sign = true,
+    sign_priority = 20,
+    virtual_text = true,
+  },
   -- error_sign = "",
   -- warn_sign = "",
   -- hint_sign = "",
@@ -137,7 +143,16 @@ for _, server in ipairs(lsp_installer.get_installed_servers()) do
           connections = {
             {
               driver = 'mysql',
-              dataSourceName = 'xhs:asxhs@tcp(172.19.48.1:3306)/dahaizi',
+              user = "xhs",
+              passwd = "asxhs",
+              proto = "tcp",
+              host = "172.19.48.1",
+              dbName = "dahaizi",
+              -- dataSourceName = 'xhs:asxhs@tcp(172.19.48.1:3306)/dahaizi'
+            },
+            {
+              driver = 'mysql',
+              dataSourceName = 'xhs:asxhs@tcp(172.19.48.1:3306)/bubble',
             },
           },
         },

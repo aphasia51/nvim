@@ -79,7 +79,7 @@ vim.opt.termguicolors = true
 vim.o.list = true
 ---- 不可见字符的显示，这里只把空格显示为一个点
 vim.opt.listchars = "tab:» ,nbsp:+,trail:▫,extends:→,precedes:←"
-vim.o.fillchars = "vert:█,fold: "
+vim.o.fillchars = "vert:|,fold: "
 --vim.o.showbreak = '╰─➤ '
 -- 补全增强
 vim.o.wildmenu = true
@@ -111,16 +111,16 @@ vim.g.loaded_python_provider = 0
 
 vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
 
-vim.g.loaded_gzip              = 0
-vim.g.loaded_tar               = 0
-vim.g.loaded_tarPlugin         = 0
-vim.g.loaded_zip               = 0
-vim.g.loaded_zipPlugin         = 0
-vim.g.loaded_getscript         = 0
-vim.g.loaded_getscriptPlugin   = 0
-vim.g.loaded_vimball           = 0
-vim.g.loaded_vimballPlugin     = 0
-vim.g.loaded_matchit           = 0
+vim.g.loaded_gzip              = 1
+vim.g.loaded_tar               = 1
+vim.g.loaded_tarPlugin         = 1
+vim.g.loaded_zip               = 1
+vim.g.loaded_zipPlugin         = 1
+vim.g.loaded_getscript         = 1
+vim.g.loaded_getscriptPlugin   = 1
+vim.g.loaded_vimball           = 1
+vim.g.loaded_vimballPlugin     = 1
+vim.g.loaded_matchit           = 1
 vim.g.loaded_netrwPlugin       = 0
 vim.g.loaded_matchparen        = 0
 vim.g.loaded_2html_plugin      = 0

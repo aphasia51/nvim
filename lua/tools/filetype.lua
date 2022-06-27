@@ -1,4 +1,7 @@
 -- In init.lua or filetype.nvim's config file
+
+vim.cmd [[packadd filetype.nvim]]
+
 require("filetype").setup({
     overrides = {
         extensions = {
@@ -34,6 +37,7 @@ require("filetype").setup({
                 vim.cmd("syntax off")
             end,
         },
+
         function_complex = {
             ["*.math_notes/%w+"] = function()
                 vim.cmd("iabbrev $ $$")
@@ -43,8 +47,6 @@ require("filetype").setup({
         shebang = {
             -- Set the filetype of files with a dash shebang to sh
             dash = "sh",
-
         },
     },
-
 })

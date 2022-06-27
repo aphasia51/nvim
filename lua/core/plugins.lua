@@ -142,11 +142,11 @@ return packer.startup {
 
     use {
       "ray-x/go.nvim",
-      ft = { "go" },
+      ft = { "go", "mod" },
       config = function ()
         require "tools.go"
       end,
-      event = { "BufRead" }
+      -- event = { "BufReadPre", "BufNewFile" }
     }
 
     use {
@@ -187,17 +187,18 @@ return packer.startup {
 
     use {
 	    "nvim-treesitter/nvim-treesitter",
-	    --event = { "BufReadPre", "BufNewFile" },
-      --run = ":TSUpdate",
+	    event = { "BufRead", "BufNewFile" },
+      run = ":TSUpdate",
 	    config = function ()
 	        require "ui.treesitter"
 	    end,
-      --after = { "impatient" }
+      --after = { "impatient.nvim" }
     }
 
     use {
       "kyazdani42/nvim-web-devicons",
       after = { "impatient.nvim" },
+      -- event = { "BufRead", "BufNewFile", "InsertEnter" }
     }
 
     -- Theme
@@ -206,6 +207,7 @@ return packer.startup {
       config = function ()
         require "ui.theme"
       end,
+      event = { "BufReadPre", "BufNewFile", "BufWritePost" }
       --after = "nvim-treesitter" with this, icons are no color
     }
     use {
@@ -234,7 +236,33 @@ return packer.startup {
       event = { "BufRead", "BufNewFile" },
     }
 
+    --use {
+    --  "wfxr/minimap.vim",
+    --  config = function ()
+    --    require "ui.minimap"
+    --  end
+
+    --}
+    use {
+      "koron/minimap-vim"
+    }
+
     -- *** Tools *** --
+
+    use {
+      'lewis6991/gitsigns.nvim',
+      config = function ()
+        require "tools.gitsigns"
+      end
+    }
+
+    use {
+      "folke/todo-comments.nvim",
+      requires = "nvim-lua/plenary.nvim",
+      config = function()
+        require "tools.todo"
+      end
+    }
 
     use {
       "akinsho/toggleterm.nvim",
@@ -260,12 +288,13 @@ return packer.startup {
     use {
       "nvim-lua/plenary.nvim",
       after = { "impatient.nvim" },
+      event = { "BufReadPre" }
     }
 
     use {
       "rainbowhxch/accelerated-jk.nvim",
-      --after = { "impatient.nvim" },
-      --event = { "BufReadPre", "BufNewFile" }
+      after = { "impatient.nvim" },
+      -- event = { "BufReadPre", "InsertEnter" }
     }
 
     --use {
@@ -300,16 +329,17 @@ return packer.startup {
         --requires = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter"}
     }
 
-    --use {
-    --  "nathom/filetype.nvim",
-    --  config = function ()
-    --    require "tools.filetype"
-    --  end
-    --}
+    use {
+      "nathom/filetype.nvim",
+      config = function ()
+        require "tools.filetype"
+      end
+    }
 
     use {
       "simrat39/symbols-outline.nvim",
       cmd = "SymbolsOutline",
+      -- after = { "impatient.nvim" },
       config = function ()
         require "tools.symbolsoutline"
       end

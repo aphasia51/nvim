@@ -1,15 +1,30 @@
+function width()
+  local w = vim.api.nvim_call_function("winwidth", { 0 })
+  local width = 0
+  if w > 180 then
+    width = 30
+  elseif w > 120 then
+    width = 26
+  elseif w > 80 then
+    width = 22
+  else
+    width = 14
+  end
+  return width
+end
+
 require("symbols-outline").setup {
     highlight_hovered_item = true,
     show_guides = true,
     auto_preview = false,
-    position = 'right',
+    position = "right",
     relative_width = true,
-    width = 28,
+    width = width(), -- 28
     auto_close = false,
     show_numbers = false,
     show_relative_numbers = false,
     show_symbol_details = true,
-    preview_bg_highlight = 'Pmenu',
+    preview_bg_highlight = 'Black',
     keymaps = { -- These keymaps can be a string or a table for multiple keys
         close = {"<Esc>", "q"},
         goto_location = "<Cr>",

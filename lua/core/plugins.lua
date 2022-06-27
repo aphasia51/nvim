@@ -250,7 +250,7 @@ return packer.startup {
     -- *** Tools *** --
     -- Packer
     use {
-      'sindrets/diffview.nvim', 
+      'sindrets/diffview.nvim',
       after = 'nvim-lua/plenary.nvim',
       config = function ()
         require "tools.diffview"

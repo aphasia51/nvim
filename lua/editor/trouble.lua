@@ -1,5 +1,8 @@
 local trouble = require("trouble")
 trouble.setup({
+  source = {
+    null_ls.builtins.code_actions.gitsigns,
+  },
   position = "bottom",
   height = 7,
   width = 50,

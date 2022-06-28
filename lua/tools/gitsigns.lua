@@ -27,8 +27,9 @@ gitsigns.setup {
     delay = 100,
     ignore_whitespace = false,
   },
+  current_line_blame_formatter = ' 😄 <author>, <author_time:%Y-%m-%d> - <summary>',
   current_line_blame_formatter_opts = {
-    relative_time = true,
+    relative_time = false,
   },
   sign_priority = 6,
   update_debounce = 100,
@@ -57,7 +58,7 @@ gitsigns.setup {
     -- Navigation
     map('n', '<leader>j', ':Gitsigns next_hunk<CR>')
     map('n', '<leader>k',':Gitsigns prev_hunk<CR>')
-    -- Actions 
+    -- Actions
     map('n', '<leader>hs', ':Gitsigns stage_hunk<CR>')
     map('n', '<leader>hr', ':Gitsigns reset_hunk<CR>')
     map('n', '<leader>hu', '<cmd>Gitsigns undo_stage_hunk<CR>')

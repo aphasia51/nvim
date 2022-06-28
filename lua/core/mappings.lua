@@ -85,10 +85,14 @@ keymap("v", ",", "0", opts)
 keymap("n", ";f", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", ";l", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", ";d", "<cmd>Telescope diagnostics<CR>", opts)
+keymap("n", ";s", "<cmd>Telescope git_status<CR>", opts)
+keymap("n", ";b", "<cmd>Telescope git_branches<CR>", opts)
+keymap("n", ";c", "<cmd>Telescope git_commits<CR>", opts)
 
 -- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
 keymap("n", "<S-z>", "<cmd>only<CR>", opts)
+keymap("n", "<S-z>", "<cmd>tabc<CR>", opts)
 
 -- Bufferline
 keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)
@@ -137,3 +141,18 @@ keymap("n", "do", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 
 -- DBUI
 keymap("n", "<leader>db", "<cmd>Lspsaga lsp_finder<CR>", opts)
+
+-- Diffview
+keymap("n", "<leader>do", "<cmd>DiffviewOpen<CR>", opts)
+keymap("n", "<leader>df", "<cmd>DiffviewFileHistory<CR>", opts)
+
+
+
+-- Gitsigns
+keymap("n", "<leader>gp", "<cmd>lua require 'gitsigns'.next_hunk()<CR>", opts)
+keymap("n", "<leader>go", "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", opts)
+keymap("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", opts)
+keymap("n", "<leader>gS", "<cmd>lua require 'gitsigns'.stage_buffer()<CR>", opts)
+keymap("n", "<leader>gr", "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", opts)
+keymap("n", "<leader>gR", "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", opts)
+keymap("n", "<leader>gu", "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>", opts)

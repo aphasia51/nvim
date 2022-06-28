@@ -254,14 +254,15 @@ return packer.startup {
       after = 'plenary.nvim',
       config = function ()
         require "tools.diffview"
-      end
+      end,
     }
 
     use {
       'lewis6991/gitsigns.nvim',
       config = function ()
         require "tools.gitsigns"
-      end
+      end,
+      event = { "BufReadPre", "BufNewFile" }
     }
 
     use {

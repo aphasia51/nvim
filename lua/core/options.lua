@@ -127,7 +127,6 @@ vim.g.loaded_2html_plugin      = 0
 vim.g.loaded_logiPat           = 0
 vim.g.loaded_rrhelper          = 0
 vim.g.loaded_netrw             = 0
-vim.g.loaded_netrwPlugin       = 0
 vim.g.loaded_netrwSettings     = 0
 vim.g.did_load_filetypes       = 0
 vim.g.do_filetype_lua          = 1

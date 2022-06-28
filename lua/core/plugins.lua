@@ -236,22 +236,12 @@ return packer.startup {
       event = { "BufRead", "BufNewFile" },
     }
 
-    --use {
-    --  "wfxr/minimap.vim",
-    --  config = function ()
-    --    require "ui.minimap"
-    --  end
-
-    --}
-    use {
-      "koron/minimap-vim"
-    }
 
     -- *** Tools *** --
     -- Packer
     use {
       'sindrets/diffview.nvim',
-      after = 'plenary.nvim',
+      after = { 'plenary.nvim', "impatient.nvim" },
       config = function ()
         require "tools.diffview"
       end,

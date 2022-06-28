@@ -83,7 +83,7 @@ local function custom_attach(client)
     max_height = 4,
     max_width = 60,
 		handler_opts = { "shadw" },
-    toggle_key = "<leader>p"
+    toggle_key = "sp"
 	})
 end
 

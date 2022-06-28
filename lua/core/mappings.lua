@@ -146,9 +146,8 @@ keymap("n", "<leader>db", "<cmd>Lspsaga lsp_finder<CR>", opts)
 keymap("n", "<leader>do", "<cmd>DiffviewOpen<CR>", opts)
 keymap("n", "<leader>df", "<cmd>DiffviewFileHistory<CR>", opts)
 
-
-
 -- Gitsigns
+keymap("n", "<leader>g", "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", opts)
 keymap("n", "<leader>gp", "<cmd>lua require 'gitsigns'.next_hunk()<CR>", opts)
 keymap("n", "<leader>go", "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", opts)
 keymap("n", "<leader>gs", "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", opts)

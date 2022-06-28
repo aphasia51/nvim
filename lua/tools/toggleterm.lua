@@ -31,8 +31,8 @@ toggleterm.setup {
     -- the 'curved' border is a custom border type
     -- not natively supported but implemented in this plugin.
     border = "curved", -- 'single' | 'double' | 'shadow' | 'curved' | ... other options supported by win open
-    width = 100,
-    height = 40,
+    width = 80,
+    height = 20,
     winblend = 8,
     highlights = {
       border = "Normal",

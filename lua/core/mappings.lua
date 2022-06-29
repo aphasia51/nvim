@@ -91,8 +91,8 @@ keymap("n", ";c", "<cmd>Telescope git_commits<CR>", opts)
 
 -- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
-keymap("n", "<S-z>", "<cmd>only<CR>", opts)
-keymap("n", "<S-z>", "<cmd>tabc<CR>", opts)
+-- keymap("n", "<S-z>", "<cmd>only<CR>", opts)
+-- keymap("n", "<S-z>", "<cmd>tabc<CR>", opts)
 
 -- Bufferline
 keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)

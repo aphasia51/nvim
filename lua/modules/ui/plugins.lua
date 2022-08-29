@@ -7,7 +7,7 @@ package({
   'glepnir/galaxyline.nvim',
   branch = 'main',
   config = conf.galaxyline,
-  event = {'BufReadPre', "BufNewFile"},
+  event = { 'BufReadPre', "BufNewFile" },
   requires = 'kyazdani42/nvim-web-devicons',
 })
 

@@ -221,7 +221,7 @@ function config.nvim_treesitter()
 					vim.cmd([[set noundofile]])
 					vim.cmd([[set noswapfile]])
 					vim.cmd([[set noloadplugins]])
-          print("skip treesitter")
+					print("skip treesitter")
 					return true
 				else
 					return false
@@ -232,7 +232,6 @@ function config.nvim_treesitter()
 		textobjects = {
 			select = {
 				enable = true,
-
 				keymaps = {
 					["af"] = "@function.outer",
 					["if"] = "@function.inner",
@@ -246,10 +245,11 @@ end
 
 function config.mcc_nvim()
 	require("mcc").setup({
-		go = { ";", ":=", ";" },
-		rust = { "88", "::", "88" },
-		c = { "-", "->", "-" },
-		cpp = { "-", "->", "--" },
+		go = {
+			{ ";", ":=", ";" },
+			{ "7", "&", "7" },
+			{ "8", "*", "8" },
+		},
 	})
 end
 

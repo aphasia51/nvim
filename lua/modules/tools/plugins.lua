@@ -90,3 +90,9 @@ package({
 	branch = "master",
 	event = { "BufRead", "BufNewFile" },
 })
+
+package({
+	"rcarriga/nvim-notify",
+	config = conf.notify,
+	event = { "BufRead", "BufNewFile" },
+})

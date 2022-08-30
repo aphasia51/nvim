@@ -26,6 +26,7 @@ package({
 
 package({
   'akinsho/bufferline.nvim',
+  disable = true,
   requires = 'kyazdani42/nvim-web-devicons',
   config = conf.bufferline,
   event = { 'BufRead', 'BufNewFile' },

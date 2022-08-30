@@ -78,8 +78,8 @@ keymap("n", ";f", "<cmd>Telescope find_files<CR>", opts)
 keymap("n", ";l", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", ";d", "<cmd>Telescope diagnostics<CR>", opts)
 keymap("n", ";s", "<cmd>Telescope git_status<CR>", opts)
-keymap("n", ";b", "<cmd>Telescope git_branches<CR>", opts)
 keymap("n", ";c", "<cmd>Telescope git_commits<CR>", opts)
+keymap("n", ";b", "<cmd>Telescope buffers<CR>", opts)
 
 -- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
@@ -91,17 +91,15 @@ keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)
 keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<CR>", opts)
 keymap("n", "<leader>c", "<cmd>BufferLineCloseRight<CR>", opts)
 
--- Asyncrun
+keymap("n", "gg", "<cmd>0<CR>", opts)
 
 -- AsyncTasks run
 keymap("n", "r", "<cmd>AsyncTask file-run<CR>", opts)
 keymap("n", "<leader>r", ":AsyncTask file-build<CR>", opts)
 keymap("n", "<leader>e", ":SqlsExecuteQuery<CR>", opts)
 
--- Nvim-Tree
 -- keymap('n', '<A-m>', '<cmd>NvimTreeToggle<CR>', opts)
 keymap("n", "<A-m>", "<cmd>Telescope file_browser<CR>", opts)
-keymap("n", "<A-n>", "<cmd>NvimTreeFindFile<CR>", opts)
 
 -- Symbols outline
 keymap("n", "<leader>o", "<cmd>SymbolsOutline<CR>", opts)
@@ -114,3 +112,19 @@ keymap("n", "<leader>d", "<cmd>TroubleToggle<CR>", opts)
 
 --toggleterm
 keymap("n", ";e", "<cmd>ToggleTerm<CR>", opts)
+
+-- Quick save
+keymap("n", "<C-s>", "<cmd>write<CR>", opts)
+
+-- Lsp definition
+keymap("n", "de", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+
+-- Lsp saga
+keymap("n", '[e', "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+keymap("n", ']e', "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+keymap("n", 'K', "<cmd>Lspsaga hover_doc<CR>", opts)
+keymap("n", 'ga', "<cmd>Lspsaga code_action<CR>", opts)
+keymap("n", 'gd', "<cmd>Lspsaga preview_definition<CR>", opts)
+keymap("n", 'gs', "<cmd>Lspsaga signature_help<CR>", opts)
+keymap("n", 'gr', "<cmd>Lspsaga rename<CR>", opts)
+keymap("n", 'gh', "<cmd>Lspsaga lsp_finder<CR>", opts)

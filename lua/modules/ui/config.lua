@@ -5,7 +5,7 @@ function config.zephyr()
 end
 
 function config.galaxyline()
-  require("modules.ui.galaxyline")
+  require("modules.ui.statusline")
 end
 
 function config.nvim_tree()

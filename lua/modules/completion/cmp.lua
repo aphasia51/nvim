@@ -45,7 +45,7 @@ local kind_icons = {
 
 cmp.setup({
   -- pre select
-  -- preselect = cmp.PreselectMode.None,
+  preselect = cmp.PreselectMode.Item,
   snippet = {
     expand = function(args)
       -- For `vsnip` user.

@@ -82,13 +82,8 @@ lspconfig.clangd.setup({
 
 local servers = {
   'pyright',
-  'sqlls',
   'bashls',
 }
-
-lspconfig.tsserver.setup({
-  on_attach = on_attach,
-})
 
 for _, server in ipairs(servers) do
   lspconfig[server].setup({

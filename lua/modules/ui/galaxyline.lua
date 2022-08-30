@@ -44,13 +44,13 @@ local colors = {
 --    red = "#d73a49",
 --  }
 
-local function has_file_type()
-	local f_type = vim.bo.filetype
-	if not f_type or f_type == "" then
-		return false
-	end
-	return true
-end
+--local function has_file_type()
+--	local f_type = vim.bo.filetype
+--	if not f_type or f_type == "" then
+--		return false
+--	end
+--	return true
+--end
 
 local checkwidth = function()
 	local squeeze_width = vim.fn.winwidth(0) / 2
@@ -82,7 +82,7 @@ local function insert_blank_line_at_left()
 				return " "
 			end,
 
-			highlight = { colors.bg, colors.bg },
+			-- highlight = { colors.bg, colors.bg },
 		},
 	})
 end
@@ -198,7 +198,7 @@ insert_left({
 			vim.api.nvim_command("hi GalaxyViMode guifg=" .. mode_color[vim_mode])
 			return icons[vim_mode]
 		end,
-		highlight = { colors.bg, colors.bg },
+		highlight = { bg=colors.bg },
 	},
 })
 
@@ -289,16 +289,16 @@ insert_blank_line_at_left()
 --  },
 --})
 
-insert_left({
-	EndingSepara = {
-		provider = function()
-			return " "
-		end,
-		highlight = { colors.bg },
-
-		--condition = require("galaxyline.providers.vcs").get_git_branch,
-	},
-})
+--insert_left({
+--	EndingSepara = {
+--		provider = function()
+--			return " "
+--		end,
+--		highlight = { colors.bg },
+--
+--		--condition = require("galaxyline.providers.vcs").get_git_branch,
+--	},
+--})
 -- mode panel end}
 
 -- {information panel start
@@ -338,7 +338,8 @@ insert_left({
 	BufferType = {
 		-- provider = "FileName",
 		provider = "FilePath",
-		condition = has_file_type,
+		-- condition = has_file_type,
+		condition = buffer_not_empty,
 		highlight = { colors.white, colors.bg },
 	},
 })
@@ -590,7 +591,7 @@ insert_right({
 insert_right({
 	RightEndingSepara = {
 		provider = function()
-			return ""
+			return " "
 		end,
 		highlight = { colors.bg, colors.black },
 	},
@@ -616,22 +617,22 @@ insert_right({
 	},
 })
 
-insert_right({
-	FileFormat = {
+--insert_right({
+--	FileFormat = {
+--
+--		provider = "FileFormat",
+--		separator = " ",
+--		condition = checkwidth,
+--		separator_highlight = { colors.violet, colors.black },
+--		highlight = { colors.violet, colors.black },
+--	},
+--})
 
-		provider = "FileFormat",
-		separator = " ",
-		condition = checkwidth,
-		separator_highlight = { colors.violet, colors.black },
-		highlight = { colors.violet, colors.black },
-	},
-})
-
-insert_right({
-	RightSpace = {
-		provider = function()
-			return " "
-		end,
-		highlight = { colors.black, colors.black },
-	},
-})
+--insert_right({
+--	RightSpace = {
+--		provider = function()
+--			return " "
+--		end,
+--		highlight = { colors.black, colors.black },
+--	},
+--})

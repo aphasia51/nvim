@@ -78,7 +78,7 @@ vim.opt.termguicolors = true
 -- 是否显示不可见字符
 vim.o.list = true
 ---- 不可见字符的显示，这里只把空格显示为一个点
-vim.opt.listchars = "tab:» ,nbsp:+,trail:▫,extends:→,precedes:←"
+vim.opt.listchars = "tab:»·,nbsp:+,trail:▫,extends:→,precedes:←"
 vim.o.fillchars = "vert:|,fold: "
 --vim.o.showbreak = '╰─➤ '
 -- 补全增强

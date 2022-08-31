@@ -43,7 +43,7 @@ package({
 package({
 	"simrat39/symbols-outline.nvim",
 	cmd = "SymbolsOutline",
-	config = conf.filetype,
+	config = conf.outline,
 })
 
 package({

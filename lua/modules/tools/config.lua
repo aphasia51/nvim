@@ -251,4 +251,21 @@ function config.diffview()
 	})
 end
 
+function config.outline()
+	require("symbols-outline").setup({
+		width = 25,
+		keymaps = {
+			hover_symbol = "<C-space>",
+			toggle_preview = "<C-k>",
+			rename_symbol = "r",
+			code_actions = "a",
+			fold = "h",
+			unfold = "l",
+			fold_all = "W",
+			unfold_all = "E",
+			fold_reset = "R",
+		},
+	})
+end
+
 return config

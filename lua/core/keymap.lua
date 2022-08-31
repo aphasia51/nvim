@@ -13,14 +13,10 @@ vim.g.maplocalleader = " "
 keymap("n", "Q", "<cmd>q<CR>", opts)
 
 -- Better window navigation
-
 keymap("n", "<A-h>", "<C-w>h", opts)
 keymap("n", "<A-j>", "<C-w>j", opts)
 keymap("n", "<A-k>", "<C-w>k", opts)
 keymap("n", "<A-l>", "<C-w>l", opts)
-
--- Delect the word under cursor and into insert mode
-keymap("n", "da", "dawi", opts)
 
 -- Resize with arrows
 keymap("n", "<C-k>", ":resize -2<CR>", opts)
@@ -32,8 +28,6 @@ keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
 -- Navigate buffers
 keymap("n", "m", ":bnext<CR>", opts)
 keymap("n", "z", ":bprevious<CR>", opts)
-
--- Delete current buffer
 keymap("n", "<leader>bd", ":bd!<CR>", opts)
 
 -- Insert --
@@ -87,11 +81,9 @@ keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
 -- keymap("n", "<S-z>", "<cmd>tabc<CR>", opts)
 
 -- Bufferline
-keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)
-keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<CR>", opts)
+-- keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)
+-- keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<CR>", opts)
 keymap("n", "<leader>c", "<cmd>BufferLineCloseRight<CR>", opts)
-
-keymap("n", "gg", "<cmd>0<CR>", opts)
 
 -- AsyncTasks run
 keymap("n", "r", "<cmd>AsyncTask file-run<CR>", opts)
@@ -120,11 +112,11 @@ keymap("n", "<C-s>", "<cmd>write<CR>", opts)
 keymap("n", "de", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
 -- Lsp saga
-keymap("n", '[e', "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
-keymap("n", ']e', "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-keymap("n", 'K', "<cmd>Lspsaga hover_doc<CR>", opts)
-keymap("n", 'ga', "<cmd>Lspsaga code_action<CR>", opts)
-keymap("n", 'gd', "<cmd>Lspsaga preview_definition<CR>", opts)
-keymap("n", 'gs', "<cmd>Lspsaga signature_help<CR>", opts)
-keymap("n", 'gr', "<cmd>Lspsaga rename<CR>", opts)
-keymap("n", 'gh', "<cmd>Lspsaga lsp_finder<CR>", opts)
+keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+keymap("n", "lh", "<cmd>Lspsaga hover_doc<CR>", opts)
+keymap("n", "ga", "<cmd>Lspsaga code_action<CR>", opts)
+keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opts)
+keymap("n", "gs", "<cmd>Lspsaga signature_help<CR>", opts)
+keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
+keymap("n", "lf", "<cmd>Lspsaga lsp_finder<CR>", opts)

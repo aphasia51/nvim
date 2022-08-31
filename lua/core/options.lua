@@ -27,7 +27,7 @@ vim.o.smartcase = true
 vim.o.hlsearch = true
 vim.o.incsearch = true
 
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 vim.opt.cmdwinheight = 5
 vim.opt.equalalways = false
 vim.opt.display = 'lastline'
@@ -64,7 +64,7 @@ vim.g.completeopt = "menu,menuone,noselect,noinsert"
 vim.opt.termguicolors = true
 
 vim.o.list = true
--- vim.opt.listchars = "tab:»·,nbsp:+,trail:▫,extends:→,precedes:←"
+vim.opt.listchars = "tab:  ,nbsp:+,trail:▫,extends:→,precedes:←"
 vim.o.fillchars = "vert:|,fold: "
 -- 补全增强
 vim.o.wildmenu = true

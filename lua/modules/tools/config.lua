@@ -172,14 +172,6 @@ function config.which_key()
 			U = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo Stage Hunk" },
 			d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
 		},
-		t = {
-			name = "Telescope",
-			t = { "<cmd>TodoTelescope<cr>", "Todo List" },
-			d = { "<cmd>Telescope diagnostics<cr>", "diagno List" },
-			c = { "<cmd>Telescope git_commits<cr>", "git commits" },
-			o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-			r = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		},
 	}
 
 	which_key.setup(setup)

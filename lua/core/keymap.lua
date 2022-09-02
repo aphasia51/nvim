@@ -26,8 +26,8 @@ keymap("n", "<C-h>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "m", ":bnext<CR>", opts)
-keymap("n", "z", ":bprevious<CR>", opts)
+keymap("n", "<TAB>", ":bnext<CR>", opts)
+keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
 keymap("n", "<leader>bd", ":bd!<CR>", opts)
 
 -- Insert --
@@ -74,6 +74,8 @@ keymap("n", ";d", "<cmd>Telescope diagnostics<CR>", opts)
 keymap("n", ";s", "<cmd>Telescope git_status<CR>", opts)
 keymap("n", ";c", "<cmd>Telescope git_commits<CR>", opts)
 keymap("n", ";b", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", ";t", "<cmd>TodoTelescope<CR>", opts)
+keymap("n", ";;", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
@@ -120,3 +122,13 @@ keymap("n", "gd", "<cmd>Lspsaga preview_definition<CR>", opts)
 keymap("n", "gs", "<cmd>Lspsaga signature_help<CR>", opts)
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
+
+--Dap
+keymap("n", "db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<F4>", "<cmd>lua require'dap'.terminate()<CR>", opts)
+keymap("n", "<F5>", "<cmd>lua require'dap'.step_back()<CR>", opts)
+keymap("n", "<F6>", "<cmd>lua require'dap'.continue()<CR>", opts)
+keymap("n", "<F7>", "<cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F9>", "<cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F10>", "<cmd>lua require'dap'.step_out()<CR>", opts)
+keymap("n", "du", "<cmd>DapUiToggle<CR>", opts)

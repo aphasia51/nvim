@@ -209,7 +209,7 @@ end
 
 function config.nvim_treesitter()
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = { "go", "python", "lua", "json", "yaml", "sql", "html", "css" },
+		ensure_installed = { "go", "python", "lua", "json", "yaml", "html", "css" },
 		ignore_install = { "phpdoc", "vala", "tiger", "slint", "eex" },
 		highlight = {
 			enable = true,
@@ -363,6 +363,10 @@ function config.trouble()
 		local spell_file = vim.opt.spellfile:get()[1]
 		print(string.format("%s word(s) added to the %s.", count, spell_file))
 	end
+end
+
+function config.dap()
+	require("modules.editor.dap")
 end
 
 return config

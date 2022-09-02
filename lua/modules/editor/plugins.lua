@@ -70,3 +70,14 @@ package({
 		vim.g.mkdp_page_title = "MD-Aphasia"
 	end,
 })
+
+package({
+	"mfussenegger/nvim-dap",
+	module = "dap",
+	config = conf.dap,
+	requires = {
+		{ "rcarriga/nvim-dap-ui" },
+		{ "leoluz/nvim-dap-go" },
+		{ "theHamsta/nvim-dap-virtual-text" },
+	},
+})

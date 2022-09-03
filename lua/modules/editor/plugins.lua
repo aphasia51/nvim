@@ -30,11 +30,11 @@ package({
 
 package({
 	"ray-x/go.nvim",
-	ft = { "go", "mod" },
 	config = function()
 		require("go").setup()
 	end,
-	event = { "BufRead", "BufNewFile" },
+	-- event = { "BufRead", "BufNewFile" },
+	ft = { "go" },
 })
 
 package({
@@ -74,10 +74,11 @@ package({
 package({
 	"mfussenegger/nvim-dap",
 	module = "dap",
-	config = conf.dap,
+	ft = { "go" },
 	requires = {
-		{ "rcarriga/nvim-dap-ui" },
-		{ "leoluz/nvim-dap-go" },
-		{ "theHamsta/nvim-dap-virtual-text" },
+		{ "rcarriga/nvim-dap-ui", ft = { "go" } },
+		{ "leoluz/nvim-dap-go", ft = { "go" } },
+		{ "theHamsta/nvim-dap-virtual-text", ft = { "go" } },
 	},
+	config = conf.dap,
 })

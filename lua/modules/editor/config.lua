@@ -292,7 +292,7 @@ function config.null_ls()
 				extra_filetypes = { "toml", "solidity" },
 				extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 			}),
-			formatting.black.with({ extra_args = { "--fast" } }),
+			formatting.black.with({ args = { "--quiet", "-" } }),
 			formatting.stylua,
 			formatting.isort,
 			formatting.prettier,

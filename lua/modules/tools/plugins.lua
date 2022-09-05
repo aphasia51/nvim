@@ -103,3 +103,8 @@ package({
 	after = { "plenary.nvim" },
 	config = conf.diffview,
 })
+
+package({
+  "mbbill/undotree",
+	event = { "BufRead", "BufNewFile" },
+})

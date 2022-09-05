@@ -25,6 +25,8 @@ vim.diagnostic.config({
 	underline = true,
 	severity_sort = true,
 	virtual_text = {
+		prefix = "﮿",
+		spacing = 4,
 		source = true,
 	},
 })

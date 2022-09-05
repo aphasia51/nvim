@@ -242,29 +242,6 @@ insert_left({
 	},
 })
 
-insert_mid({
-	LspIcon = {
-		provider = function()
-			local condition = require("galaxyline.provider_lsp").get_lsp_client("Lsp")
-			if condition == "Lsp" then
-				return " ⛒ "
-			else
-				return "  "
-			end
-		end,
-		condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
-		highlight = { colors.green, colors.bg },
-	},
-})
-
-insert_mid({
-	LspClient = {
-		provider = "GetLspClient",
-		condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
-		highlight = { colors.white, colors.bg },
-	},
-})
-
 insert_right({
 	GitIcon = {
 		provider = function()
@@ -326,6 +303,32 @@ insert_right({
 	},
 })
 
+insert_blank_line_at_right()
+
+insert_right({
+	LspIcon = {
+		provider = function()
+			local condition = require("galaxyline.provider_lsp").get_lsp_client("Lsp")
+			if condition == "Lsp" then
+				return " ⛒ "
+			else
+				return "  "
+			end
+		end,
+		condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
+		highlight = { colors.green, colors.bg },
+	},
+})
+
+insert_right({
+	LspClient = {
+		provider = "GetLspClient",
+		condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
+		highlight = { colors.white, colors.bg },
+	},
+})
+
+insert_blank_line_at_right()
 insert_blank_line_at_right()
 
 insert_right({

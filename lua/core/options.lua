@@ -1,3 +1,10 @@
+local cache_dir = os.getenv("HOME") .. "/.cache/nvim/"
+
+vim.opt.directory = cache_dir .. "swag/"
+vim.opt.undodir = cache_dir .. "undo/"
+vim.opt.backupdir = cache_dir .. "backup/"
+vim.opt.viewdir = cache_dir .. "view/"
+vim.opt.spellfile = cache_dir .. "spell/en.uft-8.add"
 -- utf8
 vim.g.encoding = "UTF-8"
 vim.o.fileencoding = "utf-8"
@@ -30,7 +37,7 @@ vim.o.incsearch = true
 vim.o.cmdheight = 1
 vim.opt.cmdwinheight = 5
 vim.opt.equalalways = false
-vim.opt.display = 'lastline'
+vim.opt.display = "lastline"
 vim.opt.pumblend = 10
 vim.opt.winblend = 10
 -- 当文件被外部程序修改时，自动加载
@@ -52,6 +59,7 @@ vim.o.mouse = "a"
 vim.o.backup = false
 vim.o.writebackup = false
 vim.o.swapfile = false
+vim.opt.undofile = true
 -- smaller updatetime
 vim.o.updatetime = 300
 vim.opt.magic = true

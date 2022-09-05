@@ -26,8 +26,8 @@ keymap("n", "<C-h>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-keymap("n", "<TAB>", ":bnext<CR>", opts)
-keymap("n", "<S-TAB>", ":bprevious<CR>", opts)
+keymap("n", "<C-[>", ":bnext<CR>", opts)
+keymap("n", "<C-]>", ":bprevious<CR>", opts)
 keymap("n", "<leader>bd", ":bd!<CR>", opts)
 
 -- Insert --
@@ -76,6 +76,7 @@ keymap("n", ";c", "<cmd>Telescope git_commits<CR>", opts)
 keymap("n", ";b", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", ";t", "<cmd>TodoTelescope<CR>", opts)
 keymap("n", ";;", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
+keymap("n", "<A-m>", "<cmd>Telescope file_browser<CR>", opts)
 
 -- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
@@ -90,13 +91,13 @@ keymap("n", "<leader>c", "<cmd>BufferLineCloseRight<CR>", opts)
 -- AsyncTasks run
 keymap("n", "r", "<cmd>AsyncTask file-run<CR>", opts)
 keymap("n", "<leader>r", ":AsyncTask file-build<CR>", opts)
-keymap("n", "<leader>e", ":SqlsExecuteQuery<CR>", opts)
-
--- keymap('n', '<A-m>', '<cmd>NvimTreeToggle<CR>', opts)
-keymap("n", "<A-m>", "<cmd>Telescope file_browser<CR>", opts)
+-- keymap("n", "<leader>e", ":SqlsExecuteQuery<CR>", opts)
 
 -- Symbols outline
 keymap("n", "<leader>o", "<cmd>SymbolsOutline<CR>", opts)
+
+-- Nvimtree
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Null-ls
 keymap("n", "<leader>f", "<cmd>lua require'internal.formatter'.format()<CR>", opts)
@@ -106,6 +107,9 @@ keymap("n", "<leader>d", "<cmd>TroubleToggle<CR>", opts)
 
 --toggleterm
 keymap("n", ";e", "<cmd>ToggleTerm<CR>", opts)
+
+-- UndotreeToggle
+keymap("n", "<C-u>", "<cmd>UndotreeToggle<CR>", opts)
 
 -- Quick save
 keymap("n", "<C-s>", "<cmd>write<CR>", opts)

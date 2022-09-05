@@ -18,7 +18,7 @@ function config.nvim_tree()
       number = false,
       relativenumber = false,
       signcolumn = "yes",
-      hide_root_folder = false,
+      hide_root_folder = true,
       mappings = {
         list = {
           { key = { "l" }, action = "edit" },

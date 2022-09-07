@@ -11,7 +11,7 @@ vim.g.maplocalleader = " "
 -- *** Normal *** --
 -- Quickly quit
 keymap("n", "Q", "<cmd>q<CR>", opts)
-keymap("n", "<C-c>", "<cmd>q<CR>", opts)
+keymap("n", "<C-c>", "<cmd>wq<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<A-h>", "<C-w>h", opts)

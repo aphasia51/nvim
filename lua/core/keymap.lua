@@ -11,6 +11,7 @@ vim.g.maplocalleader = " "
 -- *** Normal *** --
 -- Quickly quit
 keymap("n", "Q", "<cmd>q<CR>", opts)
+keymap("n", "<C-c>", "<cmd>q<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<A-h>", "<C-w>h", opts)
@@ -86,7 +87,7 @@ keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
 -- Bufferline
 -- keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<CR>", opts)
 -- keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<CR>", opts)
-keymap("n", "<leader>c", "<cmd>BufferLineCloseRight<CR>", opts)
+-- keymap("n", "<leader>c", "<cmd>BufferLineCloseRight<CR>", opts)
 
 -- AsyncTasks run
 keymap("n", "r", "<cmd>AsyncTask file-run<CR>", opts)

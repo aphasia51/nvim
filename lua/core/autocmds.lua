@@ -6,7 +6,7 @@ local my_group = vim.api.nvim_create_augroup("AphasiaGroup", {})
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])
 
 -- alpha
-vim.cmd([[autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2]])
+-- vim.cmd([[autocmd User AlphaReady set laststatus=0 | autocmd BufUnload <buffer> set laststatus=2]])
 
 -- No annotation in new line
 vim.api.nvim_create_autocmd({ "BufEnter" }, {

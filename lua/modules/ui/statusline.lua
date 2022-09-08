@@ -30,7 +30,7 @@ local colors = {
 
 local checkwidth = function()
 	local squeeze_width = vim.fn.winwidth(0) / 2
-	if squeeze_width > 32 then
+	if squeeze_width > 40 then
 		return true
 	end
 	return false
@@ -130,7 +130,6 @@ insert_left({
 	FileIcon = {
 		provider = "FileIcon",
 		condition = buffer_not_empty,
-
 		highlight = {
 			require("galaxyline.provider_fileinfo").get_file_icon_color,
 			colors.bg,
@@ -140,7 +139,7 @@ insert_left({
 
 insert_left({
 	BufferType = {
-		provider = "FilePath",
+		provider = "FileName",
 		condition = buffer_not_empty,
 		highlight = { colors.white, colors.bg },
 	},
@@ -189,7 +188,7 @@ insert_left({
 	},
 })
 
--- insert_blank_line_at_left()
+insert_blank_line_at_left()
 
 --insert_left({
 --	FileSizeIcon = {
@@ -233,7 +232,7 @@ insert_blank_line_at_left()
 insert_left({
 	PerCent = {
 		provider = "LinePercent",
-		condition = checkwidth,
+		-- condition = checkwidth,
 		highlight = { colors.fg, colors.bg },
 	},
 })
@@ -255,7 +254,7 @@ insert_right({
 insert_right({
 	GitBranch = {
 		provider = "GitBranch",
-		condition = require("galaxyline.provider_vcs").get_git_branch and checkwidth,
+		condition = require("galaxyline.provider_vcs").get_git_branch,
 		highlight = { colors.white, colors.bg },
 	},
 })
@@ -348,8 +347,8 @@ insert_right({
 
 insert_right({
 	Blank = {
-		provider = function ()
-		  return ""
+		provider = function()
+			return ""
 		end,
 		condition = checkwidth,
 		separator = " ",

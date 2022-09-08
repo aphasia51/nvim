@@ -1,33 +1,33 @@
-local package = require('core.pack').package
-local conf = require('modules.ui.config')
+local package = require("core.pack").package
+local conf = require("modules.ui.config")
 
-package({ 'glepnir/zephyr-nvim', config = conf.zephyr })
+package({ "glepnir/zephyr-nvim", config = conf.zephyr })
 
 package({
-  'glepnir/galaxyline.nvim',
-  branch = 'main',
-  config = conf.galaxyline,
-  event = { 'BufReadPre', "BufNewFile" },
-  requires = 'kyazdani42/nvim-web-devicons',
+	"glepnir/galaxyline.nvim",
+	branch = "main",
+	config = conf.galaxyline,
+	event = { "BufReadPre", "BufNewFile" },
+	requires = "kyazdani42/nvim-web-devicons",
 })
 
 package({
-  'lukas-reineke/indent-blankline.nvim',
-  event = 'BufRead',
-  config = conf.indent_blankline,
+	"lukas-reineke/indent-blankline.nvim",
+	event = "BufRead",
+	config = conf.indent_blankline,
 })
 
 package({
-  'kyazdani42/nvim-tree.lua',
-  cmd = 'NvimTreeToggle',
-  config = conf.nvim_tree,
-  requires = 'kyazdani42/nvim-web-devicons',
+	"kyazdani42/nvim-tree.lua",
+	cmd = "NvimTreeToggle",
+	config = conf.nvim_tree,
+	requires = "kyazdani42/nvim-web-devicons",
 })
 
 package({
-  'akinsho/bufferline.nvim',
-  disable = true,
-  requires = 'kyazdani42/nvim-web-devicons',
-  config = conf.bufferline,
-  event = { 'BufRead', 'BufNewFile' },
+	"akinsho/bufferline.nvim",
+	disable = true,
+	requires = "kyazdani42/nvim-web-devicons",
+	config = conf.bufferline,
+	event = { "BufRead", "BufNewFile" },
 })

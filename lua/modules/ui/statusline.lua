@@ -51,10 +51,6 @@ local function insert_right(element)
 	table.insert(gls.right, element)
 end
 
-local function insert_mid(element)
-	table.insert(gls.mid, element)
-end
-
 -- insert_blank_line_at_left insert blank line with
 -- line_bg color.
 local function insert_blank_line_at_left()
@@ -82,8 +78,6 @@ end
 -----------------------------------------------------
 ----------------- start insert ----------------------
 -----------------------------------------------------
-
--- { mode panel start
 insert_left({
 	RainbowRed = {
 		provider = function()
@@ -248,7 +242,7 @@ insert_right({
 			local condition = require("galaxyline.provider_vcs").get_git_branch("GitBranch")
 			local check_width = checkwidth()
 			if check_width and condition ~= nil then
-				return "  " --
+				return "  "
 			end
 			return ""
 		end,
@@ -334,17 +328,25 @@ insert_blank_line_at_right()
 insert_right({
 	FileFormat = {
 		provider = "FileFormat",
-		separator = " ",
 		condition = checkwidth,
-		separator_highlight = { colors.violet, colors.black },
-		highlight = { colors.violet, colors.black },
+		highlight = { colors.violet, colors.bg },
+	},
+})
+
+insert_blank_line_at_right()
+
+insert_right({
+	FileEncode = {
+		provider = "FileEncode",
+		condition = checkwidth,
+		highlight = { colors.dimblue, colors.bg },
 	},
 })
 
 insert_right({
 	RainbowBlue = {
 		provider = function()
-			return " ▊"
+			return "▊"
 		end,
 		separator = " ",
 		separator_highlight = { colors.bg, colors.bg },

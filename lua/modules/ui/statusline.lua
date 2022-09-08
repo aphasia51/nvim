@@ -18,6 +18,8 @@ local colors = {
 	purple = "#C678DD",
 	magenta = "#C858E9",
 	blue = "#73BA9F",
+	blue1 = "#5F8BB2",
+	blue2 = "#45B39D",
 	red = "#D54E53",
 	violet = "#d3869b",
 	white = "#C0C0C0",
@@ -144,7 +146,7 @@ insert_left({
 	},
 })
 
-insert_blank_line_at_left()
+-- insert_blank_line_at_left()
 
 local DiagnosticError = diagnostic.get_diagnostic_error
 local DiagnosticWarn = diagnostic.get_diagnostic_warn
@@ -183,26 +185,26 @@ insert_left({
 		condition = checkwidth,
 		highlight = { colors.white, colors.bg },
 
-		icon = "  ",
+		icon = "  ",
 	},
 })
 
-insert_blank_line_at_left()
+-- insert_blank_line_at_left()
 
-insert_left({
-	FileSizeIcon = {
-		provider = function()
-			local condition = require("galaxyline.provider_fileinfo").get_file_size()
-			if condition == "" then
-				return " ⛯ No Size "
-			else
-				return " ⛯ "
-			end
-		end,
-		condition = checkwidth,
-		highlight = { colors.violet, colors.bg },
-	},
-})
+--insert_left({
+--	FileSizeIcon = {
+--		provider = function()
+--			local condition = require("galaxyline.provider_fileinfo").get_file_size()
+--			if condition == "" then
+--				return " ⛯ No Size "
+--			else
+--				return " ⛯ "
+--			end
+--		end,
+--		condition = checkwidth,
+--		highlight = { colors.violet, colors.bg },
+--	},
+--})
 
 insert_left({
 	FileSize = {
@@ -323,23 +325,36 @@ insert_right({
 })
 
 insert_blank_line_at_right()
-insert_blank_line_at_right()
 
 insert_right({
 	FileFormat = {
 		provider = "FileFormat",
 		condition = checkwidth,
-		highlight = { colors.violet, colors.bg },
+		separator = " ",
+		separator_highlight = { colors.blue1, colors.blue1 },
+		highlight = { colors.black, colors.blue1 },
 	},
 })
-
-insert_blank_line_at_right()
 
 insert_right({
 	FileEncode = {
 		provider = "FileEncode",
 		condition = checkwidth,
-		highlight = { colors.dimblue, colors.bg },
+		separator = " ",
+		separator_highlight = { colors.blue1, colors.blue1 },
+		highlight = { colors.black, colors.blue1 },
+	},
+})
+
+insert_right({
+	Blank = {
+		provider = function ()
+		  return ""
+		end,
+		condition = checkwidth,
+		separator = " ",
+		separator_highlight = { colors.white, colors.blue1 },
+		highlight = { colors.white, colors.blue1 },
 	},
 })
 

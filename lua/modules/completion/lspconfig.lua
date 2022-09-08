@@ -28,6 +28,7 @@ vim.diagnostic.config({
 		prefix = "﮿",
 		spacing = 4,
 		source = true,
+    severity = vim.diagnostic.severity.ERROR,
 	},
 })
 

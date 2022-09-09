@@ -74,14 +74,3 @@ api.nvim_create_autocmd("Filetype", {
 		vim.cmd("syntax off")
 	end,
 })
-
--- highlight for cmp scroll bar
-api.nvim_create_autocmd({ "BufEnter" }, {
-	group = my_group,
-	pattern = "*",
-	callback = function()
-		vim.cmd([[
-      highlight PmenuThumb  guifg=#2e2d2b  guibg=#52BE80   gui=none
-    ]])
-	end,
-})

@@ -20,7 +20,7 @@ local kind_icons = {
 	Function = "",
 	Constructor = "",
 	Field = "",
-	Variable = "☊",
+	Variable = "",
 	Class = "",
 	Interface = "",
 	Module = "✪",
@@ -90,7 +90,7 @@ cmp.setup({
 			item.kind = kind_icons[item.kind] .. ""
 
 			local source_menu = {
-				buffer = "[⛃  Buf]",
+				buffer = "[✇ Buf]",--⛃
 				nvim_lsp = meta_type, --'[ LSP]',
 				-- luasnip = "[ Sni]",
 				vsnip = "[ Sni]",

@@ -180,21 +180,6 @@ function config.telescope()
 
 	require("telescope").load_extension("file_browser")
 	require("telescope").load_extension("fzy_native")
-
-	vim.cmd([[
-  hi TelescopePromptBorder guifg=#7D3C98 guibg=#282828
-  hi TelescopePromptNormal  guifg=#BA4A00 guibg=#282828
-  hi TelescopePromptTitle  guifg=#BA4A00 guibg=#282828
-  hi TelescopePromptPrefix  guifg=#2E86C1 guibg=#282828
-  hi TelescopeSelectionCaret  guifg=#2E86C1 guibg=#282828
-  hi TelescopePromptCounter  guifg=#BA4A00 guibg=#282828
-  hi TelescopePreviewTitle  guifg=#2E86C1 guibg=#282828
-  hi TelescopePreviewBorder guifg=#8bba7f guibg=#282828
-  hi TelescopeResultsTitle  guifg=#8bba7f guibg=#282828
-  hi TelescopeResultsBorder guifg=#16A085  guibg=#282828
-  hi TelescopeMatching guifg=#F39C12 guibg=#282828
-  hi TelescopeSelection guifg=#ffffff guibg=#32302f
-  ]])
 end
 
 function config.nvim_treesitter()

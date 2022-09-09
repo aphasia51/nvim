@@ -28,7 +28,7 @@ local kind_icons = {
 	Unit = "",
 	Value = "",
 	Enum = "",
-	Keyword = "⯮",
+	Keyword =  "➽",
 	Snippet = "",
 	Color = "",
 	File = "",
@@ -41,40 +41,12 @@ local kind_icons = {
 	Operator = "",
 	TypeParameter = "",
 	VimCmdLine = "",
-	--Text = "",
-	--Method = "",
-	--Function = "",
-	--Constructor = "",
-	--Field = "",
-	--Variable = "",
-	--Class = "€",
-	--Interface = "",
-	--Module = "✪",
-	--Property = "",
-	--Unit = " ",
-	--Value = "",
-	--Enum = "",
-	--Keyword = "ﱃ",
-	--Snippet = "",
-	--Color = "",
-	--File = "",
-	--Reference = "Ꮢ",
-	--Folder = "",
-	--EnumMember = "",
-	--Constant = "",
-	--Struct = " ",
-	--Event = "",
-	--Operator = "",
-	--TypeParameter = "",
-	--VimCmdLine = "",
 }
 
 cmp.setup({
-	-- pre select
 	preselect = cmp.PreselectMode.Item,
 	snippet = {
 		expand = function(args)
-			-- For `vsnip` user.
 			vim.fn["vsnip#anonymous"](args.body)
 		end,
 	},
@@ -90,7 +62,7 @@ cmp.setup({
 			item.kind = kind_icons[item.kind] .. ""
 
 			local source_menu = {
-				buffer = "[✇ Buf]",--⛃
+				buffer = "[✇ Buf]",
 				nvim_lsp = meta_type, --'[ LSP]',
 				-- luasnip = "[ Sni]",
 				vsnip = "[ Sni]",
@@ -98,14 +70,7 @@ cmp.setup({
 				path = "[~ Pat]",
 			}
 
-			--item.menu = ({
-			--  buffer = " Buffer",
-			--  nvim_lsp = meta_type,
-			--  path = " Path",
-			--  luasnip = " LuaSnip",
-			--  vsnip = " Snip",
-			--})[entry.source.name]
-			-- item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
+			--item.menu = (			-- item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
 			-- item.kind = kind_icons[item.kind] .. ''
 			item.menu = (source_menu)[entry.source.name]
 			return item
@@ -146,7 +111,7 @@ cmp.setup({
 			elseif has_words_before() then
 				cmp.complete()
 			else
-				fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
+				fallback()
 			end
 		end, { "i", "s" }),
 

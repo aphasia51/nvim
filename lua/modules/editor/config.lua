@@ -49,14 +49,6 @@ function config.telescope()
 					["<C-k>"] = actions.cycle_history_prev,
 					["<leader>f"] = actions.close,
 
-					-- ['<C-n>'] = actions.move_selection_next,
-					-- ['<C-p>'] = actions.move_selection_previous,
-
-					-- ["<C-c>"] = actions.close,
-
-					-- ['<Down>'] = actions.move_selection_next,
-					-- ['<Up>'] = actions.move_selection_previous,
-
 					["<C-Down>"] = actions.cycle_history_next,
 					["<C-Up>"] = actions.cycle_history_prev,
 
@@ -71,8 +63,6 @@ function config.telescope()
 					["<PageUp>"] = actions.preview_scrolling_up,
 					["<PageDown>"] = actions.preview_scrolling_down,
 
-					-- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-					-- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
 					["<Tab>"] = actions.move_selection_next,
 					["<S-Tab>"] = actions.move_selection_previous,
 					["<C-q>"] = actions.send_to_qflist + actions.open_qflist,

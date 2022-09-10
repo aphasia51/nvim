@@ -50,7 +50,7 @@ lspconfig.gopls.setup({
 	on_attach = on_attach,
 	cmd = { "gopls", "--remote=auto" },
 	filetypes = { "go", "gomod", "gowork", "gotmpl" },
-	root_dir = lspconfig.util.root_pattern("go.mod", ".git", "*.go"),
+	root_dir = lspconfig.util.root_pattern("go.mod", ".git"),
 	capabilities = capabilities,
 	init_options = {
 		usePlaceholders = true,

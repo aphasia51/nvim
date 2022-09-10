@@ -15,6 +15,9 @@ function config.lspsaga()
 			ref = "諭 ",
 			link = "  ",
 		},
+		definition_action_keys = {
+			vsplit = "<C-v>",
+		},
 	})
 end
 

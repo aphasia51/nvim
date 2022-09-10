@@ -5,7 +5,6 @@ package({ "~/software/zephyr-nvim", config = conf.zephyr })
 
 package({
 	"glepnir/galaxyline.nvim",
-	branch = "main",
 	config = conf.galaxyline,
 	event = { "BufReadPre", "BufNewFile" },
 	requires = "kyazdani42/nvim-web-devicons",

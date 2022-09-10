@@ -177,8 +177,8 @@ insert_left({
 	DiagnosticInfo = {
 		provider = DiagnosticInfo,
 		condition = checkwidth,
-		highlight = { colors.green, colors.bg },
 		icon = "  ",
+		highlight = { colors.green, colors.bg },
 	},
 })
 
@@ -186,9 +186,8 @@ insert_left({
 	DiagnosticHint = {
 		provider = DiagnosticHint,
 		condition = checkwidth,
-		highlight = { colors.white, colors.bg },
-
 		icon = "  ",
+		highlight = { colors.white, colors.bg },
 	},
 })
 

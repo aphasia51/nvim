@@ -74,3 +74,20 @@ api.nvim_create_autocmd("Filetype", {
 		vim.cmd("syntax off")
 	end,
 })
+
+-- 反卷小助手
+local work_time = 1000 * 60 * 20
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	group = my_group,
+	pattern = "*",
+	callback = function()
+		local timer = vim.loop.new_timer()
+		timer:start(
+			work_time,
+			work_time,
+			vim.schedule_wrap(function()
+				vim.notify("别TM的卷了, 停下来歇会儿")
+			end)
+		)
+	end,
+})

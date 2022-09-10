@@ -92,12 +92,6 @@ package({
 })
 
 package({
-	"rcarriga/nvim-notify",
-	config = conf.notify,
-	event = { "BufRead", "BufNewFile" },
-})
-
-package({
 	"sindrets/diffview.nvim",
 	event = { "BufRead" },
 	after = { "plenary.nvim" },
@@ -105,6 +99,6 @@ package({
 })
 
 package({
-  "mbbill/undotree",
+	"mbbill/undotree",
 	event = { "BufRead", "BufNewFile" },
 })

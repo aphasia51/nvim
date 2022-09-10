@@ -178,47 +178,6 @@ function config.which_key()
 	which_key.register(mappings, opts)
 end
 
-function config.notify()
-	local status_ok, notify = pcall(require, "notify")
-	if not status_ok then
-		vim.notify("notify module not found!")
-		return
-	end
-
-	vim.notify = notify
-	notify.setup({
-		stages = "fade_in_slide_out",
-		on_open = nil,
-		on_close = nil,
-		render = "default",
-		timeout = 5000,
-		max_width = nil,
-		max_height = nil,
-		background_colour = "Normal",
-		minimum_width = 50,
-		icons = {
-			ERROR = "",
-			WARN = "",
-			INFO = "",
-			DEBUG = "",
-			TRACE = "✎",
-		},
-	})
-	local work_time = 1000 * 60 * 20
-	local function clock()
-		local timer = vim.loop.new_timer()
-		timer:start(
-			work_time,
-			work_time,
-			vim.schedule_wrap(function()
-				vim.notify("别TM的卷了, 停下来歇会儿", "WARN", { title = "反卷小助手" })
-			end)
-		)
-	end
-
-	clock()
-end
-
 function config.colorizer()
 	local status_ok, colorizer = pcall(require, "colorizer")
 	if not status_ok then

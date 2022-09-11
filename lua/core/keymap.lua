@@ -80,7 +80,7 @@ keymap("n", ";c", "<cmd>Telescope git_commits<CR>", opts)
 keymap("n", ";b", "<cmd>Telescope buffers<CR>", opts)
 keymap("n", ";t", "<cmd>TodoTelescope<CR>", opts)
 keymap("n", ";;", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
-keymap("n", "<A-m>", "<cmd>Telescope file_browser<CR>", opts)
+keymap("n", ";m", "<cmd>Telescope file_browser<CR>", opts)
 
 -- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)

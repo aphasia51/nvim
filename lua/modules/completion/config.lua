@@ -18,6 +18,9 @@ function config.lspsaga()
 		definition_action_keys = {
 			vsplit = "<C-v>",
 		},
+		code_action_lightbulb = {
+			sign_priority = 99,
+		},
 	})
 end
 

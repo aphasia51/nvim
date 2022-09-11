@@ -140,7 +140,7 @@ function config.toggleterm()
 end
 
 function config.which_key()
-	local status_ok, which_key = pcall(require, "which-key")
+	local status_ok, wk = pcall(require, "which-key")
 	if not status_ok then
 		return
 	end
@@ -149,16 +149,9 @@ function config.which_key()
 		ignore_missing = true,
 	}
 
-	local opts = {
-		mode = "n",
-		prefix = "<Space>",
-		nowait = true,
-	}
-
-	local mappings = {
-		g = {
+	wk.register({
+		["g"] = {
 			name = "Git",
-			-- g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
 			f = { "<cmd>DiffviewFileHistory<CR>", "File History" },
 			p = { "<cmd>DiffviewOpen<CR>", "Diff Project" },
 			n = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
@@ -172,10 +165,9 @@ function config.which_key()
 			U = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo Stage Hunk" },
 			d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
 		},
-	}
+	}, { prefix = "<leader>" })
 
-	which_key.setup(setup)
-	which_key.register(mappings, opts)
+	wk.setup(setup)
 end
 
 function config.colorizer()

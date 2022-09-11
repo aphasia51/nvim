@@ -78,7 +78,9 @@ cmp.setup({
 	},
 	window = {
 		documentation = {
-			border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			-- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+			winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None",
 		},
 		completion = {
 			border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },

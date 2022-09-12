@@ -6,7 +6,7 @@ package({
   config = function()
     require("mason").setup({
       ui = {
-        border = "double",
+        border = "single",
       },
     })
   end,

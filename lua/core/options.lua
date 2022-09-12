@@ -66,29 +66,18 @@ vim.opt.magic = true
 vim.o.timeoutlen = 500
 vim.o.splitbelow = true
 vim.o.splitright = true
-
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
-
 vim.opt.termguicolors = true
-
 vim.o.list = true
 vim.opt.listchars = "tab:  ,nbsp:+,trail:▫,extends:→,precedes:←"
 vim.o.fillchars = "vert:|,fold: "
--- 补全增强
 vim.o.wildmenu = true
-
 vim.o.shortmess = vim.o.shortmess .. "c"
-
 vim.o.pumheight = 10
-
 vim.o.showtabline = 0
-
 vim.o.showmode = false
--- 状态栏
 vim.opt.laststatus = 3
--- 配置剪切板
--- vim.opt.clipboard = "unnamedplus"
--- vim.opt.filetype = "plugin"
+vim.opt.showcmd = false
 vim.o.iminsert = 0
 vim.o.grepprg = "rg --vimgrep"
 vim.o.grepformat = "%f:%l:%c:%m"

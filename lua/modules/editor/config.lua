@@ -276,15 +276,6 @@ function config.null_ls()
 	})
 end
 
-function config.bracey()
-	vim.g.bracey_browser_command = "chrome"
-	vim.g.bracey_refresh_on_save = 1
-	-- vim.g.bracey_eval_on_save = 1
-	vim.g.bracey_server_port = 39999
-	vim.g.bracey_server_path = "http://localhost"
-	vim.g.bracey_server_allow_remote_connections = 1
-end
-
 function config.trouble()
 	vim.cmd([[packadd null-ls.nvim]])
 	local trouble = require("trouble")

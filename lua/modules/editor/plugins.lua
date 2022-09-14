@@ -44,13 +44,6 @@ package({
 })
 
 package({
-	"turbio/bracey.vim",
-	run = "npm install --prefix server",
-	ft = { "html", "xml" },
-	config = conf.bracey,
-})
-
-package({
 	"folke/trouble.nvim",
 	requires = "kyazdani42/nvim-web-devicons",
 	config = conf.trouble,

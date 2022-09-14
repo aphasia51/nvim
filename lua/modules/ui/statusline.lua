@@ -34,7 +34,7 @@ my_icons['sum'] = { colors.blue1, ""}
 
 local checkwidth = function()
 	local squeeze_width = vim.fn.winwidth(0) / 2
-	if squeeze_width > 40 then
+	if squeeze_width > 36 then
 		return true
 	end
 	return false

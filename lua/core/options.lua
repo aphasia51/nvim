@@ -70,7 +70,6 @@ vim.g.completeopt = "menu,menuone,noselect,noinsert"
 vim.opt.termguicolors = true
 vim.o.list = true
 vim.opt.listchars = "tab:  ,nbsp:+,trail:▫,extends:→,precedes:←"
-vim.o.fillchars = "vert:|,fold: "
 vim.o.wildmenu = true
 vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.pumheight = 10

@@ -190,7 +190,8 @@ function config.nvim_treesitter()
 			enable = true,
 			disable = function(lang, bufnr)
 				local lines = vim.api.nvim_buf_line_count(bufnr)
-				if (lang == "go" or lang == "python") and lines >= 800 then
+        -- (lang == "go" or lang == "python")
+				if lang ~= nil and lines >= 800 then
 					vim.cmd([[syntax off]])
 					vim.cmd([[filetype off]])
 					vim.cmd([[set noundofile]])

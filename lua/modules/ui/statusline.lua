@@ -28,9 +28,9 @@ local colors = {
 	file_name = "#9E67B2",
 }
 
-local my_icons = require('galaxyline.provider_fileinfo').define_file_icon() -- get file icon color
-my_icons['mod'] = { colors.blue2, ""}
-my_icons['sum'] = { colors.blue1, ""}
+local my_icons = require("galaxyline.provider_fileinfo").define_file_icon()
+my_icons["mod"] = { colors.blue2, "" }
+my_icons["sum"] = { colors.blue1, "" }
 
 local checkwidth = function()
 	local squeeze_width = vim.fn.winwidth(0) / 2

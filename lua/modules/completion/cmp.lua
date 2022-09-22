@@ -40,7 +40,7 @@ local kind_icons = {
 	Event = "",
 	Operator = "",
 	TypeParameter = "",
-	VimCmdLine = "",
+	VimCmdLine = "", --"",
 }
 
 cmp.setup({

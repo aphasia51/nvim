@@ -59,25 +59,6 @@ function config.gitsigns()
 	end
 
 	gitsigns.setup({
-		--signs = {
-		--	add = { hl = "GitSignsAdd", text = "+", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-		--	change = { hl = "GitSignsChange", text = "~", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-		--	delete = { hl = "GitSignsDelete", text = "-", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		--	topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-		--	changedelete = {
-		--		hl = "GitSignsChange",
-		--		text = "_",
-		--		numhl = "GitSignsChangeNr",
-		--		linehl = "GitSignsChangeLn",
-		--	},
-		--},
-		--signs = {
-		--	add = { hl = "GitGutterAdd", text = "▋" },
-		--	change = { hl = "GitGutterChange", text = "▋" },
-		--	delete = { hl = "GitGutterDelete", text = "▋" },
-		--	topdelete = { hl = "GitGutterDeleteChange", text = "▔" },
-		--	changedelete = { hl = "GitGutterChange", text = "▎" },
-		--},
 		current_line_blame = true,
 		current_line_blame_formatter = " 🩺 <author> - <summary>, <author_time:%Y-%m-%d>",
 		current_line_blame_formatter_opts = {

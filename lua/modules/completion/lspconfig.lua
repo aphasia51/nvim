@@ -28,14 +28,14 @@ vim.diagnostic.config({
 		prefix = "﮿",
 		spacing = 4,
 		source = true,
-    severity = { min = vim.diagnostic.severity.WARN }
+		severity = { min = vim.diagnostic.severity.WARN },
 	},
 })
 
 local on_attach = function(client, bufnr)
 	if client.server_capabilities.documentFormattingProvider then
 		api.nvim_create_autocmd("BufWritePre", {
-			pattern = client.config.filetypes,
+			buffer = bufnr,
 			callback = function()
 				vim.lsp.buf.format({
 					bufnr = bufnr,

@@ -14,7 +14,7 @@ keymap("n", "Q", "<cmd>q<CR>", opts)
 keymap("n", "<C-c>", "<cmd>wq<CR>", opts)
 
 -- Delete a word backwards
-keymap('n', 'dw', 'vb"_d', opts)
+keymap("n", "dw", 'vb"_d', opts)
 
 -- Better window navigation
 keymap("n", "<A-h>", "<C-w>h", opts)

@@ -190,7 +190,6 @@ function config.nvim_treesitter()
 			enable = true,
 			disable = function(lang, bufnr)
 				local lines = vim.api.nvim_buf_line_count(bufnr)
-        -- (lang == "go" or lang == "python")
 				if lang ~= nil and lines >= 800 then
 					vim.cmd([[syntax off]])
 					vim.cmd([[filetype off]])
@@ -202,7 +201,6 @@ function config.nvim_treesitter()
 				else
 					return false
 				end
-				-- return lang == "go" and vim.api.nvim_buf_line_count(bufnr) > 800
 			end,
 		},
 		textobjects = {

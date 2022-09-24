@@ -267,10 +267,10 @@ function config.null_ls()
 				extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
 			}),
 			formatting.black.with({ args = { "--quiet", "-" } }),
+			formatting.golines.with({ "--max-len=80" }),
 			formatting.stylua,
 			formatting.isort,
 			formatting.prettier,
-			formatting.gofmt,
 		},
 	})
 end

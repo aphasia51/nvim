@@ -114,17 +114,3 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     )
   end,
 })
-
-api.nvim_create_autocmd("BufWritePost", {
-  group = my_group,
-  pattern = "*.go",
-  callback = function()
-    if vim.bo.filetype == "lua" then
-      if vim.fn.expand("%:t"):find("%pspec") then
-        return
-      end
-    end
-
-    require("internal.format"):formatter()
-  end,
-})

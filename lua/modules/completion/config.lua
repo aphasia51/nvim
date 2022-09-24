@@ -9,6 +9,7 @@ function config.lspsaga()
 	saga.init_lsp_saga({
 		symbol_in_winbar = {
 			enable = true,
+			separator = "⏵ ",
 		},
 		finder_icons = {
 			def = "  ",

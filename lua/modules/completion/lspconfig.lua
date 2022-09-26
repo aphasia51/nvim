@@ -83,26 +83,26 @@ lspconfig.sumneko_lua.setup({
 	},
 })
 
-lspconfig.clangd.setup({
-	on_attach = on_attach,
-	cmd = {
-		"clangd",
-		"--background-index",
-		"--suggest-missing-includes",
-		"--clang-tidy",
-		"--header-insertion=iwyu",
-	},
-	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-	root_dir = lspconfig.util.root_pattern(
-		".clangd",
-		".clang-tidy",
-		".clang-format",
-		"compile_commands.json",
-		"compile_flags.txt",
-		"configure.ac",
-		".git"
-	),
-})
+--lspconfig.clangd.setup({
+--	on_attach = on_attach,
+--	cmd = {
+--		"clangd",
+--		"--background-index",
+--		"--suggest-missing-includes",
+--		"--clang-tidy",
+--		"--header-insertion=iwyu",
+--	},
+--	filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+--	root_dir = lspconfig.util.root_pattern(
+--		".clangd",
+--		".clang-tidy",
+--		".clang-format",
+--		"compile_commands.json",
+--		"compile_flags.txt",
+--		"configure.ac",
+--		".git"
+--	),
+--})
 
 lspconfig.pyright.setup({
 	on_attach = on_attach,

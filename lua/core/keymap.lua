@@ -105,7 +105,7 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- Null-ls
 -- keymap("n", "<leader>f", "<cmd>lua require'internal.keyfmt'.format()<CR>", opts)
-keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
+keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 -- Trouble
 keymap("n", "<leader>d", "<cmd>TroubleToggle<CR>", opts)

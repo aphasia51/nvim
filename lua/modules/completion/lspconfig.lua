@@ -1,4 +1,3 @@
-local api = vim.api
 local lspconfig = require("lspconfig")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -32,22 +31,7 @@ vim.diagnostic.config({
   },
 })
 
-local on_attach = function(client, bufnr)
-  if client.server_capabilities.documentFormattingProvider then
-    api.nvim_create_autocmd("BufWritePre", {
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.format({
-          bufnr = bufnr,
-          async = true,
-        })
-      end,
-    })
-  end
-end
-
 lspconfig.gopls.setup({
-  on_attach = on_attach,
   cmd = { "gopls", "--remote=auto" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
   root_dir = lspconfig.util.root_pattern("go.mod", ".git"),
@@ -59,7 +43,6 @@ lspconfig.gopls.setup({
 })
 
 lspconfig.sumneko_lua.setup({
-  on_attach = on_attach,
   filetypes = { "lua" },
   root_dir = lspconfig.util.root_pattern(
     ".luarc.json",
@@ -84,7 +67,6 @@ lspconfig.sumneko_lua.setup({
 })
 
 lspconfig.clangd.setup({
-  on_attach = on_attach,
   cmd = {
     "clangd",
     "--background-index",
@@ -105,7 +87,6 @@ lspconfig.clangd.setup({
 })
 
 lspconfig.pyright.setup({
-  on_attach = on_attach,
   cmd = { "pyright-langserver", "--stdio" },
   filetypes = { "python" },
   root_dir = lspconfig.util.root_pattern(unpack({
@@ -127,7 +108,5 @@ local servers = {
 }
 
 for _, server in ipairs(servers) do
-  lspconfig[server].setup({
-    on_attach = on_attach,
-  })
+  lspconfig[server].setup({})
 end

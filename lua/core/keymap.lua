@@ -117,7 +117,7 @@ keymap("n", ";e", "<cmd>ToggleTerm<CR>", opts)
 keymap("n", "<C-u>", "<cmd>UndotreeToggle<CR>", opts)
 
 -- Quick save
-keymap("n", "<C-s>", "<cmd>write<CR>", opts)
+keymap("n", "<C-s>", "<cmd>w<CR>", opts)
 
 -- Lsp definition
 keymap("n", "de", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)

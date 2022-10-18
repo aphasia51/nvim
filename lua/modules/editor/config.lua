@@ -184,7 +184,7 @@ end
 
 function config.nvim_treesitter()
   require("nvim-treesitter.configs").setup({
-    ensure_installed = { "go", "python", "lua", "json", "yaml", "html", "css" },
+    ensure_installed = { "go", "python", "lua", "c", "json", "yaml", "html", "css" },
     ignore_install = { "phpdoc", "vala", "tiger", "slint", "eex" },
     highlight = {
       enable = true,
@@ -270,7 +270,7 @@ function config.null_ls()
       formatting.golines.with({ args = { "--max-len=80" } }),
       formatting.stylua,
       formatting.isort,
-      formatting.prettier,
+      -- formatting.prettier,
     },
   })
 end

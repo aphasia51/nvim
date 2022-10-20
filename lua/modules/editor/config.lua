@@ -184,7 +184,7 @@ end
 
 function config.nvim_treesitter()
   require("nvim-treesitter.configs").setup({
-    ensure_installed = { "go", "python", "lua", "c", "json", "yaml", "html", "css" },
+    ensure_installed = { "go", "python", "lua", "c", "json", "yaml"},
     ignore_install = { "phpdoc", "vala", "tiger", "slint", "eex" },
     highlight = {
       enable = true,

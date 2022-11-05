@@ -318,13 +318,13 @@ insert_right({
   },
 })
 
-insert_right({
-  LspClient = {
-    provider = "GetLspClient",
-    condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
-    highlight = { colors.white, colors.bg },
-  },
-})
+--insert_right({
+--  LspClient = {
+--    provider = "GetLspClient",
+--    condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
+--    highlight = { colors.white, colors.bg },
+--  },
+--})
 
 insert_blank_line_at_right()
 

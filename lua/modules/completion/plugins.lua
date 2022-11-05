@@ -17,7 +17,7 @@ local enable_lsp_filetype = {
 }
 
 package({
-  'glepnir/nvim-lspconfig',
+  'neovim/nvim-lspconfig',
   ft = enable_lsp_filetype,
   config = conf.nvim_lsp,
 })

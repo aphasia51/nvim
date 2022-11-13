@@ -41,19 +41,19 @@ package({
 	cmd = "TroubleToggle",
 })
 
-package({
-	"iamcco/markdown-preview.nvim",
-	run = function()
-		vim.fn["mkdp#util#install"]()
-	end,
-	ft = { "markdown" },
-	config = function()
-		vim.g.mkdp_browser = "firefox"
-		vim.g.mkdp_open_to_the_world = 1
-		vim.g.mkdp_port = "57843"
-		vim.g.mkdp_page_title = "MD-Aphasia"
-	end,
-})
+--package({
+--	"iamcco/markdown-preview.nvim",
+--	run = function()
+--		vim.fn["mkdp#util#install"]()
+--	end,
+--	ft = { "markdown" },
+--	config = function()
+--		vim.g.mkdp_browser = "firefox"
+--		vim.g.mkdp_open_to_the_world = 1
+--		vim.g.mkdp_port = "57843"
+--		vim.g.mkdp_page_title = "MD-Aphasia"
+--	end,
+--})
 
 package({
 	"mfussenegger/nvim-dap",

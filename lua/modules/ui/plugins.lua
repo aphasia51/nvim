@@ -1,7 +1,7 @@
 local package = require("core.pack").package
 local conf = require("modules.ui.config")
 
-package({ "~/software/zephyr-nvim", config = conf.zephyr })
+package({ "aphasia51/zephyr-nvim", config = conf.zephyr })
 
 package({
   "glepnir/galaxyline.nvim",

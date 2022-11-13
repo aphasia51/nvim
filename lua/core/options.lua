@@ -34,7 +34,7 @@ vim.o.smartcase = true
 vim.o.hlsearch = true
 vim.o.incsearch = true
 
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 vim.opt.cmdwinheight = 5
 vim.opt.equalalways = false
 vim.opt.display = "lastline"

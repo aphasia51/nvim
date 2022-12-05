@@ -31,7 +31,7 @@ package({
 package({
 	"jose-elias-alvarez/null-ls.nvim",
 	config = conf.null_ls,
-	event = { "BufRead", "BufNewFile" },
+	event = { "InsertEnter", "BufNewFile" },
 })
 
 package({

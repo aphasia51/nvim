@@ -11,7 +11,7 @@ vim.g.maplocalleader = " "
 -- *** Normal *** --
 -- Quickly quit
 keymap("n", "Q", "<cmd>q<CR>", opts)
-keymap("n", "<C-c>", "<cmd>wq<CR>", opts)
+keymap("n", "<S-c>", "<cmd>wq<CR>", opts)
 
 -- Delete a word backwards
 keymap("n", "dw", 'vb"_d', opts)
@@ -117,7 +117,7 @@ keymap("n", ";e", "<cmd>ToggleTerm<CR>", opts)
 keymap("n", "<C-u>", "<cmd>UndotreeToggle<CR>", opts)
 
 -- Quick save
-keymap("n", "<C-s>", "<cmd>w<CR>", opts)
+keymap("n", "<S-s>", "<cmd>w<CR>", opts)
 
 -- Lsp definition
 keymap("n", "de", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)

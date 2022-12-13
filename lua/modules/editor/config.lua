@@ -15,11 +15,11 @@ function config.telescope()
 			selection_caret = " ",
 			initial_mode = "insert",
 			sorting_strategy = "ascending",
-			borderchars = {
-				prompt = { "━", "┃", "━", "┃", "┏", "┓", "┛", "┗" },
-				preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-				results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-			},
+			-- borderchars = {
+			-- 	prompt = { "━", "┃", "━", "┃", "┏", "┓", "┛", "┗" },
+			-- 	preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+			-- 	results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+			-- },
 			color_devicons = true,
 			preview = {
 				filesize_limit = 5,

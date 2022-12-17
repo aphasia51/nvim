@@ -123,8 +123,8 @@ keymap("n", "<S-s>", "<cmd>w<CR>", opts)
 keymap("n", "de", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
 -- Lsp saga
-keymap("n", "gn", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
-keymap("n", "gp", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+keymap("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+keymap("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<CR>", opts)
 keymap("n", "gh", "<cmd>Lspsaga hover_doc<CR>", opts)
 keymap("n", "ga", "<cmd>Lspsaga code_action<CR>", opts)
 keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)

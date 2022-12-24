@@ -219,7 +219,7 @@ function config.nvim_treesitter()
 		"m68k",
 	}
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = { "go", "python", "lua", "c", "json", "yaml" },
+		ensure_installed = { "go", "python", "rust", "lua", "c", "json", "yaml" },
 		ignore_install = ignored,
 		highlight = {
 			enable = true,

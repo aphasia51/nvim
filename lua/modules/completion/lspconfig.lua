@@ -105,6 +105,7 @@ lspconfig.pyright.setup({
 
 local servers = {
   "bashls",
+  "rust_analyzer"
 }
 
 for _, server in ipairs(servers) do

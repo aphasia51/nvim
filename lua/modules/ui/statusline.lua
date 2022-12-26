@@ -57,6 +57,10 @@ local function insert_right(element)
   table.insert(gls.right, element)
 end
 
+local function insert_mid(element)
+  table.insert(gls.mid, element)
+end
+
 -- insert_blank_line_at_left insert blank line with
 -- line_bg color.
 local function insert_blank_line_at_left()
@@ -240,7 +244,7 @@ insert_left({
   },
 })
 
-insert_right({
+insert_mid({
   GitIcon = {
     provider = function()
       local condition = require("galaxyline.provider_vcs").get_git_branch("GitBranch")
@@ -254,7 +258,7 @@ insert_right({
   },
 })
 
-insert_right({
+insert_mid({
   GitBranch = {
     provider = "GitBranch",
     condition = require("galaxyline.provider_vcs").get_git_branch,
@@ -262,7 +266,7 @@ insert_right({
   },
 })
 
-insert_right({
+insert_mid({
   BlackSpace = {
     provider = function()
       return " "
@@ -272,7 +276,7 @@ insert_right({
   },
 })
 
-insert_right({
+insert_mid({
 
   DiffAdd = {
     provider = "DiffAdd",
@@ -282,8 +286,7 @@ insert_right({
   },
 })
 
-insert_right({
-
+insert_mid({
   DiffModified = {
     provider = "DiffModified",
     condition = checkwidth,
@@ -292,7 +295,7 @@ insert_right({
   },
 })
 
-insert_right({
+insert_mid({
   DiffRemove = {
     provider = "DiffRemove",
     condition = checkwidth,
@@ -308,9 +311,9 @@ insert_right({
     provider = function()
       local condition = require("galaxyline.provider_lsp").get_lsp_client("Lsp")
       if condition == "Lsp" then
-        return "  " --" ⛒ "
+        return "  Server:" --" ⛒ "
       else
-        return "  "
+        return "  Server:"
       end
     end,
     condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
@@ -322,43 +325,43 @@ insert_right({
   LspClient = {
     provider = "GetLspClient",
     -- condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
-    highlight = { colors.white, colors.bg },
+    highlight = { colors.green, colors.bg },
   },
 })
 
-insert_blank_line_at_right()
+--insert_blank_line_at_right()
 
-insert_right({
-  FileFormat = {
-    provider = "FileFormat",
-    condition = checkwidth,
-    separator = " ",
-    separator_highlight = { colors.blue1, colors.blue1 },
-    highlight = { colors.black, colors.blue1 },
-  },
-})
+--insert_right({
+--  FileFormat = {
+--    provider = "FileFormat",
+--    condition = checkwidth,
+--    separator = " ",
+--    separator_highlight = { colors.blue1, colors.blue1 },
+--    highlight = { colors.black, colors.blue1 },
+--  },
+--})
+--
+--insert_right({
+--  FileEncode = {
+--    provider = "FileEncode",
+--    condition = checkwidth,
+--    separator = " ",
+--    separator_highlight = { colors.blue1, colors.blue1 },
+--    highlight = { colors.black, colors.blue1 },
+--  },
+--})
 
-insert_right({
-  FileEncode = {
-    provider = "FileEncode",
-    condition = checkwidth,
-    separator = " ",
-    separator_highlight = { colors.blue1, colors.blue1 },
-    highlight = { colors.black, colors.blue1 },
-  },
-})
-
-insert_right({
-  Blank = {
-    provider = function()
-      return ""
-    end,
-    condition = checkwidth,
-    separator = " ",
-    separator_highlight = { colors.white, colors.blue1 },
-    highlight = { colors.white, colors.blue1 },
-  },
-})
+--insert_right({
+--  Blank = {
+--    provider = function()
+--      return ""
+--    end,
+--    condition = checkwidth,
+--    separator = " ",
+--    separator_highlight = { colors.white, colors.blue1 },
+--    highlight = { colors.white, colors.blue1 },
+--  },
+--})
 
 insert_right({
   RainbowBlue = {

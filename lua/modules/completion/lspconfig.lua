@@ -40,6 +40,14 @@ lspconfig.gopls.setup({
     usePlaceholders = true,
     completeUnimported = true,
   },
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
 })
 
 lspconfig.sumneko_lua.setup({
@@ -52,6 +60,10 @@ lspconfig.sumneko_lua.setup({
     "selene.toml",
     ".git"
   ),
+  on_attach = function(client, _)
+    client.server_capabilities.semanticTokensProvider = nil
+  end,
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -60,13 +72,23 @@ lspconfig.sumneko_lua.setup({
       },
       runtime = { version = "LuaJIT" },
       workspace = {
-        library = vim.list_extend({ [vim.fn.expand("$VIMRUNTIME/lua")] = true }, {}),
+        library = (function()
+          local lib = {}
+          for _, path in ipairs(vim.api.nvim_get_runtime_file('lua', true)) do
+            lib[#lib + 1] = path:sub(1, -5)
+          end
+          return lib
+        end)(),
+      },
+      telemetry = {
+        enable = false,
       },
     },
   },
 })
 
 lspconfig.clangd.setup({
+  capabilities = capabilities,
   cmd = {
     "clangd",
     "--background-index",
@@ -109,5 +131,13 @@ local servers = {
 }
 
 for _, server in ipairs(servers) do
-  lspconfig[server].setup({})
+  lspconfig[server].setup({
+    capabilities = capabilities,
+  })
+end
+
+vim.lsp.handlers['workspace/diagnostic/refresh'] = function(_, _, ctx)
+  local ns = vim.lsp.diagnostic.get_namespace(ctx.client_id)
+  pcall(vim.diagnostic.reset, ns)
+  return true
 end

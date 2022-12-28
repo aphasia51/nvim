@@ -40,4 +40,11 @@ function config.nvim_cmp()
 	require("modules.completion.cmp")
 end
 
+function config.ts_autotag()
+  local status, autotag = pcall(require, "nvim-ts-autotag")
+  if (not status) then return end
+
+  autotag.setup({})
+end
+
 return config

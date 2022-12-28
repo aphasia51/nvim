@@ -36,3 +36,9 @@ package({
   { "hrsh7th/cmp-path", after = { "nvim-cmp" } },
   { "hrsh7th/cmp-cmdline", after = { "nvim-cmp" } },
 })
+
+package({
+  "windwp/nvim-ts-autotag",
+  config = conf.ts_autotag,
+  ft = { "html", "javascript", "xml" },
+})

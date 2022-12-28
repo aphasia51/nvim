@@ -75,11 +75,6 @@ package({
 })
 
 package({
-  "windwp/nvim-ts-autotag",
-  ft = { "html", "xml" },
-})
-
-package({
   "folke/which-key.nvim",
   config = conf.which_key,
   event = { "BufRead", "BufNewFile" },

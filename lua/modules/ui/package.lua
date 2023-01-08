@@ -1,13 +1,13 @@
 local package = require("core.pack").package
 local conf = require("modules.ui.config")
 
-package({ "~/software/zephyr-nvim", config = conf.zephyr })
+package({ "aphasia51/zephyr-nvim", config = conf.zephyr })
 
 package({
   "glepnir/galaxyline.nvim",
   config = conf.galaxyline,
   event = { "BufReadPre", "BufNewFile" },
-  requires = "kyazdani42/nvim-web-devicons",
+  dependencies = "kyazdani42/nvim-web-devicons",
 })
 
 package({
@@ -19,7 +19,7 @@ package({
 package({
   "akinsho/bufferline.nvim",
   disable = true,
-  requires = "kyazdani42/nvim-web-devicons",
+  dependencies = "kyazdani42/nvim-web-devicons",
   config = conf.bufferline,
   event = { "BufRead", "BufNewFile" },
 })

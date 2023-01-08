@@ -1,57 +1,52 @@
 local config = {}
 
-function config.filetype()
-  vim.cmd([[packadd filetype.nvim]])
-  require("filetype").setup({
-    overrides = {
-      extensions = {
-        -- Set the filetype of *.pn files to potion
-        pn = "potion",
-      },
-      literal = {
-        MyBackupFile = "lua",
-      },
-      complex = {
-        [".*git/config"] = "gitconfig", -- Included in the plugin
-      },
-      -- The same as the ones above except the keys map to functions
-      function_extensions = {
-        ["cpp"] = function()
-          vim.bo.filetype = "cpp"
-          -- Remove annoying indent jumping
-          vim.bo.cinoptions = vim.bo.cinoptions .. "L0"
-        end,
-        ["pdf"] = function()
-          vim.bo.filetype = "pdf"
-          -- Open in PDF viewer (Skim.app) automatically
-          vim.fn.jobstart("open -a skim " .. '"' .. vim.fn.expand("%") .. '"')
-        end,
-      },
-      function_literal = {
-        Brewfile = function()
-          vim.cmd("syntax off")
-        end,
-      },
-
-      function_complex = {
-        ["*.math_notes/%w+"] = function()
-          vim.cmd("iabbrev $ $$")
-        end,
-      },
-
-      shebang = {
-        -- Set the filetype of files with a dash shebang to sh
-        dash = "sh",
-      },
-    },
-  })
-end
-
+-- function config.filetype()
+--   require("filetype").setup({
+--     overrides = {
+--       extensions = {
+--         -- Set the filetype of *.pn files to potion
+--         pn = "potion",
+--       },
+--       literal = {
+--         MyBackupFile = "lua",
+--       },
+--       complex = {
+--         [".*git/config"] = "gitconfig", -- Included in the plugin
+--       },
+--       -- The same as the ones above except the keys map to functions
+--       function_extensions = {
+--         ["cpp"] = function()
+--           vim.bo.filetype = "cpp"
+--           -- Remove annoying indent jumping
+--           vim.bo.cinoptions = vim.bo.cinoptions .. "L0"
+--         end,
+--         ["pdf"] = function()
+--           vim.bo.filetype = "pdf"
+--           -- Open in PDF viewer (Skim.app) automatically
+--           vim.fn.jobstart("open -a skim " .. '"' .. vim.fn.expand("%") .. '"')
+--         end,
+--       },
+--       function_literal = {
+--         Brewfile = function()
+--           vim.cmd("syntax off")
+--         end,
+--       },
+--
+--       function_complex = {
+--         ["*.math_notes/%w+"] = function()
+--           vim.cmd("iabbrev $ $$")
+--         end,
+--       },
+--
+--       shebang = {
+--         -- Set the filetype of files with a dash shebang to sh
+--         dash = "sh",
+--       },
+--     },
+--   })
+-- end
+--
 function config.gitsigns()
-  if not packer_plugins["plenary.nvim"].loaded then
-    vim.cmd([[packadd plenary.nvim]])
-  end
-
   local status_ok, gitsigns = pcall(require, "gitsigns")
   if not status_ok then
     vim.notify("gitsigns not found!")
@@ -132,37 +127,6 @@ function config.toggleterm()
     },
   })
   vim.keymap.set("t", "jk", "<C-\\><C-N>")
-end
-
-function config.which_key()
-  local status_ok, wk = pcall(require, "which-key")
-  if not status_ok then
-    return
-  end
-
-  local setup = {
-    ignore_missing = true,
-  }
-
-  wk.register({
-    ["g"] = {
-      name = "Git",
-      f = { "<cmd>DiffviewFileHistory<CR>", "File History" },
-      p = { "<cmd>DiffviewOpen<CR>", "Diff Project" },
-      n = { "<cmd>Gitsigns next_hunk<cr>", "Next Hunk" },
-      N = { "<cmd>Gitsigns prev_hunk<cr>", "Prev Hunk" },
-      l = { "<cmd>Gitsigns blame_line<cr>", "Blame" },
-      r = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
-      R = { "<cmd>Gitsigns reset_buffer<cr>", "Reset Buffer" },
-      s = { "<cmd>Gitsigns stage_hunk<cr>", "Stage Hunk" },
-      S = { "<cmd>Gitsigns stage_buffer<cr>", "Stage Buffer" },
-      u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo Stage Hunk" },
-      U = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo Stage Hunk" },
-      d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" },
-    },
-  }, { prefix = "<leader>" })
-
-  wk.setup(setup)
 end
 
 function config.colorizer()

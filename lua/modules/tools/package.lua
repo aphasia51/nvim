@@ -23,9 +23,9 @@ package({
 
 package({
   "lewis6991/gitsigns.nvim",
-  config = conf.gitsigns,
-  requires = { "nvim-lua/plenary.nvim", opt = true },
+  -- dependencies = { "nvim-lua/plenary.nvim", opt = true },
   event = { "BufReadPre", "BufNewFile" },
+  config = conf.gitsigns,
 })
 
 package({
@@ -53,7 +53,7 @@ package({
 
 package({
   "skywind3000/asynctasks.vim",
-  requires = "skywind3000/asyncrun.vim",
+  dependencies = "skywind3000/asyncrun.vim",
   cmd = { "AsyncTask" },
   config = function()
     vim.g.asyncrun_open = 7
@@ -69,15 +69,9 @@ package({
 
 package({
   "folke/todo-comments.nvim",
-  requires = "nvim-lua/plenary.nvim",
+  dependencies = "nvim-lua/plenary.nvim",
   config = conf.todo,
   event = { "BufReadPre", "BufNewFile" },
-})
-
-package({
-  "folke/which-key.nvim",
-  config = conf.which_key,
-  event = { "BufRead", "BufNewFile" },
 })
 
 package({
@@ -88,8 +82,9 @@ package({
 
 package({
   "sindrets/diffview.nvim",
-  event = { "BufRead" },
-  after = { "plenary.nvim" },
+  cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
+  -- event = { "BufRead" },
+  -- after = { "plenary.nvim" },
   config = conf.diffview,
 })
 

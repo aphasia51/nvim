@@ -4,10 +4,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- add for css completion
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-
-if not packer_plugins["cmp-nvim-lsp"].loaded then
-	vim.cmd([[packadd cmp-nvim-lsp]])
-end
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local signs = {

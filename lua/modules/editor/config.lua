@@ -1,11 +1,6 @@
 local config = {}
 
 function config.telescope()
-	if not packer_plugins["plenary.nvim"].loaded then
-		vim.cmd([[packadd plenary.nvim]])
-		vim.cmd([[packadd telescope-fzy-native.nvim]])
-		vim.cmd([[packadd telescope-file-browser.nvim]])
-	end
 	local actions = require("telescope.actions")
 	require("telescope").setup({
 		defaults = {
@@ -314,7 +309,6 @@ function config.null_ls()
 end
 
 function config.trouble()
-	vim.cmd([[packadd null-ls.nvim]])
 	local trouble = require("trouble")
 	local null_ls = require("null-ls")
 

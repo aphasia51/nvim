@@ -1,6 +1,3 @@
-vim.cmd([[packadd nvim-dap-ui]])
-vim.cmd([[packadd nvim-dap-go]])
-vim.cmd([[packadd nvim-dap-virtual-text]])
 require("dap-go").setup()
 require("nvim-dap-virtual-text").setup()
 require("dap.ext.vscode").load_launchjs("./.launch.json")

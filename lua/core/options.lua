@@ -90,6 +90,9 @@ vim.g.python3_host_skip_check = 1
 --vim.g.python3_host_prog = "/usr/bin/python3"
 vim.g.loaded_python_provider = 0
 
+vim.g.do_filetype_lua = 1
+vim.g.did_load_filetypes = 0
+
 vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
 
 if vim.loop.os_uname().sysname == 'Darwin' then

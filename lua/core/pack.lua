@@ -40,6 +40,10 @@ function pack:boot_strap()
   vim.opt.runtimepath:prepend(lazy_path)
   local lazy = require('lazy')
   local opts = {
+    defaults = {
+      lazy = true,
+      version = nil,
+    },
     lockfile = self.helper.path_join(self.data_path, 'lazy-lock.json'),
     ui = {
       border = "single"
@@ -54,6 +58,13 @@ function pack:boot_strap()
           "tarPlugin",
           "tohtml",
           "tutor",
+          -- "filetype",
+          "health",
+          "man",
+          "shada",
+          "spellfile",
+          "nvim",
+          "rplugin",
           "zipPlugin",
         },
       },

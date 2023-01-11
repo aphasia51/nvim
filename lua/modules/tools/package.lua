@@ -10,7 +10,7 @@ package({
       },
     })
   end,
-  event = { "BufNewFile", "BufRead" },
+  cmd = { "Mason" }
 })
 
 package({
@@ -18,26 +18,25 @@ package({
   config = function()
     require("nvim-surround").setup({})
   end,
-  event = { "BufNewFile", "BufRead" },
+  event = { "InsertEnter" }
 })
 
 package({
   "lewis6991/gitsigns.nvim",
-  -- dependencies = { "nvim-lua/plenary.nvim", opt = true },
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "VeryLazy" },
   config = conf.gitsigns,
 })
 
 package({
   "akinsho/toggleterm.nvim",
   config = conf.toggleterm,
-  event = { "BufRead", "BufNewFile" },
+  cmd = { "ToggleTerm" }
 })
 
 package({
   "norcalli/nvim-colorizer.lua",
   config = conf.colorizer,
-  event = { "BufReadPre" },
+  event = { "BufRead" },
 })
 
 package({
@@ -71,31 +70,29 @@ package({
   "folke/todo-comments.nvim",
   dependencies = "nvim-lua/plenary.nvim",
   config = conf.todo,
-  event = { "BufReadPre", "BufNewFile" },
+  event = { "InsertEnter" },
 })
 
 package({
   "mg979/vim-visual-multi",
   branch = "master",
-  event = { "BufRead", "BufNewFile" },
+  event = { "InsertEnter" },
 })
 
 package({
   "sindrets/diffview.nvim",
   cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles" },
-  -- event = { "BufRead" },
-  -- after = { "plenary.nvim" },
   config = conf.diffview,
 })
 
 package({
   "mbbill/undotree",
-  event = { "BufRead", "BufNewFile" },
+  cmd = { "UndotreeToggle"}
 })
 
 package({
   "glepnir/hlsearch.nvim",
-  event = "BufRead",
+  event = { "InsertEnter" },
   config = function ()
     require('hlsearch').setup()
   end

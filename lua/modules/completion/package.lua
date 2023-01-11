@@ -25,13 +25,11 @@ package({
   },
 })
 
--- package({ 'glepnir/lspsaga.nvim', after = 'nvim-lspconfig', config = conf.lspsaga })
-
 package({ 'windwp/nvim-autopairs', event = 'InsertEnter' })
 
 package({
   'hrsh7th/nvim-cmp',
-  event = 'InsertEnter',
+  event = { "InsertEnter" },
   config = conf.nvim_cmp,
   dependencies = {
     'hrsh7th/cmp-nvim-lsp',
@@ -39,6 +37,7 @@ package({
     'hrsh7th/cmp-buffer',
     "hrsh7th/cmp-cmdline",
     "hrsh7th/vim-vsnip",
+    "hrsh7th/cmp-vsnip",
     "rafamadriz/friendly-snippets"
   },
 })

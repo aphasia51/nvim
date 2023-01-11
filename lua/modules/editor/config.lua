@@ -214,7 +214,7 @@ function config.nvim_treesitter()
 		"m68k",
 	}
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = { "go", "python", "rust", "lua", "proto", "c", "json", "yaml", "css", "javascript" },
+		ensure_installed = { "go", "python", "rust", "lua", "vim", "proto", "c", "json", "yaml", "css", "javascript" },
 		ignore_install = ignored,
     autotag = {
       enable = true,
@@ -250,13 +250,20 @@ function config.nvim_treesitter()
 	})
 end
 
-function config.mcc_nvim()
-	require("mcc").setup({
-		go = {
-			{ ";", ":=", ";" },
-			{ "7", "&", "7" },
-			{ "8", "*", "8" },
-		},
+function config.mutchar()
+  -- local filters = require('mutchar.filters')
+	require("mutchar").setup({
+    ['go'] = {
+      rules = {
+        { ';', ':=' },
+        { '8', '*' },
+      },
+      -- filter = {
+      --   filters.find_diagnostic_msg({ 'initial', 'undeclare' }),
+      --   filters.go_arrow_symbol,
+      -- },
+      one_to_one = true,
+    },
 	})
 end
 
@@ -310,12 +317,12 @@ end
 
 function config.trouble()
 	local trouble = require("trouble")
-	local null_ls = require("null-ls")
+	-- local null_ls = require("null-ls")
 
 	trouble.setup({
-		source = {
-			null_ls.builtins.code_actions.gitsigns,
-		},
+		-- source = {
+		-- 	null_ls.builtins.code_actions.gitsigns,
+		-- },
 		position = "bottom",
 		height = 7,
 		width = 50,

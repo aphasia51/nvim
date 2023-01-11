@@ -3,7 +3,7 @@ local conf = require("modules.editor.config")
 
 package({
 	"nvim-telescope/telescope.nvim",
-	cmd = "Telescope",
+	cmd = { "Telescope" },
 	config = conf.telescope,
 	dependencies = {
 		{ "nvim-lua/plenary.nvim", opt = true },
@@ -15,8 +15,7 @@ package({
 package({
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufRead", "BufNewFile" },
-	run = ":TSUpdate",
-	-- after = "telescope.nvim",
+	build = ":TSUpdate",
 	config = conf.nvim_treesitter,
 })
 
@@ -39,19 +38,19 @@ package({
 
 package({
 	"folke/trouble.nvim",
-	dependencies = { "kyazdani42/nvim-web-devicons" },
 	config = conf.trouble,
-	cmd = "TroubleToggle",
+  event = { "VeryLazy" },
+	cmd = { "TroubleToggle" },
 })
 
 package({
 	"mfussenegger/nvim-dap",
-	module = "dap",
-	ft = { "go" },
+	module = false,
 	dependencies = {
 		{ "rcarriga/nvim-dap-ui", ft = { "go" } },
 		{ "leoluz/nvim-dap-go", ft = { "go" } },
 		{ "theHamsta/nvim-dap-virtual-text", ft = { "go" } },
 	},
 	config = conf.dap,
+	ft = { "go" },
 })

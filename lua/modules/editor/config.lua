@@ -214,7 +214,7 @@ function config.nvim_treesitter()
 		"m68k",
 	}
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = { "go", "python", "rust", "lua", "vim", "proto", "c", "json", "yaml", "css", "javascript" },
+		ensure_installed = { "go", "python", "rust", "lua", "vim", "proto", "c", "json", "yaml", "markdown", "css", "javascript" },
 		ignore_install = ignored,
     autotag = {
       enable = true,

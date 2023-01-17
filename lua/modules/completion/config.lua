@@ -5,23 +5,31 @@ function config.nvim_lsp()
 end
 
 function config.lspsaga()
-	local saga = require("lspsaga")
-	saga.init_lsp_saga({
-		symbol_in_winbar = {
-			enable = true,
-		},
-		finder_icons = {
-			def = "  ",
-			ref = "諭 ",
-			link = "  ",
-		},
-		definition_action_keys = {
-			vsplit = "<C-v>",
-		},
-		code_action_lightbulb = {
-			sign_priority = 99,
-		},
-	})
+  require("lspsaga").setup({
+    ui = {
+      border = "single",
+      colors = {
+        normal_bg = "#262a33"
+      }
+    }
+  })
+	-- local saga = require("lspsaga")
+	-- saga.init_lsp_saga({
+	-- 	symbol_in_winbar = {
+	-- 		enable = true,
+	-- 	},
+	-- 	finder_icons = {
+	-- 		def = "  ",
+	-- 		ref = "諭 ",
+	-- 		link = "  ",
+	-- 	},
+	-- 	definition_action_keys = {
+	-- 		vsplit = "<C-v>",
+	-- 	},
+	-- 	code_action_lightbulb = {
+	-- 		sign_priority = 99,
+	-- 	},
+	-- })
 end
 
 function config.lua_snip()

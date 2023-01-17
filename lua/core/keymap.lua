@@ -131,6 +131,8 @@ keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", opts)
 keymap("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
 keymap("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", opts)
+keymap("n", "go", "<cmd>Lspsaga outline<CR>", opts)
+keymap("n", "gt", "<cmd>Lspsaga term_toggle<CR>", opts)
 
 --Dap
 keymap("n", "db", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)

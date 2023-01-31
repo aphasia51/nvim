@@ -9,7 +9,7 @@ function config.gitsigns()
 
   gitsigns.setup({
     current_line_blame = true,
-    current_line_blame_formatter = " 🩺 <author> - <summary>, <author_time:%Y-%m-%d>",
+    current_line_blame_formatter = " <author> - <summary>, <author_time:%Y-%m-%d>",
     current_line_blame_formatter_opts = {
       relative_time = false,
     },

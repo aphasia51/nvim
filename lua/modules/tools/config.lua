@@ -36,9 +36,9 @@ function config.todo()
       },
       TODO = { icon = " ", color = "#10B981" },
       HACK = { icon = " ", color = "#7C3AED" },
-      WARN = { icon = " ", color = "#FBBF24", alt = { "WARNING" } },
+      WARN = { icon = " ", color = "#DC2626", alt = { "WARNING" } },
       NOTE = { icon = " ", color = "#2563EB", alt = { "INFO" } },
-      PERF = { icon = " ", color = "#FC9868", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+      PERF = { icon = " ", color = "#FBBF24", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
     },
     colors = {
       error = { "DiagnosticError", "ErrorMsg", "#DC2626" },

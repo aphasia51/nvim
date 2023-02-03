@@ -62,11 +62,6 @@ package({
 })
 
 package({
-  "dstein64/vim-startuptime",
-  cmd = { "StartupTime" },
-})
-
-package({
   "folke/todo-comments.nvim",
   dependencies = "nvim-lua/plenary.nvim",
   config = conf.todo,

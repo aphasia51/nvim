@@ -294,9 +294,9 @@ insert_right({
     provider = function()
       local condition = require("galaxyline.provider_lsp").get_lsp_client("Lsp")
       if condition == "Lsp" then
-        return "  Server:" --" ⛒ "
+        return "  Ls:" --" ⛒ "
       else
-        return "  Server:"
+        return "  Ls:"
       end
     end,
     condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,

@@ -92,3 +92,31 @@ package({
     require('hlsearch').setup()
   end
 })
+
+package({
+	"ggandor/leap.nvim",
+  keys = {
+    { 's', mode = 'n' },
+    { 'gs', mode = 'n' },
+    { 'S', mode = 'n' },
+    { 's', mode = 'x' },
+    { 'S', mode = 'x' },
+  },
+	config = function()
+		require("leap").add_default_mappings()
+	end,
+	event = { "BufEnter" },
+	dependencies = {
+		{
+			"ggandor/flit.nvim",
+			config = function()
+				require("flit").setup({
+					keys = { f = "f", F = "F", t = "t", T = "T" },
+					labeled_modes = "v",
+					multiline = true,
+					opts = {},
+				})
+			end,
+		},
+	},
+})

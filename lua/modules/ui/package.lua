@@ -3,7 +3,7 @@ local conf = require("modules.ui.config")
 
 package({
   "aphasia51/zephyr-nvim",
-  config = conf.zephyr,
+  config = conf.theme,
   event = { "BufRead", "BufNewFile" }
 })
 

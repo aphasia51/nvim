@@ -1,6 +1,6 @@
 local config = {}
 
-function config.zephyr()
+function config.theme()
   vim.cmd.colorscheme("zephyr")
 end
 

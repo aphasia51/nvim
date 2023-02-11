@@ -213,7 +213,7 @@ insert_blank_line_at_left()
 insert_left({
   LineInfo = {
     provider = "LineColumn",
-    highlight = { colors.fg, colors.bg },
+    highlight = { colors.blue1, colors.bg },
   },
 })
 

@@ -101,7 +101,7 @@ insert_left({
   ViMode = {
     provider = function()
       local mode_color = {
-        n = colors.purple,
+        n = colors.white,
         i = colors.green,
         v = colors.red,
         [""] = colors.purple,
@@ -193,20 +193,20 @@ insert_left({
   },
 })
 
-insert_blank_line_at_left()
+-- insert_blank_line_at_left()
 
-insert_left({
-  FileSize = {
-    provider = "FileSize",
-    condition = function()
-      if (vim.fn.empty(vim.fn.expand("%:t")) ~= 1) and checkwidth() then
-        return true
-      end
-      return false
-    end,
-    highlight = { colors.blue2, colors.bg },
-  },
-})
+-- insert_left({
+--   FileSize = {
+--     provider = "FileSize",
+--     condition = function()
+--       if (vim.fn.empty(vim.fn.expand("%:t")) ~= 1) and checkwidth() then
+--         return true
+--       end
+--       return false
+--     end,
+--     highlight = { colors.blue2, colors.bg },
+--   },
+-- })
 
 insert_blank_line_at_left()
 
@@ -308,16 +308,20 @@ insert_right({
   LspClient = {
     provider = "GetLspClient",
     -- condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
-    highlight = { colors.green, colors.bg },
+    separator = "[",
+    separator_highlight = { colors.white, colors.bg },
+    highlight = { colors.white, colors.bg },
   },
 })
 
-insert_blank_line_at_right()
+-- insert_blank_line_at_right()
 
 insert_right({
   FileEncode = {
     provider = "FileEncode",
     -- condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
+    separator = "]",
+    separator_highlight = { colors.white, colors.bg },
     highlight = { colors.blue2, colors.bg },
   },
 })

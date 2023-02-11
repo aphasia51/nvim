@@ -24,7 +24,7 @@ local colors = {
   violet = "#d3869b",
   white = "#C0C0C0",
 
-  lsp = "#EABD7B",
+  yellow1 = "#EABD7B",
   file_name = "#9E67B2",
 }
 
@@ -101,12 +101,12 @@ insert_left({
   ViMode = {
     provider = function()
       local mode_color = {
-        n = colors.red,
+        n = colors.purple,
         i = colors.green,
-        v = colors.purple,
+        v = colors.red,
         [""] = colors.purple,
         V = colors.purple,
-        c = colors.white,
+        c = colors.yellow1,
         no = colors.red,
         s = colors.orange,
         S = colors.orange,
@@ -289,26 +289,36 @@ insert_mid({
 
 insert_blank_line_at_right()
 
-insert_right({
-  LspIcon = {
-    provider = function()
-      local condition = require("galaxyline.provider_lsp").get_lsp_client("Lsp")
-      if condition == "Lsp" then
-        return "  Ls:" --" ⛒ "
-      else
-        return "  Ls:"
-      end
-    end,
-    condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
-    highlight = { colors.green, colors.bg },
-  },
-})
+-- insert_right({
+--   LspIcon = {
+--     provider = function()
+--       local condition = require("galaxyline.provider_lsp").get_lsp_client("Lsp")
+--       if condition == "Lsp" then
+--         return "  Ls:" --" ⛒ "
+--       else
+--         return "  Ls:"
+--       end
+--     end,
+--     condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
+--     highlight = { colors.green, colors.bg },
+--   },
+-- })
 
 insert_right({
   LspClient = {
     provider = "GetLspClient",
     -- condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
     highlight = { colors.green, colors.bg },
+  },
+})
+
+insert_blank_line_at_right()
+
+insert_right({
+  FileEncode = {
+    provider = "FileEncode",
+    -- condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
+    highlight = { colors.blue2, colors.bg },
   },
 })
 

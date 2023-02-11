@@ -1,8 +1,13 @@
 local M = {}
 
+function M.import()
+	vim.cmd([[!go mod tidy]])
+	vim.cmd([[LspRestart]])
+end
+
 function M.format()
   local cmd = nil
-  local file_type = vim.fn.expand("%:e")
+  -- local file_type = vim.fn.expand("%:e")
   --if file_type == 'go' then
   --  cmd = require('go.format').goimport()
   --else

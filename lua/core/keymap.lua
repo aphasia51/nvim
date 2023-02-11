@@ -100,8 +100,8 @@ keymap("n", "<leader>r", ":AsyncTask file-build<CR>", opts)
 -- Symbols outline
 keymap("n", "<leader>o", "<cmd>SymbolsOutline<CR>", opts)
 
--- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+-- Import packages in go files
+keymap("n", "<leader>e", ":<cmd>lua require'internal.func'.import()<CR><CR>", opts)
 
 -- Null-ls
 -- keymap("n", "<leader>f", "<cmd>lua require'internal.keyfmt'.format()<CR>", opts)

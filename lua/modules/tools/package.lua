@@ -120,3 +120,12 @@ package({
 		},
 	},
 })
+
+package({
+  "folke/noice.nvim",
+  config = conf.noice,
+  event = "VeryLazy",
+  dependencies = {
+    'MunifTanjim/nui.nvim',
+  }
+})

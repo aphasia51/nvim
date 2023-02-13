@@ -95,16 +95,16 @@ package({
 
 package({
 	"ggandor/leap.nvim",
-  keys = {
-    { 's', mode = 'n' },
-    { 'gs', mode = 'n' },
-    { 'S', mode = 'n' },
-    { 's', mode = 'x' },
-    { 'S', mode = 'x' },
-  },
-	config = function()
-		require("leap").add_default_mappings()
-	end,
+  -- keys = {
+  --   { 's', mode = 'n' },
+  --   { 'gs', mode = 'n' },
+  --   { 'S', mode = 'n' },
+  --   { 's', mode = 'x' },
+  --   { 'S', mode = 'x' },
+  -- },
+	-- config = function()
+	-- 	require("leap").add_default_mappings()
+	-- end,
 	event = { "BufEnter" },
 	dependencies = {
 		{

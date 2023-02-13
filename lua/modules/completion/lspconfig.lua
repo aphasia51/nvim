@@ -51,7 +51,7 @@ lspconfig.gopls.setup({
 	},
 })
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	filetypes = { "lua" },
 	root_dir = lspconfig.util.root_pattern(
 		".luarc.json",

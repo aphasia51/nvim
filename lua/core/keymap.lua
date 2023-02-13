@@ -143,3 +143,12 @@ keymap("n", "<F9>", "<cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<F5>", "<cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<F6>", "<cmd>lua require'dap'.step_out()<CR>", opts)
 keymap("n", "du", "<cmd>DapUiToggle<CR>", opts)
+
+-- Leap
+vim.keymap.set('n', 'z', '<cmd>lua require("leap").leap { target_windows = { vim.fn.win_getid() } }<cr>')
+vim.keymap.set('n', 'Z', function()
+  require('leap').leap { target_windows = vim.tbl_filter(
+    function (win) return vim.api.nvim_win_get_config(win).focusable end,
+    vim.api.nvim_tabpage_list_wins(0)
+  )}
+end)

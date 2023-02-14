@@ -110,7 +110,7 @@ api.nvim_create_autocmd("Filetype", {
 --       work_time,
 --       work_time,
 --       vim.schedule_wrap(function()
---         vim.notify("别TM的卷了, 停下来歇会儿")
+--         vim.notify("停下来歇会儿, 喝口水, 让眼睛休息一下")
 --       end)
 --     )
 --   end,

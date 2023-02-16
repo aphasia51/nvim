@@ -101,7 +101,7 @@ insert_left({
   ViMode = {
     provider = function()
       local mode_color = {
-        n = colors.white,
+        n = colors.yellow,
         i = colors.green,
         v = colors.red,
         [""] = colors.purple,

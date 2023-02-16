@@ -23,7 +23,7 @@ package({ "glepnir/mutchar.nvim", ft = { "go" }, config = conf.mutchar })
 
 package({
 	"numToStr/Comment.nvim",
-	event = "BufRead",
+	event = { "BufRead" },
  	config = conf.comment,
 })
 

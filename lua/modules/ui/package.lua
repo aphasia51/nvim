@@ -13,7 +13,7 @@ package({
   event = { "BufRead", "BufNewFile" },
   -- event = { "VimEnter" },
   dependencies = "kyazdani42/nvim-web-devicons",
-  lazt = true
+  lazy = true
 })
 
 package({

@@ -105,6 +105,7 @@ lspconfig.pyright.setup({
 	cmd = { "pyright-langserver", "--stdio" },
 	filetypes = { "python" },
 	root_dir = lspconfig.util.root_pattern(unpack({
+    "WORKSPACE",
 		"pyproject.toml",
 		"setup.py",
 		"setup.cfg",
@@ -113,6 +114,7 @@ lspconfig.pyright.setup({
 		"pyrightconfig.json",
 		-- customize
 		"manage.py",
+    "main.py",
 		"run.py",
 	})),
 })

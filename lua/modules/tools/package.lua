@@ -123,9 +123,15 @@ package({
 
 package({
   "folke/noice.nvim",
-  config = conf.noice,
   event = "VeryLazy",
+  config = conf.noice,
   dependencies = {
     'MunifTanjim/nui.nvim',
   }
+})
+
+package({
+  "gen740/SmoothCursor.nvim",
+  event = "VeryLazy",
+  config = conf.smooth_cursor,
 })

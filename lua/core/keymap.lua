@@ -72,15 +72,15 @@ keymap("v", ",", "0", opts)
 -- *** Plugins keymaps *** --
 
 -- Telescope
-keymap("n", ";f", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", ";l", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", ";d", "<cmd>Telescope diagnostics<CR>", opts)
-keymap("n", ";s", "<cmd>Telescope git_status<CR>", opts)
-keymap("n", ";c", "<cmd>Telescope git_commits<CR>", opts)
-keymap("n", ";b", "<cmd>Telescope buffers<CR>", opts)
-keymap("n", ";t", "<cmd>TodoTelescope<CR>", opts)
-keymap("n", ";;", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
-keymap("n", ";m", "<cmd>Telescope file_browser<CR>", opts)
+keymap("n", "<C-;>", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<C-l>", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<C-s>", "<cmd>Telescope diagnostics<CR>", opts)
+-- keymap("n", "<leader>s", "<cmd>Telescope git_status<CR>", opts)
+keymap("n", "<C-g>", "<cmd>Telescope git_commits<CR>", opts)
+keymap("n", "<C-b>", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<C-t>", "<cmd>TodoTelescope<CR>", opts)
+-- keymap("n", "<leader>;", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
+keymap("n", "<C-m>", "<cmd>Telescope file_browser<CR>", opts)
 
 -- Quickfix close
 keymap("n", "<S-z>", "<cmd>cclose<CR>", opts)
@@ -145,10 +145,11 @@ keymap("n", "<F6>", "<cmd>lua require'dap'.step_out()<CR>", opts)
 keymap("n", "du", "<cmd>DapUiToggle<CR>", opts)
 
 -- Leap
-vim.keymap.set('n', 'z', '<cmd>lua require("leap").leap { target_windows = { vim.fn.win_getid() } }<cr>')
-vim.keymap.set('n', 'Z', function()
-  require('leap').leap { target_windows = vim.tbl_filter(
-    function (win) return vim.api.nvim_win_get_config(win).focusable end,
-    vim.api.nvim_tabpage_list_wins(0)
-  )}
+vim.keymap.set("n", "z", '<cmd>lua require("leap").leap { target_windows = { vim.fn.win_getid() } }<cr>')
+vim.keymap.set("n", "Z", function()
+	require("leap").leap({
+		target_windows = vim.tbl_filter(function(win)
+			return vim.api.nvim_win_get_config(win).focusable
+		end, vim.api.nvim_tabpage_list_wins(0)),
+	})
 end)

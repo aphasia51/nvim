@@ -3,6 +3,13 @@ local conf = require("modules.ui.config")
 
 package({
   "aphasia51/zephyr-nvim",
+  enabled = false,
+  config = conf.theme,
+  event = { "BufRead", "BufNewFile" }
+})
+
+package({
+  "glepnir/flipped.nvim",
   config = conf.theme,
   event = { "BufRead", "BufNewFile" }
 })

@@ -1,7 +1,7 @@
 local config = {}
 
 function config.theme()
-  vim.cmd.colorscheme("zephyr")
+  vim.cmd.colorscheme("flipped")
 end
 
 function config.galaxyline()

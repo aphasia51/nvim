@@ -19,8 +19,8 @@ end
 
 vim.diagnostic.config({
 	signs = {
-    priority = 99,
-  },
+		priority = 99,
+	},
 	update_in_insert = false,
 	underline = true,
 	severity_sort = true,
@@ -53,13 +53,7 @@ lspconfig.gopls.setup({
 
 lspconfig.lua_ls.setup({
 	filetypes = { "lua" },
-	root_dir = lspconfig.util.root_pattern(
-		".luarc.json",
-		".luacheckrc",
-		".stylua.toml",
-		"stylua.toml",
-		"selene.toml"
-	),
+	root_dir = lspconfig.util.root_pattern(".luarc.json", ".luacheckrc", ".stylua.toml", "stylua.toml", "selene.toml"),
 	on_attach = function(client, _)
 		client.server_capabilities.semanticTokensProvider = nil
 	end,
@@ -102,10 +96,8 @@ lspconfig.clangd.setup({
 })
 
 lspconfig.pyright.setup({
-	cmd = { "pyright-langserver", "--stdio" },
-	filetypes = { "python" },
 	root_dir = lspconfig.util.root_pattern(unpack({
-    "WORKSPACE",
+	   "WORKSPACE",
 		"pyproject.toml",
 		"setup.py",
 		"setup.cfg",
@@ -114,22 +106,63 @@ lspconfig.pyright.setup({
 		"pyrightconfig.json",
 		-- customize
 		"manage.py",
-    "main.py",
+	   "main.py",
 		"run.py",
 	})),
+
+	filetypes = { "python" },
+	single_file_support = true,
+	cmd = { "pyright-langserver", "--stdio" },
+	settings = {
+		python = {
+			analysis = {
+				typeCheckingMode = "basic", -- off, basic, strict
+				autoSearchPaths = true,
+				useLibraryCodeForTypes = true,
+				autoImportCompletions = true,
+				diagnosticMode = "workspace",
+				diagnosticSeverityOverrides = {
+					strictListInference = true,
+					strictDictionaryInference = true,
+					strictSetInference = true,
+					reportUnusedImport = "warning",
+					reportUnusedClass = "warning",
+					reportUnusedFunction = "warning",
+					reportUnusedVariable = "warning",
+					reportUnusedCoroutine = "warning",
+					reportDuplicateImport = "warning",
+					reportPrivateUsage = "warning",
+					reportUnusedExpression = "warning",
+					reportConstantRedefinition = "error",
+					reportIncompatibleMethodOverride = "error",
+					reportMissingImports = "error",
+					reportUndefinedVariable = "error",
+					reportAssertAlwaysTrue = "error",
+				},
+			},
+		},
+	},
 })
 
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
-  root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
+	filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+	root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json"),
 	cmd = { "typescript-language-server", "--stdio" },
 })
 
 lspconfig.tailwindcss.setup({
-  capabilities = capabilities,
-  cmd = { "tailwindcss-language-server", "--stdio" },
-  root_dir = lspconfig.util.root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', 'index.html')
+	capabilities = capabilities,
+	cmd = { "tailwindcss-language-server", "--stdio" },
+	root_dir = lspconfig.util.root_pattern(
+		"tailwind.config.js",
+		"tailwind.config.ts",
+		"postcss.config.js",
+		"postcss.config.ts",
+		"package.json",
+		"node_modules",
+		"index.html"
+	),
 })
 
 local servers = {

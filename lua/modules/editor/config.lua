@@ -214,7 +214,7 @@ function config.nvim_treesitter()
 		"m68k",
 	}
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = { "go", "python", "rust", "lua", "vim", "proto", "c", "json", "yaml", "markdown", "markdown_inline", "css", "javascript", "regex", "bash" },
+		ensure_installed = { "go", "gomod", "python", "rust", "lua", "vim", "proto", "c", "json", "yaml", "markdown", "markdown_inline", "css", "javascript", "regex", "bash" },
 		ignore_install = ignored,
     autotag = {
       enable = true,
@@ -256,7 +256,6 @@ function config.mutchar()
     ['go'] = {
       rules = {
         { ';', ':=' },
-        { '8', '*' },
       },
       -- filter = {
       --   filters.find_diagnostic_msg({ 'initial', 'undeclare' }),

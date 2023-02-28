@@ -22,6 +22,10 @@ keymap("n", "<A-j>", "<C-w>j", opts)
 keymap("n", "<A-k>", "<C-w>k", opts)
 keymap("n", "<A-l>", "<C-w>l", opts)
 
+-- hop
+keymap("n", "f", "<cmd>HopWord<CR>", opts)
+keymap("n", "F", "<cmd>HopLine<CR>", opts)
+
 -- Resize with arrows
 keymap("n", "<C-k>", ":resize -2<CR>", opts)
 
@@ -143,13 +147,3 @@ keymap("n", "<F9>", "<cmd>lua require'dap'.step_over()<CR>", opts)
 keymap("n", "<F5>", "<cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<F6>", "<cmd>lua require'dap'.step_out()<CR>", opts)
 keymap("n", "du", "<cmd>DapUiToggle<CR>", opts)
-
--- Leap
-vim.keymap.set("n", "z", '<cmd>lua require("leap").leap { target_windows = { vim.fn.win_getid() } }<cr>')
-vim.keymap.set("n", "Z", function()
-	require("leap").leap({
-		target_windows = vim.tbl_filter(function(win)
-			return vim.api.nvim_win_get_config(win).focusable
-		end, vim.api.nvim_tabpage_list_wins(0)),
-	})
-end)

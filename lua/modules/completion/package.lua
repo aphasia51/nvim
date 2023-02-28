@@ -3,7 +3,6 @@ local conf = require('modules.completion.config')
 
 local enable_lsp_filetype = {
   'go',
-
   'lua',
   'sh',
   'rust',

@@ -4,13 +4,13 @@ local conf = require("modules.ui.config")
 package({
   "aphasia51/zephyr-nvim",
   -- config = conf.theme,
-  event = { "BufRead", "BufNewFile" }
+  -- event = { "BufRead", "BufNewFile" }
 })
 
 package({
   "glepnir/flipped.nvim",
   -- config = conf.theme,
-  event = { "BufRead", "BufNewFile" }
+  -- event = { "BufRead", "BufNewFile" }
 })
 
 package({
@@ -18,7 +18,7 @@ package({
   config = conf.galaxyline,
   event = { "BufRead", "BufNewFile" },
   -- event = { "VimEnter" },
-  dependencies = "kyazdani42/nvim-web-devicons",
+  dependencies = "nvim-tree/nvim-web-devicons",
   lazy = true
 })
 

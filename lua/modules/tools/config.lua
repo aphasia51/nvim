@@ -172,4 +172,11 @@ function config.smooth_cursor()
 	})
 end
 
+function config.hop()
+	local hop = require("hop")
+	hop.setup({
+		keys = "asdghklqwertyuiopzxcvbnmfj",
+	})
+end
+
 return config

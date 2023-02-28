@@ -45,6 +45,7 @@ package({
 
 package({
 	"mfussenegger/nvim-dap",
+  enabled = false,
 	module = false,
 	dependencies = {
 		{ "rcarriga/nvim-dap-ui", ft = { "go" } },

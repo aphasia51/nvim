@@ -23,7 +23,7 @@ package({
 
 package({
 	"lewis6991/gitsigns.nvim",
-	event = { "VeryLazy" },
+	event = { "InsertEnter" },
 	config = conf.gitsigns,
 })
 

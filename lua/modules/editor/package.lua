@@ -39,7 +39,7 @@ package({
 package({
 	"folke/trouble.nvim",
 	config = conf.trouble,
-  event = { "VeryLazy" },
+  -- event = { "VeryLazy" },
 	cmd = { "TroubleToggle" },
 })
 

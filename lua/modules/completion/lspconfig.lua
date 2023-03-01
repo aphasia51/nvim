@@ -25,7 +25,7 @@ vim.diagnostic.config({
 	underline = true,
 	severity_sort = true,
 	virtual_text = {
-		prefix = "﮿",
+		prefix = "🔥",
 		spacing = 4,
 		source = true,
 		severity = { min = vim.diagnostic.severity.WARN },

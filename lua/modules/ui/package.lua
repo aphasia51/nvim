@@ -24,6 +24,7 @@ package({
 
 package({
   "lukas-reineke/indent-blankline.nvim",
+  enabled = false,
   event = { "VeryLazy" },
   config = conf.indent_blankline,
 })

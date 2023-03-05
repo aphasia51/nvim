@@ -23,12 +23,13 @@ package({ "glepnir/mutchar.nvim", ft = { "go" }, config = conf.mutchar })
 
 package({
 	"numToStr/Comment.nvim",
-	event = { "BufRead" },
+	event = { "VeryLazy" },
  	config = conf.comment,
 })
 
 package({
 	"jose-elias-alvarez/null-ls.nvim",
+  enabled = false,
 	config = conf.null_ls,
 	event = { "InsertEnter", "BufNewFile" },
 	dependencies = {

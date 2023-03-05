@@ -251,16 +251,17 @@ function config.nvim_treesitter()
 end
 
 function config.mutchar()
-  -- local filters = require('mutchar.filters')
+  local filters = require('mutchar.filters')
 	require("mutchar").setup({
     ['go'] = {
       rules = {
         { ';', ':=' },
+        { ',', '<-' },
       },
-      -- filter = {
-      --   filters.find_diagnostic_msg({ 'initial', 'undeclare' }),
-      --   filters.go_arrow_symbol,
-      -- },
+      filter = {
+        filters.find_diagnostic_msg({ 'initial', 'undeclare' }),
+        filters.go_arrow_symbol,
+      },
       one_to_one = true,
     },
 	})

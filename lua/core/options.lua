@@ -98,7 +98,7 @@ if vim.loop.os_uname().sysname == 'Darwin' then
 end
 
 local _time = os.date('*t')
-if _time.hour >= 19 or _time.hour < 8 then
+if _time.hour >= 23 or _time.hour < 8 then
   _G_colorscheme = 'flipped'
 else
   _G_colorscheme = 'zephyr'
@@ -106,4 +106,19 @@ end
 local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
 if not ok then
   return
+end
+
+if vim.loop.os_uname().sysname == 'Darwin' then
+  vim.g.clipboard = {
+    name = 'macOS-clipboard',
+    copy = {
+      ['+'] = 'pbcopy',
+      ['*'] = 'pbcopy',
+    },
+    paste = {
+      ['+'] = 'pbpaste',
+      ['*'] = 'pbpaste',
+    },
+    cache_enabled = 0,
+  }
 end

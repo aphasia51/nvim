@@ -24,35 +24,30 @@ package({ "glepnir/mutchar.nvim", ft = { "go" }, config = conf.mutchar })
 package({
 	"numToStr/Comment.nvim",
 	event = { "VeryLazy" },
- 	config = conf.comment,
-})
-
-package({
-	"jose-elias-alvarez/null-ls.nvim",
-  enabled = false,
-	config = conf.null_ls,
-	event = { "InsertEnter", "BufNewFile" },
-	dependencies = {
-		"nvim-lua/plenary.nvim"
-	}
+	config = conf.comment,
 })
 
 package({
 	"folke/trouble.nvim",
 	config = conf.trouble,
-  -- event = { "VeryLazy" },
 	cmd = { "TroubleToggle" },
 })
 
+-- package({
+-- 	"mfussenegger/nvim-dap",
+-- 	enabled = false,
+-- 	module = false,
+-- 	dependencies = {
+-- 		{ "rcarriga/nvim-dap-ui", ft = { "go" } },
+-- 		{ "leoluz/nvim-dap-go", ft = { "go" } },
+-- 		{ "theHamsta/nvim-dap-virtual-text", ft = { "go" } },
+-- 	},
+-- 	config = conf.dap,
+-- 	ft = { "go" },
+-- })
+
 package({
-	"mfussenegger/nvim-dap",
-  enabled = false,
-	module = false,
-	dependencies = {
-		{ "rcarriga/nvim-dap-ui", ft = { "go" } },
-		{ "leoluz/nvim-dap-go", ft = { "go" } },
-		{ "theHamsta/nvim-dap-virtual-text", ft = { "go" } },
-	},
-	config = conf.dap,
-	ft = { "go" },
+	"glepnir/easyformat.nvim",
+	ft = { "lua", "go", "python" },
+	config = conf.easyformat,
 })

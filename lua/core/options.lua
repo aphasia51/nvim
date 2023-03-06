@@ -78,7 +78,7 @@ vim.o.showmode = false
 vim.opt.laststatus = 3
 vim.opt.showcmd = true
 vim.o.iminsert = 0
-vim.o.clipboard=true
+vim.o.clipboard = true
 vim.o.grepprg = "rg --vimgrep"
 vim.o.grepformat = "%f:%l:%c:%m"
 vim.opt.runtimepath:remove({ "/etc/xdg/nvim", "/etc/xdg/nvim/after", "/usr/share/vim/vimfiles" })
@@ -92,33 +92,33 @@ vim.g.loaded_python_provider = 0
 
 vim.g.vsnip_snippet_dir = vim.fn.expand("~/.config/nvim/vsnip")
 
-if vim.loop.os_uname().sysname == 'Darwin' then
-  -- vim.g.python_host_prog = '/usr/bin/python'
-  vim.g.python3_host_prog = '/opt/homebrew/bin/python3'
+if vim.loop.os_uname().sysname == "Darwin" then
+	-- vim.g.python_host_prog = '/usr/bin/python'
+	vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
 end
 
-local _time = os.date('*t')
+local _time = os.date("*t")
 if _time.hour >= 23 or _time.hour < 8 then
-  _G_colorscheme = 'flipped'
+	_G_colorscheme = "flipped"
 else
-  _G_colorscheme = 'zephyr'
+	_G_colorscheme = "zephyr"
 end
-local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
+local ok, _ = pcall(vim.cmd, "colorscheme " .. _G_colorscheme)
 if not ok then
-  return
+	return
 end
 
-if vim.loop.os_uname().sysname == 'Darwin' then
-  vim.g.clipboard = {
-    name = 'macOS-clipboard',
-    copy = {
-      ['+'] = 'pbcopy',
-      ['*'] = 'pbcopy',
-    },
-    paste = {
-      ['+'] = 'pbpaste',
-      ['*'] = 'pbpaste',
-    },
-    cache_enabled = 0,
-  }
+if vim.loop.os_uname().sysname == "Darwin" then
+	vim.g.clipboard = {
+		name = "macOS-clipboard",
+		copy = {
+			["+"] = "pbcopy",
+			["*"] = "pbcopy",
+		},
+		paste = {
+			["+"] = "pbpaste",
+			["*"] = "pbpaste",
+		},
+		cache_enabled = 0,
+	}
 end

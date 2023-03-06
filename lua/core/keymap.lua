@@ -110,7 +110,7 @@ keymap('n', '<leader>e', ":<cmd>lua require'internal.func'.import()<CR><CR>", op
 -- Null-ls
 -- keymap("n", "<leader>f", "<cmd>lua require'internal.keyfmt'.format()<CR>", opts)
 -- keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-keymap('n', '<leader>f', '<cmd>Easyformat<CR>', opts)
+keymap('n', '<leader>f', '<cmd>EasyFormat<CR>', opts)
 
 -- Trouble
 keymap('n', '<leader>d', '<cmd>TroubleToggle<CR>', opts)

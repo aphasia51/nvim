@@ -23,7 +23,7 @@ keymap('n', '<A-k>', '<C-w>k', opts)
 keymap('n', '<A-l>', '<C-w>l', opts)
 
 -- hop
-keymap('n', 'f', '<cmd>HopWord<CR>', opts)
+keymap('n', 'f', '<cmd>HopChar1<CR>', opts)
 keymap('n', 'F', '<cmd>HopLine<CR>', opts)
 
 -- Resize with arrows

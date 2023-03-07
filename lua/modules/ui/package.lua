@@ -1,30 +1,24 @@
-local package = require("core.pack").package
-local conf = require("modules.ui.config")
+local package = require('core.pack').package
+local conf = require('modules.ui.config')
 
 package({
-  "aphasia51/zephyr-nvim",
+  'aphasia51/zephyr-nvim',
   -- config = conf.theme,
-  -- event = { "BufRead", "BufNewFile" }
+  event = { 'BufRead', 'BufNewFile' },
 })
 
 package({
-  "glepnir/flipped.nvim",
-  -- config = conf.theme,
-  -- event = { "BufRead", "BufNewFile" }
-})
-
-package({
-  "glepnir/galaxyline.nvim",
+  'glepnir/galaxyline.nvim',
   config = conf.galaxyline,
-  event = { "BufRead", "BufNewFile" },
-  -- event = { "VimEnter" },
-  dependencies = "nvim-tree/nvim-web-devicons",
-  lazy = true
+  -- event = { 'BufRead', 'BufNewFile' },
+  event = { 'VeryLazy' },
+  dependencies = 'nvim-tree/nvim-web-devicons',
+  lazy = true,
 })
 
 package({
-  "lukas-reineke/indent-blankline.nvim",
+  'lukas-reineke/indent-blankline.nvim',
   enabled = false,
-  event = { "VeryLazy" },
+  event = { 'VeryLazy' },
   config = conf.indent_blankline,
 })

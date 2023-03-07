@@ -15,7 +15,7 @@ package({
 package({
   'nvim-treesitter/nvim-treesitter',
   event = { 'BufRead', 'BufNewFile' },
-  build = ':TSUpdate',
+  -- build = ':TSUpdate',
   config = conf.nvim_treesitter,
 })
 
@@ -48,6 +48,7 @@ package({
 
 package({
   'glepnir/easyformat.nvim',
-  ft = { 'lua', 'go', 'python' },
+  -- ft = { 'lua', 'go', 'python' },
+  event = { 'VeryLazy' },
   config = conf.easyformat,
 })

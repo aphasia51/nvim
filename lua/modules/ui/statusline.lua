@@ -162,7 +162,7 @@ local DiagnosticInfo = diagnostic.get_diagnostic_info
 insert_left({
   DiagnosticError = {
     provider = DiagnosticError,
-    icon = '  ',
+    icon = '  ',
     highlight = { colors.red, colors.bg },
   },
 })
@@ -290,27 +290,27 @@ insert_mid({
 
 insert_blank_line_at_right()
 
--- insert_right({
---   LspIcon = {
---     provider = function()
---       local condition = require("galaxyline.provider_lsp").get_lsp_client("Lsp")
---       if condition == "Lsp" then
---         return "  Ls:" --" ⛒ "
---       else
---         return "  Ls:"
---       end
---     end,
---     condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
---     highlight = { colors.green, colors.bg },
---   },
--- })
+insert_right({
+  LspIcon = {
+    provider = function()
+      local condition = require('galaxyline.provider_lsp').get_lsp_client('Lsp')
+      if condition == 'Lsp' then
+        return ' Ls:' --" ⛒ "
+      else
+        return ' Ls:'
+      end
+    end,
+    separator = '[',
+    separator_highlight = { colors.white, colors.bg },
+    condition = require('galaxyline.provider_lsp').get_lsp_client and checkwidth,
+    highlight = { colors.green, colors.bg },
+  },
+})
 
 insert_right({
   LspClient = {
     provider = 'GetLspClient',
     -- condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
-    separator = '[',
-    separator_highlight = { colors.white, colors.bg },
     highlight = { colors.white, colors.bg },
   },
 })

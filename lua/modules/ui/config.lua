@@ -50,4 +50,8 @@ function config.indent_blankline()
 	})
 end
 
+function config.heirline()
+  require("modules.ui.heirline")
+end
+
 return config

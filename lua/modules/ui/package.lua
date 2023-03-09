@@ -10,8 +10,8 @@ package({
 package({
   'glepnir/galaxyline.nvim',
   config = conf.galaxyline,
-  -- event = { 'BufRead', 'BufNewFile' },
-  event = { 'VeryLazy' },
+  event = { 'BufRead', 'BufNewFile' },
+  -- event = { 'VeryLazy' },
   dependencies = 'nvim-tree/nvim-web-devicons',
   lazy = true,
 })

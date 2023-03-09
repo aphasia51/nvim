@@ -36,7 +36,8 @@ package({
 package({
   'norcalli/nvim-colorizer.lua',
   config = conf.colorizer,
-  event = { 'VeryLazy' },
+  -- event = { 'VeryLazy' },
+  ft = { 'lua', 'css', 'html', 'sass', 'less', 'typescriptreact' },
 })
 
 package({
@@ -110,6 +111,7 @@ package({
 
 package({
   'gen740/SmoothCursor.nvim',
+  enabled = false,
   event = 'VeryLazy',
   config = conf.smooth_cursor,
 })

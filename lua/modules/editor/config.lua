@@ -224,6 +224,7 @@ function config.nvim_treesitter()
       'proto',
       'c',
       'json',
+      'bash',
       'yaml',
       'markdown',
       'markdown_inline',

@@ -31,7 +31,7 @@ local colors = {
 local my_icons = require('galaxyline.provider_fileinfo').define_file_icon()
 my_icons['mod'] = { colors.blue2, '' }
 my_icons['sum'] = { colors.blue1, '' }
-my_icons['proto'] = { colors.red, '≶' }
+my_icons['proto'] = { colors.red, '`' }
 
 local checkwidth = function()
   local squeeze_width = vim.fn.winwidth(0) / 2

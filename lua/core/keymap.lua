@@ -30,8 +30,8 @@ keymap('n', 'F', '<cmd>HopLine<CR>', opts)
 keymap('n', '<C-k>', ':resize -2<CR>', opts)
 
 keymap('n', '<C-j>', ':resize +2<CR>', opts)
-keymap('n', '<C-h>', ':vertical resize -2<CR>', opts)
-keymap('n', '<C-l>', ':vertical resize +2<CR>', opts)
+keymap('n', '<C-;>', ':vertical resize -2<CR>', opts)
+keymap('n', "<C-'>", ':vertical resize +2<CR>', opts)
 
 -- Navigate buffers
 -- keymap("n", "<C-[>", ":bnext<CR>", opts)
@@ -41,6 +41,9 @@ keymap('n', '<leader>nd', ':bd!<CR>', opts)
 -- Insert --
 -- Press jk fast to enter
 keymap('i', 'jk', '<ESC>', opts)
+
+keymap('n', 'j', 'gj', opts)
+keymap('n', 'k', 'gk', opts)
 
 -- Fast to move
 --keymap("n", "H", "5h", opts)
@@ -103,6 +106,7 @@ keymap('n', '<leader>r', ':AsyncTask file-build<CR>', opts)
 
 -- Symbols outline
 keymap('n', '<leader>o', '<cmd>SymbolsOutline<CR>', opts)
+keymap('n', '<leader>o', '<cmd>Lspsaga outline<CR>', opts)
 
 -- Import packages in go files
 keymap('n', '<leader>e', ":<cmd>lua require'internal.func'.import()<CR><CR>", opts)

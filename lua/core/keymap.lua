@@ -105,7 +105,7 @@ keymap('n', '<leader>r', ':AsyncTask file-build<CR>', opts)
 -- keymap("n", "<leader>e", ":SqlsExecuteQuery<CR>", opts)
 
 -- Symbols outline
-keymap('n', '<leader>o', '<cmd>SymbolsOutline<CR>', opts)
+-- keymap('n', '<leader>o', '<cmd>SymbolsOutline<CR>', opts)
 keymap('n', '<leader>o', '<cmd>Lspsaga outline<CR>', opts)
 
 -- Import packages in go files

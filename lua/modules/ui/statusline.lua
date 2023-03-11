@@ -290,26 +290,28 @@ insert_mid({
 
 insert_blank_line_at_right()
 
-insert_right({
-  LspIcon = {
-    provider = function()
-      local condition = require('galaxyline.provider_lsp').get_lsp_client('Lsp')
-      if condition == 'Lsp' then
-        return ' Ls:' --" ⛒ "
-      else
-        return ' Ls:'
-      end
-    end,
-    separator = '[',
-    separator_highlight = { colors.white, colors.bg },
-    condition = require('galaxyline.provider_lsp').get_lsp_client and checkwidth,
-    highlight = { colors.green, colors.bg },
-  },
-})
+-- insert_right({
+--   LspIcon = {
+--     provider = function()
+--       local condition = require('galaxyline.provider_lsp').get_lsp_client('Lsp')
+--       if condition == 'Lsp' then
+--         return ' Ls:' --" ⛒ "
+--       else
+--         return ' Ls:'
+--       end
+--     end,
+--     separator = '[',
+--     separator_highlight = { colors.white, colors.bg },
+--     condition = require('galaxyline.provider_lsp').get_lsp_client and checkwidth,
+--     highlight = { colors.green, colors.bg },
+--   },
+-- })
 
 insert_right({
   LspClient = {
     provider = 'GetLspClient',
+    separator = '[',
+    separator_highlight = { colors.white, colors.bg },
     -- condition = require("galaxyline.provider_lsp").get_lsp_client and checkwidth,
     highlight = { colors.white, colors.bg },
   },

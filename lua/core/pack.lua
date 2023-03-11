@@ -45,6 +45,9 @@ function pack:boot_strap()
       version = nil,
     },
     lockfile = self.helper.path_join(self.data_path, 'lazy-lock.json'),
+    dev = {
+      path = '~/workspace/lua',
+    },
     ui = {
       border = 'single',
     },

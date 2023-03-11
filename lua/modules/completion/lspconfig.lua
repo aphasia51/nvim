@@ -15,7 +15,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local signs = {
   Error = ' ',
-  Warn = ' ',
+  Warn = ' ',
   Info = ' ',
   Hint = ' ',
 }

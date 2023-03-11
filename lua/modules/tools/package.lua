@@ -22,7 +22,9 @@ package({
 })
 
 package({
-  'lewis6991/gitsigns.nvim',
+  -- 'lewis6991/gitsigns.nvim',
+  'glepnir/gitsigns.nvim',
+  branch = 'patch_2',
   event = { 'InsertEnter' },
   config = conf.gitsigns,
 })
@@ -96,7 +98,7 @@ package({
 
 package({
   'phaazon/hop.nvim',
-  event = 'BufRead',
+  event = { 'VeryLazy' },
   config = conf.hop,
 })
 

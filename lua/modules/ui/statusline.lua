@@ -58,9 +58,9 @@ local function insert_right(element)
   table.insert(gls.right, element)
 end
 
-local function insert_mid(element)
-  table.insert(gls.mid, element)
-end
+-- local function insert_mid(element)
+--   table.insert(gls.mid, element)
+-- end
 
 -- insert_blank_line_at_left insert blank line with
 -- line_bg color.
@@ -193,7 +193,7 @@ insert_left({
   DiagnosticWarn = {
     provider = DiagnosticWarn,
     condition = checkwidth,
-    icon = '  ',
+    icon = '  ',
     highlight = { colors.yellow, colors.bg },
   },
 })
@@ -202,7 +202,7 @@ insert_left({
   DiagnosticInfo = {
     provider = DiagnosticInfo,
     condition = checkwidth,
-    icon = '  ',
+    icon = '  ',
     highlight = { colors.green, colors.bg },
   },
 })
@@ -211,7 +211,7 @@ insert_left({
   DiagnosticHint = {
     provider = DiagnosticHint,
     condition = checkwidth,
-    icon = '  ',
+    icon = '  ',
     highlight = { colors.white, colors.bg },
   },
 })

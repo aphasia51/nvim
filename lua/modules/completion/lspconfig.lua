@@ -14,10 +14,10 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 -- }
 
 local signs = {
-  Error = ' ',
-  Warn = ' ',
-  Info = ' ',
-  Hint = ' ',
+  Error = '',
+  Warn = '',
+  Info = '',
+  Hint = '',
 }
 
 for type, icon in pairs(signs) do

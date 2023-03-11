@@ -154,6 +154,28 @@ insert_left({
   },
 })
 
+insert_blank_line_at_left()
+
+insert_left({
+  LineInfo = {
+    provider = 'LineColumn',
+    highlight = { colors.blue1, colors.bg },
+  },
+})
+
+insert_blank_line_at_left()
+
+insert_left({
+  PerCent = {
+    provider = 'LinePercent',
+    -- condition = checkwidth,
+    highlight = { colors.fg, colors.bg },
+  },
+})
+
+insert_blank_line_at_left()
+-- insert_blank_line_at_left()
+
 local DiagnosticError = diagnostic.get_diagnostic_error
 local DiagnosticWarn = diagnostic.get_diagnostic_warn
 local DiagnosticHint = diagnostic.get_diagnostic_hint
@@ -209,40 +231,23 @@ insert_left({
 --   },
 -- })
 
-insert_blank_line_at_left()
+-- insert_blank_line_at_left()
 
-insert_left({
-  LineInfo = {
-    provider = 'LineColumn',
-    highlight = { colors.blue1, colors.bg },
-  },
-})
-
-insert_blank_line_at_left()
-
-insert_left({
-  PerCent = {
-    provider = 'LinePercent',
-    -- condition = checkwidth,
-    highlight = { colors.fg, colors.bg },
-  },
-})
-
-insert_mid({
+insert_right({
   GitIcon = {
     provider = function()
       local condition = require('galaxyline.provider_vcs').get_git_branch('GitBranch')
       local check_width = checkwidth()
       if check_width and condition ~= nil then
-        return '  '
+        return '  '
       end
       return ''
     end,
-    highlight = { colors.orange, colors.bg },
+    highlight = { colors.blue1, colors.bg },
   },
 })
 
-insert_mid({
+insert_right({
   GitBranch = {
     provider = 'GitBranch',
     condition = require('galaxyline.provider_vcs').get_git_branch,
@@ -250,7 +255,7 @@ insert_mid({
   },
 })
 
-insert_mid({
+insert_right({
   BlackSpace = {
     provider = function()
       return ' '
@@ -260,8 +265,7 @@ insert_mid({
   },
 })
 
-insert_mid({
-
+insert_right({
   DiffAdd = {
     provider = 'DiffAdd',
     condition = checkwidth,
@@ -270,7 +274,7 @@ insert_mid({
   },
 })
 
-insert_mid({
+insert_right({
   DiffModified = {
     provider = 'DiffModified',
     condition = checkwidth,
@@ -279,7 +283,7 @@ insert_mid({
   },
 })
 
-insert_mid({
+insert_right({
   DiffRemove = {
     provider = 'DiffRemove',
     condition = checkwidth,
@@ -288,7 +292,7 @@ insert_mid({
   },
 })
 
-insert_blank_line_at_right()
+-- insert_blank_line_at_right()
 
 -- insert_right({
 --   LspIcon = {

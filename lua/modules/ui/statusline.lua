@@ -58,9 +58,9 @@ local function insert_right(element)
   table.insert(gls.right, element)
 end
 
--- local function insert_mid(element)
---   table.insert(gls.mid, element)
--- end
+local function insert_mid(element)
+  table.insert(gls.mid, element)
+end
 
 -- insert_blank_line_at_left insert blank line with
 -- line_bg color.
@@ -75,16 +75,16 @@ local function insert_blank_line_at_left()
   })
 end
 
-local function insert_blank_line_at_right()
-  insert_right({
-    Space = {
-      provider = function()
-        return ' '
-      end,
-      highlight = { colors.bg, colors.bg },
-    },
-  })
-end
+-- local function insert_blank_line_at_right()
+--   insert_right({
+--     Space = {
+--       provider = function()
+--         return ' '
+--       end,
+--       highlight = { colors.bg, colors.bg },
+--     },
+--   })
+-- end
 
 -----------------------------------------------------
 ----------------- start insert ----------------------
@@ -173,7 +173,7 @@ insert_left({
   },
 })
 
-insert_blank_line_at_left()
+-- insert_blank_line_at_left()
 -- insert_blank_line_at_left()
 
 local DiagnosticError = diagnostic.get_diagnostic_error
@@ -181,7 +181,7 @@ local DiagnosticWarn = diagnostic.get_diagnostic_warn
 local DiagnosticHint = diagnostic.get_diagnostic_hint
 local DiagnosticInfo = diagnostic.get_diagnostic_info
 
-insert_left({
+insert_mid({
   DiagnosticError = {
     provider = DiagnosticError,
     icon = '  ',
@@ -189,7 +189,7 @@ insert_left({
   },
 })
 
-insert_left({
+insert_mid({
   DiagnosticWarn = {
     provider = DiagnosticWarn,
     condition = checkwidth,
@@ -198,7 +198,7 @@ insert_left({
   },
 })
 
-insert_left({
+insert_mid({
   DiagnosticInfo = {
     provider = DiagnosticInfo,
     condition = checkwidth,
@@ -207,7 +207,7 @@ insert_left({
   },
 })
 
-insert_left({
+insert_mid({
   DiagnosticHint = {
     provider = DiagnosticHint,
     condition = checkwidth,
@@ -251,7 +251,7 @@ insert_right({
   GitBranch = {
     provider = 'GitBranch',
     condition = require('galaxyline.provider_vcs').get_git_branch,
-    highlight = { colors.white, colors.bg },
+    highlight = { colors.dimblue, colors.bg },
   },
 })
 

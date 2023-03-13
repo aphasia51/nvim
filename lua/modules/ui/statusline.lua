@@ -20,7 +20,7 @@ local colors = {
   blue = '#73BA9F',
   blue1 = '#5F8BB2',
   blue2 = '#45B39D',
-  red = '#D54E53',
+  red = '#BE3455',
   violet = '#d3869b',
   white = '#C0C0C0',
 

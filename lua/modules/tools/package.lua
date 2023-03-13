@@ -25,6 +25,7 @@ package({
   -- 'lewis6991/gitsigns.nvim',
   'glepnir/gitsigns.nvim',
   branch = 'patch_2',
+  -- event = { 'BufRead', 'BufNewFile' },
   event = { 'InsertEnter' },
   config = conf.gitsigns,
 })

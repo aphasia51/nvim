@@ -94,7 +94,7 @@ insert_left({
     provider = function()
       return '▊ '
     end,
-    highlight = { colors.purple, colors.bg },
+    highlight = { colors.magenta, colors.bg },
   },
 })
 
@@ -340,6 +340,6 @@ insert_right({
     end,
     separator = ' ',
     separator_highlight = { colors.bg, colors.bg },
-    highlight = { colors.purple, colors.bg },
+    highlight = { colors.magenta, colors.bg },
   },
 })

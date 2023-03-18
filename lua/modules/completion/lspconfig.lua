@@ -29,7 +29,6 @@ vim.diagnostic.config({
   signs = {
     priority = 99,
   },
-  update_in_insert = false,
   underline = true,
   severity_sort = true,
   virtual_text = {
@@ -123,7 +122,6 @@ lspconfig.pyright.setup({
     'main.py',
     'run.py',
   })),
-
   filetypes = { 'python' },
   single_file_support = true,
   cmd = { 'pyright-langserver', '--stdio' },

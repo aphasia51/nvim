@@ -15,7 +15,9 @@ function M.column()
     if s.name:find("GitSign") then
       git_sign = s
     else
-      sign = s
+      if sign == nil then
+        sign = s
+      end
     end
   end
 

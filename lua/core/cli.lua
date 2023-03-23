@@ -10,17 +10,6 @@ function cli:env_init()
 	_G.vim = shared()
 end
 
-local function get_all_modules()
-	local p = io.popen('find "' .. cli.module_path .. '" -type d')
-	if not p then
-		return
-	end
-
-	for dict in p:lines() do
-		print(dict)
-	end
-end
-
 function cli:get_all_packages()
 	local pack = require("core.pack")
 	local p = io.popen('find "' .. cli.module_path .. '" -type f')
@@ -95,7 +84,8 @@ function cli:boot_strap()
 		helper.green("🔸 Found lazy.nvim skip download")
 		return
 	end
-	helper.run_git("folke/lazy.nvim " .. self.lazy_dir, "clone")
+	local cmd = "git clone htts://github.com/folke/lazy.nvim "
+	helper.run_git("lazy.nvim", cmd .. self.lazy_dir, "Install")
 	helper.install_success("lazy.nvim")
 end
 
@@ -140,14 +130,15 @@ function cli.clean()
 	os.execute("rm -rf " .. cli.lazy_dir)
 end
 
-function cli.doctor()
+function cli.snapshot(pack_name)
 	local list = cli:get_all_packages()
 	if not list then
 		return
 	end
 
 	helper.yellow("🔹 Total: " .. vim.tbl_count(list) + 1 .. " Plugins")
-	for k, v in pairs(list) do
+	local packs = pack_name and { [pack_name] = list[pack_name] } or list
+	for k, v in pairs(packs) do
 		helper.blue("\t" .. "✨" .. k)
 		if v.type then
 			helper.write("purple")("\tType: ")
@@ -169,12 +160,29 @@ function cli.doctor()
 end
 
 function cli.modules()
-	get_all_modules()
+	local p = io.popen('find "' .. cli.module_path .. '" -type d')
+	if not p then
+		return
+	end
+	local res = {}
+
+	for dict in p:lines() do
+		dict = vim.split(dict, helper.path_sep)
+		if dict[#dict] ~= "modules" then
+			table.insert(res, dict[#dict])
+		end
+	end
+
+	helper.green("Found " .. #res .. " Modules in Local")
+	for _, v in pairs(res) do
+		helper.write("yellow")("\t✅ " .. v)
+		print()
+	end
 end
 
 function cli:meta(arg)
-	return function()
-		self[arg]()
+	return function(data)
+		self[arg](data)
 	end
 end
 

@@ -75,28 +75,30 @@ local function insert_blank_line_at_left()
 	})
 end
 
--- local function insert_blank_line_at_right()
---   insert_right({
---     Space = {
---       provider = function()
---         return ' '
---       end,
---       highlight = { colors.bg, colors.bg },
---     },
---   })
--- end
+local function insert_blank_line_at_right()
+  insert_right({
+    Space = {
+      provider = function()
+        return ' '
+      end,
+      highlight = { colors.bg, colors.bg },
+    },
+  })
+end
 
 -----------------------------------------------------
 ----------------- start insert ----------------------
 -----------------------------------------------------
-insert_left({
-	RainbowRed = {
-		provider = function()
-			return "▊ "
-		end,
-		highlight = { colors.magenta, colors.bg },
-	},
-})
+-- insert_left({
+-- 	RainbowRed = {
+-- 		provider = function()
+-- 			return "▊ "
+-- 		end,
+-- 		highlight = { colors.magenta, colors.bg },
+-- 	},
+-- })
+
+insert_blank_line_at_left()
 
 insert_left({
 	ViMode = {
@@ -278,7 +280,7 @@ insert_right({
 	DiffModified = {
 		provider = "DiffModified",
 		condition = checkwidth,
-		icon = "  ", --"  ",
+		icon = "  ", --"  ",
 		highlight = { colors.violet, colors.bg },
 	},
 })
@@ -333,13 +335,15 @@ insert_right({
 	},
 })
 
-insert_right({
-	RainbowBlue = {
-		provider = function()
-			return "▊"
-		end,
-		separator = " ",
-		separator_highlight = { colors.bg, colors.bg },
-		highlight = { colors.magenta, colors.bg },
-	},
-})
+insert_blank_line_at_right()
+
+-- insert_right({
+-- 	RainbowBlue = {
+-- 		provider = function()
+-- 			return "▊"
+-- 		end,
+-- 		separator = " ",
+-- 		separator_highlight = { colors.bg, colors.bg },
+-- 		highlight = { colors.magenta, colors.bg },
+-- 	},
+-- })

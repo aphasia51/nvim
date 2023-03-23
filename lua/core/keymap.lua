@@ -76,8 +76,8 @@ keymap("v", ",", "0", opts)
 -- *** Plugins keymaps *** --
 
 -- Telescope
-keymap("n", "<C-f>", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<C-l>", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<C-l>", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<C-f>", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<C-e>", "<cmd>Telescope diagnostics<CR>", opts)
 -- keymap("n", "<leader>s", "<cmd>Telescope git_status<CR>", opts)
 keymap("n", "<C-g>", "<cmd>Telescope git_commits<CR>", opts)

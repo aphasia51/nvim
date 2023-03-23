@@ -29,18 +29,23 @@ vim.diagnostic.config({
   signs = {
     priority = 99,
   },
-  underline = true,
   severity_sort = true,
   virtual_text = {
     prefix = '🔥',
-    spacing = 4,
+    -- spacing = 4,
     source = true,
     severity = { min = vim.diagnostic.severity.WARN },
   },
 })
 
+function Attach(client, bufnr)
+  vim.opt.omnifunc = 'v:lua.vim.lsp.omnifunc'
+  client.server_capabilities.semanticTokensProvider = nil
+end
+
 lspconfig.gopls.setup({
   cmd = { 'gopls', '--remote=auto' },
+  on_attach = Attach,
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_dir = lspconfig.util.root_pattern('go.mod'),
   capabilities = capabilities,
@@ -67,10 +72,7 @@ lspconfig.lua_ls.setup({
     'stylua.toml',
     'selene.toml'
   ),
-  on_attach = function(client, _)
-    client.server_capabilities.semanticTokensProvider = nil
-  end,
-  capabilities = capabilities,
+  on_attach = Attach,
   settings = {
     Lua = {
       diagnostics = {
@@ -89,7 +91,7 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.clangd.setup({
-  capabilities = capabilities,
+  on_attach = Attach,
   cmd = {
     'clangd',
     '--background-index',
@@ -109,6 +111,7 @@ lspconfig.clangd.setup({
 })
 
 lspconfig.pyright.setup({
+  on_attach = Attach,
   root_dir = lspconfig.util.root_pattern(unpack({
     'WORKSPACE',
     'pyproject.toml',
@@ -132,7 +135,7 @@ lspconfig.pyright.setup({
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         autoImportCompletions = true,
-        diagnosticMode = 'workspace',
+        diagnosticMode = 'openFilesOnly',
         diagnosticSeverityOverrides = {
           strictListInference = true,
           strictDictionaryInference = true,
@@ -156,47 +159,41 @@ lspconfig.pyright.setup({
   },
 })
 
-lspconfig.tsserver.setup({
-  capabilities = capabilities,
-  filetypes = {
-    'javascript',
-    'javascriptreact',
-    'javascript.jsx',
-    'typescript',
-    'typescriptreact',
-    'typescript.tsx',
+lspconfig.rust_analyzer.setup({
+  on_attach = Attach,
+  settings = {
+    ['rust-analyzer'] = {
+      imports = {
+        granularity = {
+          group = 'module',
+        },
+        prefix = 'self',
+      },
+      cargo = {
+        buildScripts = {
+          enable = true,
+        },
+      },
+      procMacro = {
+        enable = false,
+      },
+    },
   },
-  root_dir = lspconfig.util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json'),
-  cmd = { 'typescript-language-server', '--stdio' },
-})
-
-lspconfig.tailwindcss.setup({
-  capabilities = capabilities,
-  cmd = { 'tailwindcss-language-server', '--stdio' },
-  root_dir = lspconfig.util.root_pattern(
-    'tailwind.config.js',
-    'tailwind.config.ts',
-    'postcss.config.js',
-    'postcss.config.ts',
-    'package.json',
-    'node_modules',
-    'index.html'
-  ),
 })
 
 local servers = {
   'bashls',
-  'rust_analyzer',
 }
 
 for _, server in ipairs(servers) do
   lspconfig[server].setup({
-    capabilities = capabilities,
+    on_attach = Attach,
   })
 end
 
 vim.lsp.handlers['workspace/diagnostic/refresh'] = function(_, _, ctx)
   local ns = vim.lsp.diagnostic.get_namespace(ctx.client_id)
-  pcall(vim.diagnostic.reset, ns)
+  local bufnr = vim.api.nvim_get_current_buf()
+  vim.diagnostic.reset(ns, bufnr)
   return true
 end

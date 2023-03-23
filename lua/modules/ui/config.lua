@@ -1,53 +1,39 @@
 local config = {}
 
-function config.theme()
-	vim.cmd.colorscheme("flipped")
-end
-
 function config.galaxyline()
-	require("modules.ui.statusline")
+  vim.defer_fn(function()
+    require('modules.ui.statusline')
+  end, 200)
 end
 
-function config.indent_blankline()
-	vim.opt.list = true
-	vim.opt.listchars:append("space: ")
-	require("indent_blankline").setup({
-		space_char_blankline = " ",
-		show_current_context = true,
-		show_current_context_start = true,
-		filetype_exclude = {
-			"dashboard",
-			"DogicPrompt",
-			"log",
-			"fugitive",
-			"gitcommit",
-			"packer",
-			"markdown",
-			"json",
-			"txt",
-			"vista",
-			"help",
-			"todoist",
-			"NvimTree",
-			"git",
-			"TelescopePrompt",
-			"undotree",
-		},
-		buftype_exclude = { "terminal", "nofile", "prompt" },
-		context_patterns = {
-			"class",
-			"function",
-			"method",
-			"block",
-			"list_literal",
-			"selector",
-			"^if",
-			"^table",
-			"if_statement",
-			"while",
-			"for",
-		},
-	})
+function config.whisky()
+  vim.defer_fn(function()
+    require('whiskyline').setup()
+  end, 20)
+end
+
+function config.gitsigns()
+  local status_ok, gitsigns = pcall(require, 'gitsigns')
+  if not status_ok then
+    vim.notify('gitsigns not found!')
+    return
+  end
+
+  gitsigns.setup({
+    current_line_blame = true,
+    current_line_blame_formatter = ' <author> - <summary>, <author_time:%Y-%m-%d>',
+    current_line_blame_formatter_opts = {
+      relative_time = false,
+    },
+    signs = {
+      add = { text = '+' },
+      change = { text = '┃' },
+      delete = { text = '⚊' },
+      topdelete = { text = '‾' },
+      changedelete = { text = '~' },
+      untracked = { text = '┇' },
+    },
+  })
 end
 
 return config

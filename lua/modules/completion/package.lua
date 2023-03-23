@@ -1,4 +1,3 @@
-local package = require("core.pack").package
 local conf = require("modules.completion.config")
 
 local enable_lsp_filetype = {
@@ -15,21 +14,22 @@ local enable_lsp_filetype = {
 	"python",
 }
 
-package({
+packadd({
 	"neovim/nvim-lspconfig",
 	ft = enable_lsp_filetype,
+  -- event = { "VeryLazy" },
 	config = conf.nvim_lsp,
 })
 
-package({
+packadd({
 	"glepnir/lspsaga.nvim",
 	event = "LspAttach",
 	config = conf.lspsaga,
 })
 
-package({ "windwp/nvim-autopairs", event = "InsertEnter" })
+packadd({ "windwp/nvim-autopairs", event = "InsertEnter" })
 
-package({
+packadd({
 	"hrsh7th/nvim-cmp",
 	event = { "InsertEnter" },
 	config = conf.nvim_cmp,
@@ -44,7 +44,7 @@ package({
 	},
 })
 
-package({
+packadd({
 	"windwp/nvim-ts-autotag",
 	config = conf.ts_autotag,
 	ft = { "html", "javascript", "xml" },

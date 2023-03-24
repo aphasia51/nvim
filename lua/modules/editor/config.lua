@@ -43,11 +43,8 @@ function config.telescope()
           ['<C-j>'] = actions.cycle_history_next,
           ['<C-k>'] = actions.cycle_history_prev,
           ['<leader>f'] = actions.close,
-
-          ['<C-Down>'] = actions.cycle_history_next,
-          ['<C-Up>'] = actions.cycle_history_prev,
-
           ['<CR>'] = actions.select_default,
+
           ['<C-x>'] = actions.select_horizontal,
           ['<C-v>'] = actions.select_vertical,
           ['<C-t>'] = actions.select_tab,
@@ -55,100 +52,31 @@ function config.telescope()
           ['<A-k>'] = actions.preview_scrolling_up,
           ['<A-j>'] = actions.preview_scrolling_down,
 
-          ['<PageUp>'] = actions.preview_scrolling_up,
-          ['<PageDown>'] = actions.preview_scrolling_down,
-
           ['<Tab>'] = actions.move_selection_next,
           ['<S-Tab>'] = actions.move_selection_previous,
-          ['<C-q>'] = actions.send_to_qflist + actions.open_qflist,
-          ['<M-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
-          ['<C-l>'] = actions.complete_tag,
           ['<C-_>'] = actions.which_key, -- keys from pressing <C-/>
         },
-
         n = {
           ['<esc>'] = actions.close,
           ['q'] = actions.close,
           ['<C-f>'] = actions.close,
           ['<CR>'] = actions.select_default,
           ['o'] = actions.select_default,
+
           ['<C-x>'] = actions.select_horizontal,
           ['<C-v>'] = actions.select_vertical,
           ['<C-t>'] = actions.select_tab,
 
-          -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-          -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
           ['<Tab>'] = actions.move_selection_next,
           ['<S-Tab'] = actions.move_selection_previous,
-          ['<C-q>'] = actions.send_to_qflist + actions.open_qflist,
-          ['<M-q>'] = actions.send_selected_to_qflist + actions.open_qflist,
-
           ['j'] = actions.move_selection_next,
           ['k'] = actions.move_selection_previous,
-
-          ['H'] = actions.move_to_top,
-          ['M'] = actions.move_to_middle,
-          ['L'] = actions.move_to_bottom,
-
-          ['<Down>'] = actions.move_selection_next,
-
-          ['<Up>'] = actions.move_selection_previous,
           ['gg'] = actions.move_to_top,
           ['G'] = actions.move_to_bottom,
-
           ['<A-k>'] = actions.preview_scrolling_up,
           ['<A-j>'] = actions.preview_scrolling_down,
-
-          ['<PageUp>'] = actions.preview_scrolling_up,
-          ['<PageDown>'] = actions.preview_scrolling_down,
-
           ['?'] = actions.which_key,
         },
-      },
-      file_ignore_patterns = {
-        'vendor/*',
-        '%.lock',
-        '__pycache__/*',
-        '%.sqlite3',
-        '%.ipynb',
-        'node_modules/*',
-        '%.jpg',
-        '%.jpeg',
-        '%.png',
-        '%.svg',
-        '%.otf',
-        '%.ttf',
-        '.git/',
-
-        '%.webp',
-
-        '.dart_tool/',
-        '.github/',
-        '.gradle/',
-        '.idea/',
-        '.settings/',
-        '.vscode/',
-        '__pycache__/',
-        'build/',
-        'env/',
-        'gradle/',
-        'node_modules/',
-        'target/',
-        '%.pdb',
-        '%.dll',
-        '%.class',
-        '%.exe',
-        '%.cache',
-        '%.ico',
-        '%.pdf',
-        '%.dylib',
-        '%.jar',
-        '%.docx',
-        '%.met',
-        'smalljre_*/*',
-        '.vale/',
-        'font/',
-        '.DS_Store',
       },
     },
     extensions = {
@@ -175,6 +103,8 @@ function config.telescope()
 
   require('telescope').load_extension('file_browser')
   require('telescope').load_extension('fzy_native')
+  require('telescope').load_extension('dotfiles')
+  require('telescope').load_extension('app')
 end
 
 function config.nvim_treesitter()

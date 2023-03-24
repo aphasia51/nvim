@@ -7,6 +7,7 @@ packadd({
 
 packadd({
   'olimorris/onedarkpro.nvim',
+  config = conf.onedarkpro,
   lazy = true,
 })
 

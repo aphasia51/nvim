@@ -36,4 +36,12 @@ function config.gitsigns()
   })
 end
 
+function config.onedarkpro()
+  require('onedarkpro').setup({
+    highlights = {
+      PmenuSel = { bg = '#856D72', fg = 'NONE' },
+    },
+  })
+end
+
 return config

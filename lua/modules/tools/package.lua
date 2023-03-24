@@ -20,8 +20,6 @@ packadd({
   event = { 'InsertEnter' },
 })
 
-
-
 packadd({
   'akinsho/toggleterm.nvim',
   config = conf.toggleterm,
@@ -117,4 +115,11 @@ packadd({
   config = function()
     require('flybuf').setup({})
   end,
+})
+
+packadd({
+  'glepnir/dashboard-nvim',
+  event = 'VimEnter',
+  config = conf.dashboard,
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
 })

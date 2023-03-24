@@ -161,4 +161,55 @@ function config.hop()
   end, 200)
 end
 
+function config.dashboard()
+  local db = require('dashboard')
+  db.setup({
+    theme = 'hyper',
+    config = {
+      week_header = {
+        enable = true,
+      },
+      project = {
+        enable = true,
+      },
+      disable_move = false,
+      shortcut = {
+        {
+          desc = 'Update',
+          icon = ' ',
+          group = 'Operator',
+          action = 'Lazy update',
+          key = 'u',
+        },
+        {
+          icon = ' ',
+          desc = 'Files',
+          group = 'Function',
+          action = 'Telescope find_files',
+          key = 'f',
+        },
+        {
+          icon = ' ',
+          desc = 'Apps',
+          group = 'String',
+          action = 'Telescope app',
+          key = 'a',
+        },
+        {
+          icon = ' ',
+          desc = 'dotfiles',
+          group = 'Constant',
+          action = 'Telescope dotfiles',
+          key = 'd',
+        },
+      },
+    },
+  })
+  vim.api.nvim_create_autocmd('TabNewEntered', {
+    callback = function()
+      vim.cmd('Dashboard')
+    end,
+  })
+end
+
 return config

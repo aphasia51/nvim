@@ -5,22 +5,20 @@ function config.nvim_lsp()
 end
 
 function config.lspsaga()
-  vim.defer_fn(function()
-    require('lspsaga').setup({
-      -- symbol_in_winbar = {
-      --   ignore_patterns = { '%w_spec' },
-      -- },
-      ui = {
-        border = 'single',
-        colors = {
-          normal_bg = '#262a33',
-        },
-        kind = {
-          ['Folder'] = { ' ', '@repeat' },
-        },
+  require('lspsaga').setup({
+    symbol_in_winbar = {
+      ignore_patterns = { '%w_spec' },
+    },
+    ui = {
+      border = 'single',
+      colors = {
+        normal_bg = '#262a33',
       },
-    })
-  end, 100)
+      kind = {
+        ['Folder'] = { ' ', '@repeat' },
+      },
+    },
+  })
 end
 
 function config.lua_snip()

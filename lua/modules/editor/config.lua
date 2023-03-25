@@ -2,42 +2,19 @@ local config = {}
 
 function config.telescope()
   local actions = require('telescope.actions')
+  local fb_actions = require('telescope').extensions.file_browser.actions
   require('telescope').setup({
     defaults = {
-      path_display = { 'truncate' },
-      dynamic_preview_title = true,
       prompt_prefix = '' .. ' ',
       selection_caret = ' ',
-      initial_mode = 'insert',
-      sorting_strategy = 'ascending',
-      -- borderchars = {
-      -- 	prompt = { "━", "┃", "━", "┃", "┏", "┓", "┛", "┗" },
-      -- 	preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-      -- 	results = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-      -- },
-      color_devicons = true,
-      preview = {
-        filesize_limit = 5,
-        timeout = 300,
-        treesitter = true,
-      },
-      history = {
-        limit = 100,
-      },
-      layout_strategy = 'horizontal',
       layout_config = {
-        horizontal = {
-          prompt_position = 'top',
-          preview_width = 0.55,
-          results_width = 0.6,
-        },
-        vertical = {
-          mirror = false,
-        },
-        width = 0.74,
-        height = 0.76,
-        preview_cutoff = 120,
+        horizontal = { prompt_position = 'top', results_width = 0.6 },
+        vertical = { mirror = false },
       },
+      sorting_strategy = 'ascending',
+      file_previewer = require('telescope.previewers').vim_buffer_cat.new,
+      grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
+      qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
       mappings = {
         i = {
           ['<C-j>'] = actions.cycle_history_next,
@@ -80,30 +57,22 @@ function config.telescope()
       },
     },
     extensions = {
-      file_browser = {
-        dic_icon = '=',
-        grouped = true,
-        preview = false,
-        files = true,
-      },
       fzy_native = {
         override_generic_sorter = false,
         override_file_sorter = true,
       },
-    },
-    pickers = {
-      live_grep = {
-        on_input_filter_cb = function(prompt)
-          -- AND operator for live_grep like how fzf handles spaces
-          return { prompt = prompt:gsub('%s', '.*') }
-        end,
+      file_browser = {
+        mappings = {
+          ['n'] = {
+            ['u'] = fb_actions.goto_parent_dir,
+          },
+        },
       },
     },
   })
-
-  require('telescope').load_extension('file_browser')
   require('telescope').load_extension('fzy_native')
   require('telescope').load_extension('dotfiles')
+  require('telescope').load_extension('file_browser')
   require('telescope').load_extension('app')
 end
 

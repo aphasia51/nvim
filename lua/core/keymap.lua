@@ -76,7 +76,12 @@ keymap('v', ',', '0', opts)
 -- *** Plugins keymaps *** --
 
 -- Telescope
-keymap('n', '<C-l>', '<cmd>Telescope find_files --ignore<CR>', opts)
+keymap(
+  'n',
+  '<C-l>',
+  '<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>',
+  opts
+)
 keymap('n', '<C-f>', '<cmd>Telescope live_grep<CR>', opts)
 keymap('n', '<C-e>', '<cmd>Telescope diagnostics<CR>', opts)
 -- keymap("n", "<leader>s", "<cmd>Telescope git_status<CR>", opts)

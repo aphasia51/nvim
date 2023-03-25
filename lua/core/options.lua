@@ -11,9 +11,11 @@ vim.o.fileencoding = 'utf-8'
 vim.o.scrolloff = 6
 vim.o.sidescrolloff = 6
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.wo.cursorline = true
-vim.o.signcolumn = 'yes:1'
+vim.opt.numberwidth = 3
+vim.opt.statuscolumn = '%=%s%l '
+vim.opt.signcolumn = 'yes'
 vim.wo.colorcolumn = '80'
 vim.o.tabstop = 2
 vim.bo.tabstop = 2

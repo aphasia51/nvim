@@ -41,3 +41,9 @@ packadd({
   ft = { 'c', 'cpp', 'rust', 'lua', 'go', 'python' },
   config = conf.easyformat,
 })
+
+packadd({
+  'ray-x/go.nvim',
+  ft = { 'go', 'gomod' },
+  config = conf.go,
+})

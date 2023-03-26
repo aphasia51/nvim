@@ -254,4 +254,10 @@ function config.easyformat()
   })
 end
 
+function config.go()
+  vim.defer_fn(function()
+    require('go').setup()
+  end, 100)
+end
+
 return config

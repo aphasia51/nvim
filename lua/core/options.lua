@@ -105,7 +105,7 @@ local _time = os.date('*t')
 if _time.hour >= 19 or _time.hour < 8 then
   _G_colorscheme = 'zephyr'
 else
-  _G_colorscheme = 'onedark'
+  _G_colorscheme = 'zephyr'
 end
 local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
 if not ok then

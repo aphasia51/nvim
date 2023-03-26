@@ -6,12 +6,6 @@ packadd({
 })
 
 packadd({
-  'olimorris/onedarkpro.nvim',
-  config = conf.onedarkpro,
-  lazy = true,
-})
-
-packadd({
   'glepnir/galaxyline.nvim',
   enabled = false,
   config = conf.galaxyline,

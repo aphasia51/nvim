@@ -36,23 +36,4 @@ function config.gitsigns()
   })
 end
 
-function config.onedarkpro()
-  require('onedarkpro').setup({
-    highlights = {
-      PmenuSel = { bg = '#856D72', fg = 'NONE' },
-      DashboardHeader = { fg = '#957FB8' },
-      DashboardFooter = { fg = '#6e7171' },
-
-      DashboardProjectIcon = { fg = '#7788d4' },
-      DashboardProjectTitle = { fg = '#4491D4' },
-      DashboardProjectTitleIcon = { fg = '#f0945d' },
-
-      DashboardMruIcon = { fg = '#f0945d' },
-      DashboardMruTitle = { fg = '#4491D4' },
-
-      DashboardShortCutIcon = { fg = '#69a794' },
-    },
-  })
-end
-
 return config

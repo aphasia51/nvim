@@ -103,13 +103,6 @@ packadd({
 })
 
 packadd({
-  'gen740/SmoothCursor.nvim',
-  enabled = false,
-  event = 'VeryLazy',
-  config = conf.smooth_cursor,
-})
-
-packadd({
   'glepnir/flybuf.nvim',
   cmd = 'FlyBuf',
   config = function()

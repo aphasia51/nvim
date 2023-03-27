@@ -14,7 +14,7 @@ vim.opt.number = true
 vim.opt.relativenumber = false
 vim.wo.cursorline = true
 vim.opt.numberwidth = 3
-vim.opt.statuscolumn = '%=%s%l '
+-- vim.opt.statuscolumn = '%=%s%l '
 vim.opt.signcolumn = 'yes'
 vim.wo.colorcolumn = '80'
 vim.o.tabstop = 2

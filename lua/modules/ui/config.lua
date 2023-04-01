@@ -22,16 +22,14 @@ function config.gitsigns()
   gitsigns.setup({
     current_line_blame = true,
     current_line_blame_formatter = ' <author> - <summary>, <author_time:%Y-%m-%d>',
-    current_line_blame_formatter_opts = {
-      relative_time = false,
-    },
+    numhl = true,
     signs = {
-      add = { text = '+' },
-      change = { text = '┃' },
-      delete = { text = '⚊' },
-      topdelete = { text = '‾' },
-      changedelete = { text = '~' },
-      untracked = { text = '┇' },
+      add = { hl = 'GitGutterAdd', text = '+' },
+      change = { hl = 'GitGutterChange', text = '┃' },
+      delete = { hl = 'GitGutterDelete', text = '⚊' },
+      topdelete = { hl = 'GitSignsDeleteChange', text = '‾' },
+      changedelete = { hl = 'GitSignsChange', text = '~' },
+      untracked = { hl = 'GitSignsAdd', text = '┇' },
     },
   })
 end

@@ -81,7 +81,7 @@ packadd({
 
 packadd({
   'glepnir/hlsearch.nvim',
-  event = { 'InsertEnter' },
+  event = { 'BufRead' },
   config = function()
     require('hlsearch').setup()
   end,

@@ -141,7 +141,7 @@ function config.dashboard()
       project = {
         enable = true,
       },
-      disable_move = false,
+      disable_move = true,
       shortcut = {
         {
           desc = 'Update',

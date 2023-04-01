@@ -1,5 +1,3 @@
 {
-    "diagnostics.disable": [
-        "param-type-mismatch"
-    ]
+    "workspace.checkThirdParty": false
 }

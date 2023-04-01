@@ -83,11 +83,11 @@ keymap(
   opts
 )
 keymap('n', '<C-f>', '<cmd>Telescope live_grep<CR>', opts)
-keymap('n', '<C-e>', '<cmd>Telescope diagnostics<CR>', opts)
+keymap('n', '<C-d>', '<cmd>Telescope diagnostics<CR>', opts)
 -- keymap("n", "<leader>s", "<cmd>Telescope git_status<CR>", opts)
 keymap('n', '<C-g>', '<cmd>Telescope git_commits<CR>', opts)
 -- keymap('n', '<C-b>', '<cmd>Telescope buffers<CR>', opts)
-keymap('n', '<C-d>', '<cmd>TodoTelescope<CR>', opts)
+keymap('n', '<C-t>', '<cmd>TodoTelescope<CR>', opts)
 -- keymap("n", "<leader>;", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap('n', '<C-m>', '<cmd>Telescope file_browser<CR>', opts)
 

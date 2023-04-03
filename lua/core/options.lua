@@ -80,7 +80,7 @@ vim.o.showmode = false
 vim.opt.laststatus = 3
 vim.opt.showcmd = true
 vim.o.iminsert = 0
-vim.o.clipboard = true
+vim.o.clipboard = 'unnamedplus'
 vim.o.grepprg = 'rg --vimgrep'
 vim.o.grepformat = '%f:%l:%c:%m'
 vim.opt.runtimepath:remove({ '/etc/xdg/nvim', '/etc/xdg/nvim/after', '/usr/share/vim/vimfiles' })
@@ -107,19 +107,4 @@ end
 local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
 if not ok then
   return
-end
-
-if vim.loop.os_uname().sysname == 'Darwin' then
-  vim.g.clipboard = {
-    name = 'macOS-clipboard',
-    copy = {
-      ['+'] = 'pbcopy',
-      ['*'] = 'pbcopy',
-    },
-    paste = {
-      ['+'] = 'pbpaste',
-      ['*'] = 'pbpaste',
-    },
-    cache_enabled = 0,
-  }
 end

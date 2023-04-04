@@ -142,11 +142,6 @@ function config.nvim_treesitter()
         disable = function(lang, bufnr)
           local lines = vim.api.nvim_buf_line_count(bufnr)
           if lang ~= nil and lines >= 1800 then
-            -- vim.cmd([[syntax off]])
-            -- vim.cmd([[filetype off]])
-            -- vim.cmd([[set noundofile]])
-            -- vim.cmd([[set noswapfile]])
-            -- vim.cmd([[set noloadplugins]])
             print('Large file, skipped treesitter')
             return true
           else

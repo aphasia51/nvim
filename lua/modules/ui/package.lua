@@ -2,12 +2,12 @@ local conf = require('modules.ui.config')
 
 packadd({
   'aphasia51/zephyr-nvim',
+  dev = true,
   lazy = true,
 })
 
 packadd({
   'glepnir/galaxyline.nvim',
-  enabled = false,
   config = conf.galaxyline,
   event = { 'BufRead', 'BufNewFile' },
   dependencies = 'nvim-tree/nvim-web-devicons',
@@ -15,15 +15,7 @@ packadd({
 })
 
 packadd({
-  'glepnir/whiskyline.nvim',
-  dev = true,
-  config = conf.whisky,
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
-})
-
-packadd({
-  'glepnir/gitsigns.nvim',
-  branch = 'patch_2',
+  'lewis6991/gitsigns.nvim',
   event = { 'InsertEnter' },
   config = conf.gitsigns,
 })

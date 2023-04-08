@@ -47,7 +47,7 @@ function config.toggleterm()
     shell = vim.fn.has('win32') == 1 and 'pwsh' or vim.o.shell,
     -- This field is only relevant if direction is set to 'float'
     float_opts = {
-      border = 'single',
+      border = 'curved',
       width = 76,
       height = 21,
       winblend = 8,

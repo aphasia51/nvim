@@ -1,9 +1,7 @@
 local config = {}
 
 function config.galaxyline()
-  vim.defer_fn(function()
-    require('modules.ui.statusline')
-  end, 200)
+  require('modules.ui.statusline')
 end
 
 function config.whisky()

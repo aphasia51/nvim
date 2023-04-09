@@ -80,6 +80,17 @@ end
 function config.diffview()
   require('diffview').setup({
     enhanced_diff_hl = true,
+    file_panel = {
+      listing_style = 'tree',
+      tree_options = {
+        flatten_dirs = true,
+        folder_statuses = 'only_folded',
+      },
+      win_config = {
+        position = 'left',
+        width = 28,
+      },
+    },
   })
 end
 

@@ -141,6 +141,11 @@ keymap('n', 'gs', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
 keymap('n', 'go', '<cmd>Lspsaga outline<CR>', opts)
 -- keymap('n', 'gt', '<cmd>Lspsaga term_toggle<CR>', opts)
 
+-- Diffview
+keymap('n', 'do', '<cmd>DiffviewOpen<CR>', opts)
+keymap('n', 'dc', '<cmd>DiffviewClose<CR>', opts)
+keymap('n', 'dh', '<cmd>DiffviewFileHistory<CR>', opts)
+
 --Dap
 -- keymap('n', 'db', "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
 -- keymap('n', '<F4>', "<cmd>lua require'dap'.terminate()<CR>", opts)

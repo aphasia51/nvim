@@ -4,12 +4,6 @@ function config.galaxyline()
   require('modules.ui.statusline')
 end
 
-function config.whisky()
-  vim.defer_fn(function()
-    require('whiskyline').setup()
-  end, 20)
-end
-
 function config.gitsigns()
   local status_ok, gitsigns = pcall(require, 'gitsigns')
   if not status_ok then

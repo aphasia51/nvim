@@ -19,7 +19,7 @@ packadd({
 })
 
 packadd({
-  'glepnir/mutchar.nvim',
+  'nvimdev/mutchar.nvim',
   ft = { 'go' },
   config = conf.mutchar,
 })
@@ -37,7 +37,7 @@ packadd({
 })
 
 packadd({
-  'glepnir/easyformat.nvim',
+  'nvimdev/easyformat.nvim',
   ft = { 'c', 'cpp', 'rust', 'lua', 'go', 'python' },
   config = conf.easyformat,
 })

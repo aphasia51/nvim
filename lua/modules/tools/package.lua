@@ -80,7 +80,7 @@ packadd({
 })
 
 packadd({
-  'glepnir/hlsearch.nvim',
+  'nvimdev/hlsearch.nvim',
   event = { 'BufRead' },
   config = function()
     require('hlsearch').setup()
@@ -103,7 +103,7 @@ packadd({
 })
 
 packadd({
-  'glepnir/flybuf.nvim',
+  'nvimdev/flybuf.nvim',
   cmd = 'FlyBuf',
   config = function()
     require('flybuf').setup({})
@@ -111,7 +111,7 @@ packadd({
 })
 
 packadd({
-  'glepnir/dashboard-nvim',
+  'nvimdev/dashboard-nvim',
   event = 'VimEnter',
   config = conf.dashboard,
   dependencies = { 'nvim-tree/nvim-web-devicons' },

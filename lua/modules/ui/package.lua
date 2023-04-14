@@ -7,7 +7,7 @@ packadd({
 })
 
 packadd({
-  'glepnir/galaxyline.nvim',
+  'nvimdev/galaxyline.nvim',
   config = conf.galaxyline,
   event = { 'BufRead', 'BufNewFile' },
   dependencies = 'nvim-tree/nvim-web-devicons',

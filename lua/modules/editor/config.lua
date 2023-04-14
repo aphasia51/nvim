@@ -165,16 +165,13 @@ function config.nvim_treesitter()
 end
 
 function config.mutchar()
-  vim.defer_fn(function()
-    require('mutchar').setup({
-      ['go'] = {
-        rules = {
-          { ';', ':=' },
-        },
-        one_to_one = true,
+  require('mutchar').setup({
+    ['go'] = {
+      rules = {
+        { ';', ':=' },
       },
-    })
-  end, 200)
+    },
+  })
 end
 
 function config.comment()

@@ -30,14 +30,15 @@ keymap('n', 'F', '<cmd>HopLine<CR>', opts)
 keymap('n', '<A-[>', ':vertical resize -3<CR>', opts)
 keymap('n', '<A-]>', ':vertical resize +3<CR>', opts)
 
-keymap('n', '<C-s>', ':w<CR>', opts)
-
 -- Insert --
 -- Press jk fast to enter
 keymap('i', 'jk', '<ESC>', opts)
 
 keymap('i', '<C-s>', '<ESC>:w<CR>', opts)
 keymap('i', '<C-j>', '<ESC>o', opts)
+keymap('i', '<C-k>', '<ESC>O', opts)
+keymap('i', '<C-a>', '<Esc>^i', opts)
+keymap('i', '<C-l>', '<Esc>$a', opts)
 
 keymap('n', 'j', 'gj', opts)
 keymap('n', 'k', 'gk', opts)

@@ -40,6 +40,8 @@ keymap('i', '<C-k>', '<ESC>O', opts)
 keymap('i', '<C-a>', '<Esc>^i', opts)
 keymap('i', '<C-l>', '<Esc>$a', opts)
 
+keymap('n', '<C-s>', ':w<CR>', opts)
+
 keymap('n', 'j', 'gj', opts)
 keymap('n', 'k', 'gk', opts)
 

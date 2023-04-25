@@ -8,6 +8,7 @@ packadd({
 
 packadd({
   'nvimdev/galaxyline.nvim',
+  enabled = false,
   config = conf.galaxyline,
   event = { 'BufRead', 'BufNewFile' },
   dependencies = 'nvim-tree/nvim-web-devicons',
@@ -15,8 +16,16 @@ packadd({
 })
 
 packadd({
+  'nvimdev/whiskyline.nvim',
+  config = function()
+    require('whiskyline').setup({})
+  end,
+  dependencies = 'nvim-tree/nvim-web-devicons',
+})
+
+packadd({
   'lewis6991/gitsigns.nvim',
-  event = { 'InsertEnter' },
+  -- event = { 'InsertEnter' },
   config = conf.gitsigns,
 })
 

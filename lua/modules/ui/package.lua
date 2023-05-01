@@ -17,6 +17,7 @@ packadd({
 
 packadd({
   'nvimdev/whiskyline.nvim',
+  dev = true,
   config = function()
     require('whiskyline').setup({})
   end,

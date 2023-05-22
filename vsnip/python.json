@@ -1,0 +1,8 @@
+{
+  "function main": {
+    "prefix": "dm",
+    "body": ["def main():\n\t$1"],
+    "description": "Snippet for function main"
+  }
+}
+

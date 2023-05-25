@@ -12,8 +12,7 @@ local enable_lsp_filetype = {
   'python',
 }
 
-return{
-
+return {
 
   {
     'neovim/nvim-lspconfig',
@@ -22,7 +21,7 @@ return{
     -- event = { "VeryLazy" },
     config = function()
       require('plugins.extra.lspconfig')
-    end
+    end,
   },
 
   {
@@ -44,10 +43,8 @@ return{
           },
         },
       })
-    end
+    end,
   },
-
-  { 'windwp/nvim-autopairs', event = 'InsertEnter' },
 
   {
     'hrsh7th/nvim-cmp',
@@ -59,17 +56,19 @@ return{
       'hrsh7th/cmp-cmdline',
       'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-vsnip',
-      -- {
-      --   'L3MON4D3/LuaSnip',
-      --   config = function()
-      --     require("luasnip.loaders.from_vscode").lazy_load()
-      --   end
-      -- },
       'rafamadriz/friendly-snippets',
     },
     config = function()
       require('plugins.extra.cmp')
-    end
+    end,
+  },
+
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    config = function()
+      require('nvim-autopairs').setup({})
+    end,
   },
 
   {
@@ -77,6 +76,6 @@ return{
     ft = { 'html', 'javascript', 'xml' },
     config = function()
       require('nvim-ts-autotag').setup({})
-    end
-  }
+    end,
+  },
 }

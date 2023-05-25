@@ -22,6 +22,32 @@ require("lazy").setup({
   install = { missing = true, colorscheme = { "zephyr" } },
   ui = { border = "rounded" },
   dev = { path = '~/workspace/lua' },
-  lockfile = "~/.local/share/nvim" .. "/lazy-lock.json"
+  lockfile = "~/.local/share/nvim" .. "/lazy-lock.json",
+  performance = {
+    cache = {
+      enabled = true,
+    },
+    reset_packpath = true,
+    rtp = {
+      reset = true,
+      disabled_plugins = {
+        'gzip',
+        'matchit',
+        -- 'matchparen',
+        'netrwPlugin',
+        'tarPlugin',
+        'tohtml',
+        'tutor',
+        'shada',
+        'editorconfig',
+        'health',
+        'man',
+        'nvim',
+        'rplugin',
+        'spellfile',
+        'zipPlugin',
+      },
+    },
+  },
 })
 vim.keymap.set("n", "<leader>L", "<cmd>:Lazy<cr>", { desc = "Plugin Manager" })

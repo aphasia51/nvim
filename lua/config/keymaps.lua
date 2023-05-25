@@ -32,13 +32,13 @@ keymap('n', '<A-]>', ':vertical resize +3<CR>', opts)
 -- Press jk fast to enter
 keymap('i', 'jk', '<ESC>', opts)
 
-keymap('i', '<C-s>', '<ESC>:w<CR>', opts)
+keymap('i', '<C-s>', '<ESC>:w<CR>', { noremap = true })
 keymap('i', '<C-j>', '<ESC>o', opts)
 keymap('i', '<C-k>', '<ESC>O', opts)
 keymap('i', '<C-a>', '<Esc>^i', opts)
 keymap('i', '<C-l>', '<Esc>$a', opts)
 
-keymap('n', '<C-s>', ':w<CR>', opts)
+keymap('n', '<C-s>', ':w<CR>', { noremap = true })
 
 keymap('n', 'j', 'gj', opts)
 keymap('n', 'k', 'gk', opts)
@@ -112,8 +112,8 @@ keymap('n', '<leader>o', '<cmd>Lspsaga outline<CR>', opts)
 -- Import packages in go files
 keymap('n', '<leader>e', ":<cmd>lua require'internal.func'.import()<CR><CR>", opts)
 
--- Format
-keymap('n', '<leader>f', '<cmd>EasyFormat<CR>', opts)
+-- Format Python File
+keymap('n', '<leader>f', '<cmd>!black %<CR>', opts)
 
 -- Trouble
 keymap('n', '<leader>d', '<cmd>TroubleToggle<CR>', opts)
@@ -156,4 +156,3 @@ keymap('n', 'dh', '<cmd>DiffviewFileHistory<CR>', opts)
 -- keymap('n', '<F5>', "<cmd>lua require'dap'.step_into()<CR>", opts)
 -- keymap('n', '<F6>', "<cmd>lua require'dap'.step_out()<CR>", opts)
 -- keymap('n', 'du', '<cmd>DapUiToggle<CR>', opts)
-

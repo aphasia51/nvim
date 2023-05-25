@@ -1,6 +1,6 @@
 local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 vim.opt.directory = cache_dir .. 'swag/'
 vim.opt.undodir = cache_dir .. 'undo/'
@@ -93,6 +93,9 @@ vim.opt.wildignore:append(
 vim.g.python_host_skip_check = 1
 vim.g.python3_host_skip_check = 1
 vim.g.loaded_python_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
 
 vim.g.vsnip_snippet_dir = vim.fn.expand('~/.config/nvim/vsnip')
 

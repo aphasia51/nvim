@@ -9,7 +9,7 @@ return {
     },
     config = function()
       require('plugins.extra.telescope.telescope')
-    end
+    end,
   },
 
   {
@@ -20,7 +20,7 @@ return {
     build = ':TSUpdate',
     config = function()
       require('plugins.extra.treesitter')
-    end
+    end,
   },
 
   {
@@ -29,12 +29,12 @@ return {
     ft = { 'go' },
     config = function()
       local ctx = require('mutchar.context')
-  require('mutchar').setup({
-    go = {
-      [';'] = { ':= ', ctx.diagnostic_match({ 'undefine', 'expression' }) },
-    },
-  })
-    end
+      require('mutchar').setup({
+        go = {
+          [';'] = { ':= ', ctx.diagnostic_match({ 'undefine', 'expression' }) },
+        },
+      })
+    end,
   },
 
   {
@@ -42,29 +42,29 @@ return {
     event = { 'BufRead' },
     config = function()
       vim.defer_fn(function()
-    local ok, m = pcall(require, 'Comment')
-    if not ok then
-      return
-    end
+        local ok, m = pcall(require, 'Comment')
+        if not ok then
+          return
+        end
 
-    m.setup({
-      toggler = {
-        line = 'gcc',
-        block = 'gcb',
-      },
-      opleader = {
-        line = 'gc',
+        m.setup({
+          toggler = {
+            line = 'gcc',
+            block = 'gcb',
+          },
+          opleader = {
+            line = 'gc',
 
-        block = 'gb',
-      },
-      extra = {
-        above = 'gck',
-        below = 'gcj',
-        eol = 'gca',
-      },
-    })
-  end, 500)
-  end
+            block = 'gb',
+          },
+          extra = {
+            above = 'gck',
+            below = 'gcj',
+            eol = 'gca',
+          },
+        })
+      end, 500)
+    end,
   },
 
   {
@@ -72,23 +72,23 @@ return {
     cmd = { 'TroubleToggle' },
     config = function()
       local trouble = require('trouble')
-  -- local null_ls = require("null-ls")
-  trouble.setup({
-    -- source = {
-    -- 	null_ls.builtins.code_actions.gitsigns,
-    -- },
-    position = 'bottom',
-    height = 7,
-    width = 50,
-    mode = 'workspace_diagnostics',
-    auto_close = true,
-    action_keys = {
-      cspell_good = 'f',
-      cspell_all_good = 'sg',
-    },
-    use_diagnostic_signs = true,
-  })
-    end
+      -- local null_ls = require("null-ls")
+      trouble.setup({
+        -- source = {
+        -- 	null_ls.builtins.code_actions.gitsigns,
+        -- },
+        position = 'bottom',
+        height = 7,
+        width = 50,
+        mode = 'workspace_diagnostics',
+        auto_close = true,
+        action_keys = {
+          cspell_good = 'f',
+          cspell_all_good = 'sg',
+        },
+        use_diagnostic_signs = true,
+      })
+    end,
   },
 
   {
@@ -96,29 +96,22 @@ return {
     ft = { 'c', 'cpp', 'rust', 'lua', 'go', 'python' },
     config = function()
       local configs = require('easyformat.config')
-  configs.lua = {
-    ignore_patterns = { '%pspec', 'neovim/*' },
-  }
-  configs.c = {
-    ignore_patterns = { 'neovim/*' },
-  }
-  configs.python = {
-    cmd = 'black',
-    args = { '-' },
-    stdin = true,
-  }
-  configs.python = {
-    cmd = 'isort',
-    args = { '-' },
-    stdin = true,
-  }
-  configs.use_default({
-    'go',
-  })
-  require('easyformat').setup({
-    fmt_on_save = true,
-  })
-    end
+      configs.lua = {
+        ignore_patterns = { '%pspec', 'neovim/*' },
+      }
+      configs.c = {
+        ignore_patterns = { 'neovim/*' },
+      }
+      configs.use_default({
+        'cpp',
+        'go',
+        'javascript',
+        'javascriptreact',
+      })
+      require('easyformat').setup({
+        fmt_on_save = true,
+      })
+    end,
   },
 
   {
@@ -126,9 +119,8 @@ return {
     ft = { 'go', 'gomod' },
     config = function()
       vim.defer_fn(function()
-    require('go').setup()
-  end, 100)
-    end
-  }
-
+        require('go').setup()
+      end, 100)
+    end,
+  },
 }

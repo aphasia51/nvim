@@ -1,18 +1,5 @@
 local lspconfig = require('lspconfig')
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
--- add for css completion
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
--- local signs = {
--- 	Error = " ",
--- 	Warn = " ",
--- 	Info = " ",
--- 	Hint = " ",
--- }
-
 local signs = {
   Error = '',
   Warn = '',
@@ -38,9 +25,17 @@ vim.diagnostic.config({
   },
 })
 
-function Attach(client, bufnr)
+function Attach(client)
   vim.opt.omnifunc = 'v:lua.vim.lsp.omnifunc'
   client.server_capabilities.semanticTokensProvider = nil
+  local orignal = vim.notify
+  local mynotify = function(msg, level, opts)
+    if msg == 'No code actions available' or msg:find('overly') then
+      return
+    end
+    orignal(msg, level, opts)
+  end
+  vim.notify = mynotify
 end
 
 lspconfig.gopls.setup({
@@ -48,7 +43,6 @@ lspconfig.gopls.setup({
   on_attach = Attach,
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_dir = lspconfig.util.root_pattern('go.mod'),
-  capabilities = capabilities,
   init_options = {
     usePlaceholders = true,
     completeUnimported = true,
@@ -112,6 +106,7 @@ lspconfig.clangd.setup({
 
 lspconfig.pyright.setup({
   on_attach = Attach,
+  cmd = { 'pyright-langserver', '--stdio' },
   root_dir = lspconfig.util.root_pattern(unpack({
     'WORKSPACE',
     'pyproject.toml',
@@ -127,7 +122,6 @@ lspconfig.pyright.setup({
   })),
   filetypes = { 'python' },
   single_file_support = true,
-  cmd = { 'pyright-langserver', '--stdio' },
   settings = {
     python = {
       analysis = {
@@ -197,4 +191,3 @@ vim.lsp.handlers['workspace/diagnostic/refresh'] = function(_, _, ctx)
   vim.diagnostic.reset(ns, bufnr)
   return true
 end
-

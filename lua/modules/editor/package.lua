@@ -13,13 +13,15 @@ packadd({
 
 packadd({
   'nvim-treesitter/nvim-treesitter',
-  event = { 'VeryLazy' },
-  -- build = ':TSUpdate',
+  -- event = { 'VeryLazy' },
+  -- event = 'BufRead',
+  build = ':TSUpdate',
   config = conf.nvim_treesitter,
 })
 
 packadd({
   'nvimdev/mutchar.nvim',
+  enabled = false,
   ft = { 'go' },
   config = conf.mutchar,
 })

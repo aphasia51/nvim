@@ -112,64 +112,63 @@ function config.nvim_treesitter()
     'rnoweb',
     'm68k',
   }
-  vim.defer_fn(function()
-    require('nvim-treesitter.configs').setup({
-      ensure_installed = {
-        'go',
-        'gomod',
-        'python',
-        'rust',
-        'lua',
-        'vim',
-        'proto',
-        'c',
-        'json',
-        'bash',
-        'yaml',
-        'markdown',
-        'markdown_inline',
-        'css',
-        'javascript',
-        'regex',
-        'bash',
-      },
-      ignore_install = ignored,
-      autotag = {
+  -- vim.defer_fn(function()
+  require('nvim-treesitter.configs').setup({
+    ensure_installed = {
+      'go',
+      'gomod',
+      'python',
+      'rust',
+      'lua',
+      'vim',
+      'proto',
+      'c',
+      'json',
+      'bash',
+      'yaml',
+      'markdown',
+      'markdown_inline',
+      'css',
+      'javascript',
+      'regex',
+      'bash',
+    },
+    ignore_install = ignored,
+    autotag = {
+      enable = true,
+    },
+    highlight = {
+      enable = true,
+      disable = function(lang, bufnr)
+        local lines = vim.api.nvim_buf_line_count(bufnr)
+        if lang ~= nil and lines >= 1800 then
+          print('Large file, skipped treesitter')
+          return true
+        else
+          return false
+        end
+      end,
+    },
+    textobjects = {
+      select = {
         enable = true,
-      },
-      highlight = {
-        enable = true,
-        disable = function(lang, bufnr)
-          local lines = vim.api.nvim_buf_line_count(bufnr)
-          if lang ~= nil and lines >= 1800 then
-            print('Large file, skipped treesitter')
-            return true
-          else
-            return false
-          end
-        end,
-      },
-      textobjects = {
-        select = {
-          enable = true,
-          keymaps = {
-            ['af'] = '@function.outer',
-            ['if'] = '@function.inner',
-            ['ac'] = '@class.outer',
-            ['ic'] = '@class.inner',
-          },
+        keymaps = {
+          ['af'] = '@function.outer',
+          ['if'] = '@function.inner',
+          ['ac'] = '@class.outer',
+          ['ic'] = '@class.inner',
         },
       },
-    })
-  end, 50)
+    },
+  })
+  -- end, 10)
 end
 
 function config.mutchar()
+  local ctx = require('mutchar.context')
   require('mutchar').setup({
-    ['go'] = {
-      rules = {
-        { ';', ':=' },
-      },
+    go = {
+      [';'] = { ':= ', ctx.diagnostic_match({ 'undefine', 'expression' }) },
     },
   })
 end

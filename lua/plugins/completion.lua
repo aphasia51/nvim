@@ -16,9 +16,9 @@ return {
 
   {
     'neovim/nvim-lspconfig',
-    lazy = false,
+    -- lazy = false,
+    event = 'BufReadPre',
     ft = enable_lsp_filetype,
-    -- event = { "VeryLazy" },
     config = function()
       require('plugins.extra.lspconfig')
     end,
@@ -26,8 +26,9 @@ return {
 
   {
     'nvimdev/lspsaga.nvim',
-    lazy = false,
-    event = 'LspAttach',
+    -- lazy = false,
+    event = { 'BufReadPost' },
+    -- event = 'LspAttach',
     config = function()
       require('lspsaga').setup({
         symbol_in_winbar = {

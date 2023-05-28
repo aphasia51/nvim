@@ -8,7 +8,7 @@ return {
   {
     'nvimdev/whiskyline.nvim',
     dev = true,
-    lazy = false,
+    event = { 'BufRead' },
     config = function()
       require('whiskyline').setup({})
     end,
@@ -43,8 +43,8 @@ return {
 
   {
     'echasnovski/mini.indentscope',
+    event = { 'BufReadPre' },
     version = false, -- wait till new 0.7.0 release to put it back on semver
-    event = { 'BufReadPre', 'BufNewFile' },
     opts = {
       -- symbol = "▏",
       symbol = '│',

@@ -14,7 +14,7 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter',
-    lazy = false,
+    event = { 'BufReadPost' },
     build = ':TSUpdate',
     config = function()
       require('plugins.extra.treesitter')
@@ -100,7 +100,8 @@ return {
 
   {
     'ray-x/go.nvim',
-    ft = { 'go', 'gomod' },
+    event = { 'BufReadPost' },
+    -- ft = { 'go', 'gomod' },
     config = function()
       vim.defer_fn(function()
         require('go').setup()

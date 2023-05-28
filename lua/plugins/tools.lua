@@ -79,11 +79,6 @@ return {
     end,
   },
 
-  -- {
-  --   'skywind3000/asyncrun.vim',
-  --   cmd = { 'AsyncRun' },
-  -- },
-  --
   {
     'skywind3000/asynctasks.vim',
     lazy = true,
@@ -179,6 +174,7 @@ return {
       end, 100)
     end,
   },
+
   -- {
   --   'rcarriga/nvim-notify',
   --   event = 'VeryLazy',

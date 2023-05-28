@@ -14,26 +14,10 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter',
-    -- event = { 'VeryLazy' },
-    -- event = 'BufRead',
     lazy = false,
     build = ':TSUpdate',
     config = function()
       require('plugins.extra.treesitter')
-    end,
-  },
-
-  {
-    'nvimdev/mutchar.nvim',
-    enabled = false,
-    ft = { 'go' },
-    config = function()
-      local ctx = require('mutchar.context')
-      require('mutchar').setup({
-        go = {
-          [';'] = { ':= ', ctx.diagnostic_match({ 'undefine', 'expression' }) },
-        },
-      })
     end,
   },
 

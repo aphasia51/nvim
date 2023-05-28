@@ -103,14 +103,13 @@ if vim.loop.os_uname().sysname == 'Darwin' then
   vim.g.python3_host_prog = '/opt/homebrew/bin/python3.10'
 end
 
--- local _time = os.date('*t')
--- if _time.hour >= 19 or _time.hour < 8 then
---  _G_colorscheme = 'zephyr'
--- else
---  _G_colorscheme = 'zephyr'
--- end
--- local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
--- if not ok then
---  return
--- end
-vim.cmd([[colorscheme zephyr]])
+local _time = os.date('*t')
+if _time.hour >= 19 or _time.hour < 8 then
+  _G_colorscheme = 'zephyr'
+else
+  _G_colorscheme = 'zephyr'
+end
+local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
+if not ok then
+  return
+end

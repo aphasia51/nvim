@@ -96,29 +96,35 @@ return {
     event = { 'InsertEnter' },
     dependencies = 'nvim-lua/plenary.nvim',
     config = function()
-      require('todo-comments').setup({
-        signs = true, -- show icons in the signs column
-        sign_priority = 8, -- sign priority
-        keywords = {
-          FIX = {
-            icon = ' ',
-            color = '#DC2626',
-            alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' },
+      vim.defer_fn(function()
+        require('todo-comments').setup({
+          signs = true,
+          sign_priority = 8,
+          keywords = {
+            FIX = {
+              icon = ' ',
+              color = '#DC2626',
+              alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' },
+            },
+            TODO = { icon = ' ', color = '#10B981' },
+            HACK = { icon = ' ', color = '#7C3AED' },
+            WARN = { icon = ' ', color = '#DC2626', alt = { 'WARNING' } },
+            NOTE = { icon = ' ', color = '#2563EB', alt = { 'INFO' } },
+            PERF = {
+              icon = ' ',
+              color = '#FBBF24',
+              alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' },
+            },
           },
-          TODO = { icon = ' ', color = '#10B981' },
-          HACK = { icon = ' ', color = '#7C3AED' },
-          WARN = { icon = ' ', color = '#DC2626', alt = { 'WARNING' } },
-          NOTE = { icon = ' ', color = '#2563EB', alt = { 'INFO' } },
-          PERF = { icon = ' ', color = '#FBBF24', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
-        },
-        colors = {
-          error = { 'DiagnosticError', 'ErrorMsg', '#DC2626' },
-          warning = { 'DiagnosticWarning', 'WarningMsg', '#FBBF24' },
-          info = { 'DiagnosticInfo', '#2563EB' },
-          hint = { 'DiagnosticHint', '#10B981' },
-          default = { 'Identifier', '#7C3AED' },
-        },
-      })
+          colors = {
+            error = { 'DiagnosticError', 'ErrorMsg', '#DC2626' },
+            warning = { 'DiagnosticWarning', 'WarningMsg', '#FBBF24' },
+            info = { 'DiagnosticInfo', '#2563EB' },
+            hint = { 'DiagnosticHint', '#10B981' },
+            default = { 'Identifier', '#7C3AED' },
+          },
+        })
+      end, 20)
     end,
   },
 
@@ -185,7 +191,7 @@ return {
 
   {
     'folke/noice.nvim',
-    event = 'VeryLazy',
+    event = { 'VeryLazy' },
     dependencies = {
       'MunifTanjim/nui.nvim',
     },
@@ -227,7 +233,7 @@ return {
 
   {
     'nvimdev/dashboard-nvim',
-    event = 'VimEnter',
+    event = { 'VimEnter' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       local db = require('dashboard')
@@ -277,6 +283,38 @@ return {
         callback = function()
           vim.cmd('Dashboard')
         end,
+      })
+    end,
+  },
+
+  {
+    'nvimdev/dyninput.nvim',
+    event = { 'BufReadPre' },
+    ft = { 'c', 'cpp', 'go', 'rust', 'lua' },
+    config = function()
+      local ctx = require('dyninput.context')
+      require('dyninput').setup({
+        c = {
+          ['-'] = { '->', ctx.non_space_before },
+        },
+        cpp = {
+          [','] = { ' <!>', ctx.generic_in_cpp },
+          ['-'] = { '->', ctx.non_space_before },
+        },
+        rust = {
+          [';'] = {
+            { '::', ctx.rust_double_colon },
+            { ': ', ctx.rust_single_colon },
+          },
+          ['='] = { ' => ', ctx.rust_fat_arrow },
+          ['-'] = { ' -> ', ctx.rust_thin_arrow },
+        },
+        lua = {
+          [';'] = { ':', ctx.semicolon_in_lua },
+        },
+        go = {
+          [';'] = { ':=', ctx.non_space_before },
+        },
       })
     end,
   },

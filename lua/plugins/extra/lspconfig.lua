@@ -40,7 +40,9 @@ end
 
 lspconfig.gopls.setup({
   cmd = { 'gopls', '--remote=auto' },
-  on_attach = Attach,
+  on_attach = function(client, _)
+    Attach(client)
+  end,
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_dir = lspconfig.util.root_pattern('go.mod'),
   init_options = {

@@ -40,4 +40,3 @@ local app = function(opts)
 end
 
 return telescope.register_extension({ exports = { app = app } })
-

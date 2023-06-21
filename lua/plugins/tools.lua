@@ -81,6 +81,7 @@ return {
 
   {
     'skywind3000/asynctasks.vim',
+    enabled = false,
     lazy = true,
     cmd = { 'AsyncTask' },
     dependencies = { 'skywind3000/asyncrun.vim' },
@@ -88,6 +89,36 @@ return {
       vim.g.asyncrun_open = 7
       vim.g.asynctasks_term_rows = 8
       vim.g.asynctasks_term_cols = 80
+    end,
+  },
+
+  {
+    'google/executor.nvim',
+    event = { 'InsertEnter' },
+    config = function()
+      local preset_commands = {
+        ['go'] = {
+          'go run main.go',
+        },
+      }
+      local merged_preset_commands = vim.tbl_deep_extend('force', preset_commands, {})
+
+      require('executor').setup({
+        use_split = true,
+        split = {
+          position = 'bottom',
+          size = 8,
+        },
+        popup = {
+          width = math.floor(vim.o.columns * 1 / 2),
+          height = vim.o.lines - 20,
+        },
+        notifications = {
+          task_started = true,
+          task_completed = true,
+        },
+        preset_commands = merged_preset_commands,
+      })
     end,
   },
 
@@ -195,32 +226,7 @@ return {
     dependencies = {
       'MunifTanjim/nui.nvim',
     },
-    config = function()
-      vim.defer_fn(function()
-        require('noice').setup({
-          lsp = {
-            override = {
-              ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-              ['vim.lsp.util.stylize_markdown'] = true,
-              ['cmp.entry.get_documentation'] = true,
-            },
-          },
-          presets = {
-            bottom_search = true,
-            command_palette = true,
-            long_message_to_split = true,
-            inc_rename = false,
-            lsp_doc_border = false,
-          },
-          notify = {
-            enabled = false,
-          },
-          cmdline = {
-            view = 'cmdline',
-          },
-        })
-      end, 200)
-    end,
+    config = function() end,
   },
 
   {
@@ -289,33 +295,41 @@ return {
 
   {
     'nvimdev/dyninput.nvim',
-    event = { 'BufReadPre' },
+    event = { 'InsertEnter' },
     ft = { 'c', 'cpp', 'go', 'rust', 'lua' },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
     config = function()
-      local ctx = require('dyninput.context')
+      local rs = require('dyninput.lang.rust')
+      local ms = require('dyninput.lang.misc')
       require('dyninput').setup({
         c = {
-          ['-'] = { '->', ctx.non_space_before },
+          ['-'] = { '->', ms.c_struct_pointer },
         },
         cpp = {
-          [','] = { ' <!>', ctx.generic_in_cpp },
-          ['-'] = { '->', ctx.non_space_before },
+          [','] = { ' <!>', ms.generic_in_cpp },
+          ['-'] = { '->', ms.c_struct_pointer },
         },
         rust = {
           [';'] = {
-            { '::', ctx.rust_double_colon },
-            { ': ', ctx.rust_single_colon },
+            { '::', rs.double_colon },
+            { ': ', rs.single_colon },
           },
-          ['='] = { ' => ', ctx.rust_fat_arrow },
-          ['-'] = { ' -> ', ctx.rust_thin_arrow },
+          ['='] = { ' => ', rs.fat_arrow },
+          ['-'] = { ' -> ', rs.thin_arrow },
+          ['\\'] = { '|!| {}', rs.closure_fn },
         },
         lua = {
-          [';'] = { ':', ctx.semicolon_in_lua },
+          [';'] = { ':', ms.semicolon_in_lua },
         },
         go = {
-          [';'] = { ':=', ctx.non_space_before },
+          [';'] = {
+            { ' := ', ms.go_variable_define },
+            { ': ', ms.go_struct_field },
+          },
         },
       })
+
+      exec_filetype('dyninput')
     end,
   },
 }

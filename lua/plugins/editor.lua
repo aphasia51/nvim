@@ -76,25 +76,21 @@ return {
   },
 
   {
-    'nvimdev/easyformat.nvim',
-    ft = { 'c', 'cpp', 'rust', 'lua', 'go', 'python' },
+    'nvimdev/guard.nvim',
+    event = { 'BufRead' },
+    ft = { 'c', 'cpp', 'rust', 'lua', 'go', 'typescript', 'javascript', 'javascriptreact' },
     config = function()
-      local configs = require('easyformat.config')
-      configs.lua = {
-        ignore_patterns = { '%pspec', 'neovim/*' },
-      }
-      configs.c = {
-        ignore_patterns = { 'neovim/*' },
-      }
-      configs.use_default({
-        'cpp',
-        'go',
-        'javascript',
-        'javascriptreact',
-      })
-      require('easyformat').setup({
-        fmt_on_save = true,
-      })
+      local ft = require('guard.filetype')
+      ft('c'):fmt('clang-format')
+      ft('lua'):fmt('stylua')
+      ft('go'):fmt('lsp'):append('golines')
+      ft('rust'):fmt('rustfmt')
+
+      for _, item in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' }) do
+        ft(item):fmt('prettier')
+      end
+
+      require('guard').setup()
     end,
   },
 
@@ -104,7 +100,7 @@ return {
     -- ft = { 'go', 'gomod' },
     config = function()
       vim.defer_fn(function()
-        require('go').setup()
+        require('go').setup({})
       end, 100)
     end,
   },

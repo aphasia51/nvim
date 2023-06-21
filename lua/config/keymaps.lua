@@ -101,8 +101,12 @@ keymap('n', '<S-z>', '<cmd>cclose<CR>', opts)
 -- keymap("n", "<S-z>", "<cmd>tabc<CR>", opts)
 
 -- AsyncTasks run
-keymap('n', 'r', '<cmd>AsyncTask file-run<CR>', opts)
-keymap('n', '<leader>r', ':AsyncTask file-build<CR>', opts)
+-- keymap('n', 'r', '<cmd>AsyncTask file-run<CR>', opts)
+-- keymap('n', '<leader>r', ':AsyncTask file-build<CR>', opts)
+
+keymap('n', 'r', '<cmd>ExecutorRun<CR>', opts)
+keymap('n', '<leader>r', '<cmd>ExecutorToggleDetail<CR>', opts)
+
 -- keymap("n", "<leader>e", ":SqlsExecuteQuery<CR>", opts)
 
 -- Symbols outline

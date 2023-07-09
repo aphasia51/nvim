@@ -5,14 +5,22 @@ return {
     lazy = false,
   },
 
+  -- {
+  --   'nvimdev/whiskyline.nvim',
+  --   dev = true,
+  --   event = { 'BufRead' },
+  --   config = function()
+  --     require('whiskyline').setup({})
+  --   end,
+  --   dependencies = 'nvim-tree/nvim-web-devicons',
+  -- },
+
   {
-    'nvimdev/whiskyline.nvim',
-    dev = true,
-    event = { 'BufRead' },
+    'rebelot/heirline.nvim',
+    event = 'UiEnter',
     config = function()
-      require('whiskyline').setup({})
+      require('plugins.extra.heirline')
     end,
-    dependencies = 'nvim-tree/nvim-web-devicons',
   },
 
   {

@@ -82,6 +82,7 @@ vim.o.showmode = false
 vim.opt.laststatus = 3
 vim.opt.showcmd = true
 vim.o.iminsert = 0
+vim.o.showcmdloc = 'statusline'
 vim.o.clipboard = 'unnamedplus'
 vim.o.grepprg = 'rg --vimgrep'
 vim.o.grepformat = '%f:%l:%c:%m'

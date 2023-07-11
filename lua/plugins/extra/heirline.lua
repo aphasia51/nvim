@@ -59,7 +59,7 @@ local ViMode = {
       ['t'] = 'Terminal',
     },
     mode_colors = {
-      n = 'red',
+      n = 'orange',
       i = 'green',
       v = 'cyan',
       V = 'cyan',

@@ -5,16 +5,6 @@ return {
     lazy = false,
   },
 
-  -- {
-  --   'nvimdev/whiskyline.nvim',
-  --   dev = true,
-  --   event = { 'BufRead' },
-  --   config = function()
-  --     require('whiskyline').setup({})
-  --   end,
-  --   dependencies = 'nvim-tree/nvim-web-devicons',
-  -- },
-
   {
     'rebelot/heirline.nvim',
     event = 'UiEnter',

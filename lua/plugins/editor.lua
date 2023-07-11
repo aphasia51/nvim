@@ -56,11 +56,7 @@ return {
     cmd = { 'TroubleToggle' },
     config = function()
       local trouble = require('trouble')
-      -- local null_ls = require("null-ls")
       trouble.setup({
-        -- source = {
-        -- 	null_ls.builtins.code_actions.gitsigns,
-        -- },
         position = 'bottom',
         height = 7,
         width = 50,
@@ -97,7 +93,6 @@ return {
   {
     'ray-x/go.nvim',
     event = { 'BufReadPost' },
-    -- ft = { 'go', 'gomod' },
     config = function()
       vim.defer_fn(function()
         require('go').setup({})

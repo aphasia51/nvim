@@ -26,12 +26,11 @@ return {
 
   {
     'nvimdev/lspsaga.nvim',
-    -- lazy = false,
     event = { 'BufReadPost' },
-    -- event = 'LspAttach',
     config = function()
       require('lspsaga').setup({
         symbol_in_winbar = {
+          hide_keyword = true,
           ignore_patterns = { '%w_spec' },
         },
         ui = {
@@ -69,6 +68,10 @@ return {
     event = 'InsertEnter',
     config = function()
       require('nvim-autopairs').setup({})
+      local status, _ = pcall(require, 'cmp')
+      if not status then
+        vim.cmd([[packadd nvim-cmp]])
+      end
     end,
   },
 

@@ -1,17 +1,5 @@
 return {
   {
-    'williamboman/mason.nvim',
-    config = function()
-      require('mason').setup({
-        ui = {
-          border = 'single',
-        },
-      })
-    end,
-    cmd = { 'Mason' },
-  },
-
-  {
     'kylechui/nvim-surround',
     event = { 'InsertEnter' },
     config = function()
@@ -41,7 +29,6 @@ return {
         shading_factor = '1',
         direction = 'float',
         shell = vim.fn.has('win32') == 1 and 'pwsh' or vim.o.shell,
-        -- This field is only relevant if direction is set to 'float'
         float_opts = {
           border = 'curved',
           width = 76,
@@ -58,7 +45,6 @@ return {
 
   {
     'norcalli/nvim-colorizer.lua',
-    -- event = { 'VeryLazy' },
     ft = { 'lua', 'css', 'html', 'sass', 'less', 'typescriptreact' },
     config = function()
       local status_ok, colorizer = pcall(require, 'colorizer')
@@ -75,49 +61,6 @@ return {
         css = false,
         css_fn = false,
         mode = 'background',
-      })
-    end,
-  },
-
-  {
-    'skywind3000/asynctasks.vim',
-    enabled = false,
-    lazy = true,
-    cmd = { 'AsyncTask' },
-    dependencies = { 'skywind3000/asyncrun.vim' },
-    config = function()
-      vim.g.asyncrun_open = 7
-      vim.g.asynctasks_term_rows = 8
-      vim.g.asynctasks_term_cols = 80
-    end,
-  },
-
-  {
-    'google/executor.nvim',
-    event = { 'InsertEnter' },
-    config = function()
-      local preset_commands = {
-        ['go'] = {
-          'go run main.go',
-        },
-      }
-      local merged_preset_commands = vim.tbl_deep_extend('force', preset_commands, {})
-
-      require('executor').setup({
-        use_split = true,
-        split = {
-          position = 'bottom',
-          size = 8,
-        },
-        popup = {
-          width = math.floor(vim.o.columns * 1 / 2),
-          height = vim.o.lines - 20,
-        },
-        notifications = {
-          task_started = true,
-          task_completed = true,
-        },
-        preset_commands = merged_preset_commands,
       })
     end,
   },
@@ -201,7 +144,7 @@ return {
 
   {
     'phaazon/hop.nvim',
-    event = { 'VeryLazy' },
+    event = { 'BufReadPost' },
     config = function()
       vim.defer_fn(function()
         local hop = require('hop')
@@ -300,46 +243,6 @@ return {
           vim.cmd('Dashboard')
         end,
       })
-    end,
-  },
-
-  {
-    'nvimdev/dyninput.nvim',
-    event = { 'InsertEnter' },
-    ft = { 'c', 'cpp', 'go', 'rust', 'lua' },
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    config = function()
-      local rs = require('dyninput.lang.rust')
-      local ms = require('dyninput.lang.misc')
-      require('dyninput').setup({
-        c = {
-          ['-'] = { '->', ms.c_struct_pointer },
-        },
-        cpp = {
-          [','] = { ' <!>', ms.generic_in_cpp },
-          ['-'] = { '->', ms.c_struct_pointer },
-        },
-        rust = {
-          [';'] = {
-            { '::', rs.double_colon },
-            { ': ', rs.single_colon },
-          },
-          ['='] = { ' => ', rs.fat_arrow },
-          ['-'] = { ' -> ', rs.thin_arrow },
-          ['\\'] = { '|!| {}', rs.closure_fn },
-        },
-        lua = {
-          [';'] = { ':', ms.semicolon_in_lua },
-        },
-        go = {
-          [';'] = {
-            { ' := ', ms.go_variable_define },
-            { ': ', ms.go_struct_field },
-          },
-        },
-      })
-
-      exec_filetype('dyninput')
     end,
   },
 }

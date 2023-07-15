@@ -143,25 +143,10 @@ return {
   },
 
   {
-    'phaazon/hop.nvim',
-    event = { 'BufReadPost' },
-    config = function()
-      vim.defer_fn(function()
-        local hop = require('hop')
-        hop.setup({
-          keys = 'asdghklqwertyuiopzxcvbnmfj',
-        })
-      end, 100)
-    end,
+    'folke/flash.nvim',
+    event = 'VeryLazy',
+    opts = {},
   },
-
-  -- {
-  --   'rcarriga/nvim-notify',
-  --   event = 'VeryLazy',
-  --   config = function()
-  --     require('notify').setup({ render = 'minimal', stages = 'fade', timeout = 200 })
-  --   end,
-  -- },
 
   {
     'folke/noice.nvim',

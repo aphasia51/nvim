@@ -20,10 +20,6 @@ keymap('n', '<A-j>', '<C-w>j', opts)
 keymap('n', '<A-k>', '<C-w>k', opts)
 keymap('n', '<A-l>', '<C-w>l', opts)
 
--- hop
-keymap('n', 'f', '<cmd>HopChar1<CR>', opts)
-keymap('n', 'F', '<cmd>HopLine<CR>', opts)
-
 -- Resize with arrows
 keymap('n', '<A-[>', ':vertical resize -3<CR>', opts)
 keymap('n', '<A-]>', ':vertical resize +3<CR>', opts)
@@ -32,13 +28,13 @@ keymap('n', '<A-]>', ':vertical resize +3<CR>', opts)
 -- Press jk fast to enter
 keymap('i', 'jk', '<ESC>', opts)
 
-keymap('i', '<C-s>', '<ESC>:w<CR>', { noremap = true })
+-- keymap('i', '<C-s>', '<ESC>:w<CR>', { noremap = true })
 keymap('i', '<C-j>', '<ESC>o', opts)
 keymap('i', '<C-k>', '<ESC>O', opts)
 keymap('i', '<C-a>', '<Esc>^i', opts)
 keymap('i', '<C-l>', '<Esc>$a', opts)
 
-keymap('n', '<C-s>', ':w<CR>', { noremap = true })
+-- keymap('n', '<C-s>', ':w<CR>', { noremap = true })
 
 keymap('n', 'j', 'gj', opts)
 keymap('n', 'k', 'gk', opts)
@@ -76,6 +72,9 @@ keymap('v', ',', '0', opts)
 
 -- *** Plugins keymaps *** --
 
+keymap('n', '<leader>s', '<cmd>lua require("flash").jump()<CR>', opts)
+keymap('n', '<leader><leader>s', '<cmd>lua require("flash").treesitter()<CR>', opts)
+
 -- Telescope
 keymap(
   'n',
@@ -100,17 +99,10 @@ keymap('n', '<S-z>', '<cmd>cclose<CR>', opts)
 -- keymap("n", "<S-z>", "<cmd>only<CR>", opts)
 -- keymap("n", "<S-z>", "<cmd>tabc<CR>", opts)
 
--- AsyncTasks run
--- keymap('n', 'r', '<cmd>AsyncTask file-run<CR>', opts)
--- keymap('n', '<leader>r', ':AsyncTask file-build<CR>', opts)
-
 keymap('n', 'r', '<cmd>ExecutorRun<CR>', opts)
 keymap('n', '<leader>r', '<cmd>ExecutorToggleDetail<CR>', opts)
 
--- keymap("n", "<leader>e", ":SqlsExecuteQuery<CR>", opts)
-
--- Symbols outline
--- keymap('n', '<leader>o', '<cmd>SymbolsOutline<CR>', opts)
+-- outline
 keymap('n', '<leader>o', '<cmd>Lspsaga outline<CR>', opts)
 
 -- Import packages in go files

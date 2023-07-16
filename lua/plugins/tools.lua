@@ -230,4 +230,19 @@ return {
       })
     end,
   },
+
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    event = { 'VeryLazy' },
+    config = function()
+      require('neo-tree').setup({
+        window = {
+          width = 26,
+          mappings = {
+            ['o'] = 'open',
+          },
+        },
+      })
+    end,
+  },
 }

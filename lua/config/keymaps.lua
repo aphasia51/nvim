@@ -74,8 +74,8 @@ keymap('v', ',', '0', opts)
 
 keymap('n', '<leader>n', '<cmd>:NeoTreeRevealToggle<CR>', opts)
 
-keymap('n', '<leader>s', '<cmd>lua require("flash").jump()<CR>', opts)
-keymap('n', '<leader><leader>s', '<cmd>lua require("flash").treesitter()<CR>', opts)
+-- keymap('n', 'f', '<cmd>lua require("flash").jump()<CR>', opts)
+-- keymap('n', 'F', '<cmd>lua require("flash").treesitter()<CR>', opts)
 
 -- Telescope
 keymap(

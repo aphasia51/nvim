@@ -92,6 +92,9 @@ vim.opt.wildignore:append(
   '*/.git/*,*/__pycache__/*,*.pyc,*/node_modules/*,' .. '*.jpg,*.bmp,*.gif,*.png,*.jpeg'
 )
 
+if vim.fn.exists('g:neovide') then
+  require('config.neovide')
+end
 vim.g.python_host_skip_check = 1
 vim.g.python3_host_skip_check = 1
 vim.g.loaded_python_provider = 0

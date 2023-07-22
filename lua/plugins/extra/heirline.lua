@@ -160,7 +160,7 @@ FileNameBlock = utils.insert(
 )
 
 local Ruler = {
-  provider = '%7(%l:%3L%) %P',
+  provider = '%7(%l/%L%):%2c',
   hl = { fg = '#e95678' },
 }
 

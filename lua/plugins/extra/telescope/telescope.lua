@@ -5,8 +5,10 @@ require('telescope').setup({
     prompt_prefix = '' .. ' ',
     selection_caret = ' ',
     layout_config = {
-      horizontal = { prompt_position = 'top', results_width = 0.6 },
-      vertical = { mirror = false },
+      -- prompt_position = "bottom",
+      height = 0.90,
+      width = 0.85,
+      preview_cutoff = 1,
     },
     sorting_strategy = 'ascending',
     file_previewer = require('telescope.previewers').vim_buffer_cat.new,
@@ -50,6 +52,24 @@ require('telescope').setup({
         ['<A-k>'] = actions.preview_scrolling_up,
         ['<A-j>'] = actions.preview_scrolling_down,
         ['?'] = actions.which_key,
+      },
+    },
+  },
+  pickers = {
+    find_files = { -- basic filename to fine files
+      layout_strategy = 'horizontal',
+      layout_config = {
+        prompt_position = 'top',
+        preview_width = 0.5,
+      },
+      find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*', '-L' },
+    },
+    live_grep = { -- basic context to find files
+      layout_strategy = 'vertical',
+      layout_config = {
+        prompt_position = 'top',
+        height = 0.90,
+        width = 0.80,
       },
     },
   },

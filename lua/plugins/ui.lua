@@ -7,7 +7,7 @@ return {
 
   {
     'rebelot/heirline.nvim',
-    event = 'UiEnter',
+    event = { 'UiEnter' },
     config = function()
       require('plugins.extra.heirline')
     end,

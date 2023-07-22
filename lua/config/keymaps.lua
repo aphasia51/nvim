@@ -72,7 +72,7 @@ keymap('v', ',', '0', opts)
 
 -- *** Plugins keymaps *** --
 
-keymap('n', '<leader>n', '<cmd>:NeoTreeRevealToggle<CR>', opts)
+keymap('n', '<leader>n', '<cmd>NeoTreeRevealToggle<CR>', opts)
 
 -- keymap('n', 'f', '<cmd>lua require("flash").jump()<CR>', opts)
 -- keymap('n', 'F', '<cmd>lua require("flash").treesitter()<CR>', opts)
@@ -117,7 +117,8 @@ keymap('n', '<leader>f', '<cmd>!black %<CR>', opts)
 keymap('n', '<leader>d', '<cmd>TroubleToggle<CR>', opts)
 
 --toggleterm
-keymap('n', ';e', '<cmd>ToggleTerm<CR>', opts)
+keymap('n', 'tt', '<cmd>ToggleTerm<CR>', opts)
+keymap('n', '<leader>t', '<cmd>ToggleTerm direction=horizontal<CR>', opts)
 
 -- UndotreeToggle
 keymap('n', '<C-u>', '<cmd>UndotreeToggle<CR>', opts)

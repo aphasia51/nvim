@@ -1,4 +1,5 @@
 local lspconfig = require('lspconfig')
+local util = require('lspconfig/util')
 
 local signs = {
   Error = '',
@@ -19,30 +20,44 @@ vim.diagnostic.config({
   severity_sort = true,
   virtual_text = {
     prefix = '🔥',
-    -- spacing = 4,
     source = true,
     severity = { min = vim.diagnostic.severity.WARN },
   },
 })
 
-function Attach(client)
-  vim.opt.omnifunc = 'v:lua.vim.lsp.omnifunc'
-  client.server_capabilities.semanticTokensProvider = nil
-  -- local orignal = vim.notify
-  -- local mynotify = function(msg, level, opts)
-  --   if msg == 'No code actions available' or msg:find('overly') then
-  --     return
-  --   end
-  --   orignal(msg, level, opts)
-  -- end
-  -- vim.notify = mynotify
+local on_attach = function()
+  return function(_, bufnr)
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end
+end
+
+local capabilities = function()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.codeAction = {
+    dynamicRegistration = true,
+    codeActionLiteralSupport = {
+      codeActionKind = {
+        valueSet = (function()
+          local res = vim.tbl_values(vim.lsp.protocol.CodeActionKind)
+          table.sort(res)
+          return res
+        end)(),
+      },
+    },
+  }
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  local status_ok, cmp_nvim_lsp = pcall(require, 'cmp_nvim_lsp')
+  if not status_ok then
+    return
+  end
+  capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
+  return capabilities
 end
 
 lspconfig.gopls.setup({
-  cmd = { 'gopls', '--remote=auto' },
-  on_attach = function(client, _)
-    Attach(client)
-  end,
+  cmd = { 'gopls', 'serve' },
+  on_attach = on_attach(),
+  capabilities = capabilities(),
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_dir = lspconfig.util.root_pattern('go.mod'),
   init_options = {
@@ -61,6 +76,9 @@ lspconfig.gopls.setup({
 
 lspconfig.lua_ls.setup({
   filetypes = { 'lua' },
+  on_attach = on_attach(),
+  capabilities = capabilities(),
+
   root_dir = lspconfig.util.root_pattern(
     '.luarc.json',
     '.luacheckrc',
@@ -68,12 +86,11 @@ lspconfig.lua_ls.setup({
     'stylua.toml',
     'selene.toml'
   ),
-  on_attach = Attach,
   settings = {
     Lua = {
       diagnostics = {
         enable = true,
-        globals = { 'vim', 'packer_plugins' },
+        globals = { 'vim' },
       },
       runtime = { version = 'LuaJIT' },
       workspace = {
@@ -87,7 +104,9 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.clangd.setup({
-  on_attach = Attach,
+  on_attach = on_attach(),
+  capabilities = capabilities(),
+
   cmd = {
     'clangd',
     '--background-index',
@@ -107,9 +126,12 @@ lspconfig.clangd.setup({
 })
 
 lspconfig.pyright.setup({
-  on_attach = Attach,
   cmd = { 'pyright-langserver', '--stdio' },
+  on_attach = on_attach(),
+  capabilities = capabilities(),
+
   root_dir = lspconfig.util.root_pattern(unpack({
+
     'WORKSPACE',
     'pyproject.toml',
     'setup.py',
@@ -155,8 +177,20 @@ lspconfig.pyright.setup({
   },
 })
 
+lspconfig.jedi_language_server.setup({
+  cmd = { 'jedi-language-server' },
+  on_attach = on_attach(),
+  capabilities = capabilities(),
+
+  filetype = { 'python', 'python3' },
+  root_dir = util.root_pattern(vim.fn.getcwd()),
+  single_file_support = true,
+})
+
 lspconfig.rust_analyzer.setup({
-  on_attach = Attach,
+  on_attach = on_attach(),
+  capabilities = capabilities(),
+
   settings = {
     ['rust-analyzer'] = {
       imports = {
@@ -176,20 +210,3 @@ lspconfig.rust_analyzer.setup({
     },
   },
 })
-
-local servers = {
-  'bashls',
-}
-
-for _, server in ipairs(servers) do
-  lspconfig[server].setup({
-    on_attach = Attach,
-  })
-end
-
-vim.lsp.handlers['workspace/diagnostic/refresh'] = function(_, _, ctx)
-  local ns = vim.lsp.diagnostic.get_namespace(ctx.client_id)
-  local bufnr = vim.api.nvim_get_current_buf()
-  vim.diagnostic.reset(ns, bufnr)
-  return true
-end

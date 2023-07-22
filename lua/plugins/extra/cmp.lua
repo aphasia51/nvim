@@ -1,8 +1,5 @@
 local cmp = require('cmp')
 
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0
@@ -136,8 +133,8 @@ cmp.setup({
     end, { 'i', 's' }),
   },
   sources = {
-    { name = 'nvim_lsp', priority = 99 },
-    { name = 'vsnip' },
+    { name = 'nvim_lsp' },
+    { name = 'vsnip', priority = 9 },
     { name = 'buffer' },
     { name = 'path' },
     { name = 'dictionary', keyword_length = 2 },

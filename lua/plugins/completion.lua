@@ -16,8 +16,7 @@ return {
 
   {
     'neovim/nvim-lspconfig',
-    -- lazy = false,
-    event = 'BufReadPre',
+    event = { 'BufReadPre' },
     ft = enable_lsp_filetype,
     config = function()
       require('plugins.extra.lspconfig')
@@ -65,13 +64,9 @@ return {
 
   {
     'windwp/nvim-autopairs',
-    event = 'InsertEnter',
+    event = { 'InsertEnter' },
     config = function()
-      require('nvim-autopairs').setup({})
-      local status, _ = pcall(require, 'cmp')
-      if not status then
-        vim.cmd([[packadd nvim-cmp]])
-      end
+      require('plugins.extra.autopairs').setup()
     end,
   },
 

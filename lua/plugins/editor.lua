@@ -92,7 +92,7 @@ return {
 
   {
     'ray-x/go.nvim',
-    event = { 'BufReadPost' },
+    ft = { 'go' },
     config = function()
       vim.defer_fn(function()
         require('go').setup({})

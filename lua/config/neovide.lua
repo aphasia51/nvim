@@ -1,6 +1,6 @@
 vim.o.guifont = 'JetBrainsMono Nerd Font:h16'
 -- use super key,such as <cmd>
-vim.g.neovide_input_use_logo = true
+vim.g.neovide_input_use_logo = 1
 -- use Alt and Meta
 vim.g.neovide_input_macos_alt_is_meta = true
 vim.g.neovide_floating_blur_amount_x = 2.0

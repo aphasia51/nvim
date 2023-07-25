@@ -61,15 +61,18 @@ lspconfig.gopls.setup({
   filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
   root_dir = lspconfig.util.root_pattern('go.mod'),
   init_options = {
-    usePlaceholders = true,
+    -- usePlaceholders = true,
     completeUnimported = true,
   },
   settings = {
     gopls = {
       analyses = {
         unusedparams = true,
+        unreachable = true,
+        fillstruct = true,
       },
       staticcheck = true,
+      deepCompletion = true,
     },
   },
 })
@@ -129,9 +132,7 @@ lspconfig.pyright.setup({
   cmd = { 'pyright-langserver', '--stdio' },
   on_attach = on_attach(),
   capabilities = capabilities(),
-
   root_dir = lspconfig.util.root_pattern(unpack({
-
     'WORKSPACE',
     'pyproject.toml',
     'setup.py',
@@ -181,7 +182,6 @@ lspconfig.jedi_language_server.setup({
   cmd = { 'jedi-language-server' },
   on_attach = on_attach(),
   capabilities = capabilities(),
-
   filetype = { 'python', 'python3' },
   root_dir = util.root_pattern(vim.fn.getcwd()),
   single_file_support = true,

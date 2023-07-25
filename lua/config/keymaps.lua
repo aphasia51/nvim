@@ -1,12 +1,11 @@
 local opts = { noremap = true, silent = true }
-
--- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
 keymap('', '<Space>', '<Nop>', opts)
 
--- *** Normal *** --
+-- ============================ --
+-- ***        Normal        *** --
+-- ============================ --
 -- Quickly quit
 keymap('n', 'Q', '<cmd>q<CR>', opts)
 keymap('n', '<S-c>', '<cmd>wq<CR>', opts)
@@ -24,18 +23,6 @@ keymap('n', '<A-l>', '<C-w>l', opts)
 keymap('n', '<A-[>', ':vertical resize -3<CR>', opts)
 keymap('n', '<A-]>', ':vertical resize +3<CR>', opts)
 
--- Insert --
--- Press jk fast to enter
-keymap('i', 'jk', '<ESC>', opts)
-
--- keymap('i', '<C-s>', '<ESC>:w<CR>', { noremap = true })
-keymap('i', '<C-j>', '<ESC>o', opts)
-keymap('i', '<C-k>', '<ESC>O', opts)
-keymap('i', '<C-a>', '<Esc>^i', opts)
-keymap('i', '<C-l>', '<Esc>$a', opts)
-
--- keymap('n', '<C-s>', ':w<CR>', { noremap = true })
-
 keymap('n', 'j', 'gj', opts)
 keymap('n', 'k', 'gk', opts)
 
@@ -48,7 +35,21 @@ keymap('n', 'K', '5k', opts)
 keymap('n', '.', '$', opts)
 keymap('n', ',', '^', opts)
 
--- Visual --
+-- ============================ --
+-- ***        Insert        *** --
+-- ============================ --
+-- Press jk fast to enter
+keymap('i', 'jk', '<ESC>', opts)
+
+-- keymap('i', '<C-s>', '<ESC>:w<CR>', { noremap = true })
+keymap('i', '<C-j>', '<ESC>o', opts)
+keymap('i', '<C-k>', '<ESC>O', opts)
+keymap('i', '<C-a>', '<Esc>^i', opts)
+keymap('i', '<C-l>', '<Esc>$a', opts)
+
+-- ============================ --
+-- ***        Visual        *** --
+-- ============================ --
 
 -- Stay in indent mode
 keymap('v', '<', '<gv', opts)
@@ -70,12 +71,11 @@ keymap('x', 'K', ":move '<-2<CR>gv-gv", opts)
 keymap('v', '.', '$', opts)
 keymap('v', ',', '0', opts)
 
--- *** Plugins keymaps *** --
+-- ============================ --
+-- ***   Plugins keymaps    *** --
+-- ============================ --
 
 keymap('n', '<leader>n', '<cmd>NeoTreeRevealToggle<CR>', opts)
-
--- keymap('n', 'f', '<cmd>lua require("flash").jump()<CR>', opts)
--- keymap('n', 'F', '<cmd>lua require("flash").treesitter()<CR>', opts)
 
 -- Telescope
 keymap(
@@ -123,9 +123,6 @@ keymap('n', '<leader>t', '<cmd>ToggleTerm direction=horizontal<CR>', opts)
 -- UndotreeToggle
 keymap('n', '<C-u>', '<cmd>UndotreeToggle<CR>', opts)
 
--- Quick save
--- keymap('n', '<S-s>', '<cmd>w<CR>', opts)
-
 -- Lsp definition
 keymap('n', 'de', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
 
@@ -145,13 +142,3 @@ keymap('n', 'go', '<cmd>Lspsaga outline<CR>', opts)
 keymap('n', 'do', '<cmd>DiffviewOpen<CR>', opts)
 keymap('n', 'dc', '<cmd>DiffviewClose<CR>', opts)
 keymap('n', 'dh', '<cmd>DiffviewFileHistory<CR>', opts)
-
---Dap
--- keymap('n', 'db', "<cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
--- keymap('n', '<F4>', "<cmd>lua require'dap'.terminate()<CR>", opts)
--- keymap('n', '<F7>', "<cmd>lua require'dap'.step_back()<CR>", opts)
--- keymap('n', '<F8>', "<cmd>lua require'dap'.continue()<CR>", opts)
--- keymap('n', '<F9>', "<cmd>lua require'dap'.step_over()<CR>", opts)
--- keymap('n', '<F5>', "<cmd>lua require'dap'.step_into()<CR>", opts)
--- keymap('n', '<F6>', "<cmd>lua require'dap'.step_out()<CR>", opts)
--- keymap('n', 'du', '<cmd>DapUiToggle<CR>', opts)

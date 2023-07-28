@@ -111,7 +111,7 @@ keymap('n', '<leader>o', '<cmd>Lspsaga outline<CR>', opts)
 keymap('n', '<leader>e', ":<cmd>lua require'internal.func'.import()<CR><CR>", opts)
 
 -- Format Python File
-keymap('n', '<leader>f', '<cmd>!black %<CR>', opts)
+keymap('n', '<leader>f', '<cmd>lua require("utils").format_files()<CR>', opts)
 
 -- Trouble
 keymap('n', '<leader>d', '<cmd>TroubleToggle<CR>', opts)

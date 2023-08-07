@@ -187,6 +187,9 @@ return {
           inc_rename = false,
           lsp_doc_border = false,
         },
+        cmdline = {
+          view = 'cmdline',
+        },
       })
     end,
   },

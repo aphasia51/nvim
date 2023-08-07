@@ -60,9 +60,6 @@ vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
   end,
   nested = true,
 })
-local api = vim.api
--- local autocmd = vim.api.nvim_create_autocmd
-local my_group = vim.api.nvim_create_augroup('AphasiaGroup', {})
 
 -- telescope preview wrap
 vim.cmd([[autocmd User TelescopePreviewerLoaded setlocal wrap]])

@@ -210,3 +210,13 @@ lspconfig.rust_analyzer.setup({
     },
   },
 })
+
+local servers = {
+  'bashls',
+}
+
+for _, server in ipairs(servers) do
+  lspconfig[server].setup({
+    on_attach = on_attach(),
+  })
+end

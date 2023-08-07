@@ -11,7 +11,7 @@ keymap('n', 'Q', '<cmd>q<CR>', opts)
 keymap('n', '<S-c>', '<cmd>wq<CR>', opts)
 
 -- Delete a word backwards
-keymap('n', 'dw', 'vb"_d', opts)
+-- keymap('n', 'dw', 'vb"_d', opts)
 
 -- Better window navigation
 keymap('n', '<A-h>', '<C-w>h', opts)
@@ -35,6 +35,8 @@ keymap('n', 'K', '5k', opts)
 keymap('n', '.', '$', opts)
 keymap('n', ',', '^', opts)
 
+keymap('n', '<C-s>', '<cmd>write<CR>', opts)
+
 -- ============================ --
 -- ***        Insert        *** --
 -- ============================ --
@@ -46,6 +48,8 @@ keymap('i', '<C-j>', '<ESC>o', opts)
 keymap('i', '<C-k>', '<ESC>O', opts)
 keymap('i', '<C-a>', '<Esc>^i', opts)
 keymap('i', '<C-l>', '<Esc>$a', opts)
+
+keymap('i', '<C-s>', '<ESC>:w<CR>', opts)
 
 -- ============================ --
 -- ***        Visual        *** --
@@ -111,7 +115,7 @@ keymap('n', '<leader>o', '<cmd>Lspsaga outline<CR>', opts)
 keymap('n', '<leader>e', ":<cmd>lua require'internal.func'.import()<CR><CR>", opts)
 
 -- Format Python File
-keymap('n', '<leader>f', '<cmd>lua require("utils").format_files()<CR>', opts)
+keymap('n', '<leader>f', '<cmd>lua require("utils.fmt").format_files()<CR>', opts)
 
 -- Trouble
 keymap('n', '<leader>d', '<cmd>TroubleToggle<CR>', opts)

@@ -78,6 +78,7 @@ return {
     config = function()
       local ft = require('guard.filetype')
       ft('c'):fmt('clang-format')
+      ft('cpp'):fmt('clang-format')
       ft('lua'):fmt('stylua')
       ft('go'):fmt('lsp'):append('golines')
       ft('rust'):fmt('rustfmt')
@@ -87,7 +88,7 @@ return {
       end
 
       require('guard').setup({
-        fmt_on_save = false,
+        fmt_on_save = true,
       })
     end,
   },

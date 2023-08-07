@@ -40,11 +40,26 @@ return {
   },
 
   {
-    'nvimdev/indentmini.nvim',
-    event = 'BufEnter',
+    'shellRaining/hlchunk.nvim',
+    event = { 'UIEnter' },
     config = function()
-      require('indentmini').setup({
-        char = '│',
+      require('hlchunk').setup({
+        chunk = {
+          exclude_filetypes = {
+            aerial = true,
+            dashboard = true,
+            zsh = true
+          },
+          style = {
+            { fg = '#3f444a' },
+          },
+        },
+        line_num = {
+          enable = false,
+        },
+        blank = {
+          enable = false,
+        },
       })
     end,
   },

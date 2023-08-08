@@ -88,7 +88,7 @@ return {
       end
 
       require('guard').setup({
-        fmt_on_save = true,
+        -- fmt_on_save = false,
       })
     end,
   },

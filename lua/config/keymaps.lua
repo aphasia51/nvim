@@ -8,7 +8,7 @@ keymap('', '<Space>', '<Nop>', opts)
 -- ============================ --
 -- Quickly quit
 keymap('n', 'Q', '<cmd>q<CR>', opts)
-keymap('n', '<S-c>', '<cmd>wq<CR>', opts)
+keymap('n', '<C-s>', ':w<CR><cmd>GuardFmt<CR>', { noremap = true })
 
 -- Delete a word backwards
 -- keymap('n', 'dw', 'vb"_d', opts)
@@ -35,8 +35,6 @@ keymap('n', 'K', '5k', opts)
 keymap('n', '.', '$', opts)
 keymap('n', ',', '^', opts)
 
-keymap('n', '<C-s>', '<cmd>write<CR>', opts)
-
 -- ============================ --
 -- ***        Insert        *** --
 -- ============================ --
@@ -49,7 +47,7 @@ keymap('i', '<C-k>', '<ESC>O', opts)
 keymap('i', '<C-a>', '<Esc>^i', opts)
 keymap('i', '<C-l>', '<Esc>$a', opts)
 
-keymap('i', '<C-s>', '<ESC>:w<CR>', opts)
+keymap('i', '<C-s>', '<ESC>:w<CR><cmd>GuardFmt<CR>', { noremap = true })
 
 -- ============================ --
 -- ***        Visual        *** --

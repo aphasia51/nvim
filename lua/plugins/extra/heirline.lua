@@ -17,7 +17,7 @@ local rounded_right = {
 
 local ViMode = {
   init = function(self)
-    self.mode = vim.fn.mode(1) -- :h mode()
+    self.mode = vim.fn.mode() -- :h mode()
   end,
   static = {
     mode_names = {
@@ -211,7 +211,7 @@ local LSPActive = {
   update = { 'LspAttach', 'LspDetach' },
   provider = function()
     local names = {}
-    for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+    for _, server in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
       table.insert(names, server.name)
     end
     return '[' .. table.concat(names, ' ') .. ']'

@@ -272,4 +272,14 @@ return {
       })
     end,
   },
+
+  {
+    'nvimdev/dyninput.nvim',
+    enabled = false,
+    event = { 'InsertEnter' },
+    config = function()
+      require('plugins.extra.dyninput')
+    end,
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
 }

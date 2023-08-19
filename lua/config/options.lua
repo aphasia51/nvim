@@ -1,6 +1,8 @@
 local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+
+vim.api.nvim_set_keymap('n', ' ', '', { noremap = true })
+vim.api.nvim_set_keymap('x', ' ', '', { noremap = true })
 
 vim.opt.directory = cache_dir .. 'swag/'
 vim.opt.undodir = cache_dir .. 'undo/'
@@ -114,7 +116,4 @@ if _time.hour >= 19 or _time.hour < 8 then
 else
   _G_colorscheme = 'zephyr'
 end
-local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
-if not ok then
-  return
-end
+vim.cmd('colorscheme ' .. _G_colorscheme)

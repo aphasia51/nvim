@@ -1,5 +1,4 @@
 local lspconfig = require('lspconfig')
-local util = require('lspconfig/util')
 
 local signs = {
   Error = '',
@@ -178,14 +177,14 @@ lspconfig.pyright.setup({
   },
 })
 
-lspconfig.jedi_language_server.setup({
-  cmd = { 'jedi-language-server' },
-  on_attach = on_attach(),
-  capabilities = capabilities(),
-  filetype = { 'python', 'python3' },
-  root_dir = util.root_pattern(vim.fn.getcwd()),
-  single_file_support = true,
-})
+-- lspconfig.jedi_language_server.setup({
+--   cmd = { 'jedi-language-server' },
+--   on_attach = on_attach(),
+--   capabilities = capabilities(),
+--   filetype = { 'python', 'python3' },
+--   root_dir = util.root_pattern(vim.fn.getcwd()),
+--   single_file_support = true,
+-- })
 
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach(),

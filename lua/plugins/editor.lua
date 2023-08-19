@@ -8,7 +8,7 @@ return {
       { 'nvim-telescope/telescope-file-browser.nvim' },
     },
     config = function()
-      require('plugins.extra.telescope.telescope')
+      require('plugins.extra.telescope.teleconf')
     end,
   },
 
@@ -73,7 +73,7 @@ return {
 
   {
     'nvimdev/guard.nvim',
-    event = { 'BufRead' },
+    -- event = { 'BufRead' },
     ft = { 'c', 'cpp', 'rust', 'lua', 'go', 'typescript', 'javascript', 'javascriptreact' },
     config = function()
       local ft = require('guard.filetype')

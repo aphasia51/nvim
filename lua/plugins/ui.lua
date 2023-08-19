@@ -48,7 +48,9 @@ return {
           exclude_filetypes = {
             aerial = true,
             dashboard = true,
-            zsh = true
+            zsh = true,
+            tmux = true,
+            toml = true
           },
           style = {
             { fg = '#3f444a' },

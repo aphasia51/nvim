@@ -28,15 +28,13 @@ return {
     event = { 'BufReadPost' },
     config = function()
       require('lspsaga').setup({
+        implement = { enable = true },
         symbol_in_winbar = {
+          enable = true,
           hide_keyword = true,
           ignore_patterns = { '%w_spec' },
         },
         ui = {
-          border = 'single',
-          colors = {
-            normal_bg = '#262a33',
-          },
           kind = {
             ['Folder'] = { ' ', '@repeat' },
           },

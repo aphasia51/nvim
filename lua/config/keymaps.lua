@@ -8,16 +8,17 @@ keymap('', '<Space>', '<Nop>', opts)
 -- ============================ --
 -- Quickly quit
 keymap('n', 'Q', '<cmd>q<CR>', opts)
-keymap('n', '<C-s>', ':w<CR><cmd>GuardFmt<CR>', { noremap = true })
+keymap('n', '<C-s>', ':w<CR>', { noremap = true })
 
 -- Delete a word backwards
 -- keymap('n', 'dw', 'vb"_d', opts)
+keymap('n', 'db', 'ldb', opts)
 
 -- Better window navigation
-keymap('n', '<A-h>', '<C-w>h', opts)
-keymap('n', '<A-j>', '<C-w>j', opts)
-keymap('n', '<A-k>', '<C-w>k', opts)
-keymap('n', '<A-l>', '<C-w>l', opts)
+keymap('n', '<C-h>', '<C-w>h', opts)
+keymap('n', '<C-j>', '<C-w>j', opts)
+keymap('n', '<C-k>', '<C-w>k', opts)
+keymap('n', '<C-l>', '<C-w>l', opts)
 
 -- Resize with arrows
 keymap('n', '<A-[>', ':vertical resize -3<CR>', opts)
@@ -41,13 +42,28 @@ keymap('n', ',', '^', opts)
 -- Press jk fast to enter
 keymap('i', 'jk', '<ESC>', opts)
 
--- keymap('i', '<C-s>', '<ESC>:w<CR>', { noremap = true })
-keymap('i', '<C-j>', '<ESC>o', opts)
-keymap('i', '<C-k>', '<ESC>O', opts)
-keymap('i', '<C-a>', '<Esc>^i', opts)
-keymap('i', '<C-l>', '<Esc>$a', opts)
+keymap('i', '<C-C>', '<C-C>', opts)
 
-keymap('i', '<C-s>', '<ESC>:w<CR><cmd>GuardFmt<CR>', { noremap = true })
+-- insert new line next
+keymap('i', '<C-j>', '<C-o>o', opts)
+-- insert new line above
+keymap('i', '<C-k>', '<C-o>O', opts)
+-- corsur move to head
+keymap('i', '<C-a>', '<Esc>^i', opts)
+-- cursor move to end
+keymap('i', '<C-l>', '<Esc>$a', opts)
+-- corsur move
+keymap('i', '<C-b>', '<Left>', opts)
+keymap('i', '<C-f>', '<Right>', opts)
+keymap('i', '<C-n>', '<Down>', opts)
+keymap('i', '<C-p>', '<Up>', opts)
+-- delete all str after cursor
+keymap('i', '<C-d>', '<C-o>d$', opts)
+-- move hole line
+keymap('i', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
+keymap('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
+-- esc and format
+keymap('i', '<C-s>', '<ESC>:w<CR>', { noremap = true })
 
 -- ============================ --
 -- ***        Visual        *** --
@@ -58,9 +74,7 @@ keymap('v', '<', '<gv', opts)
 keymap('v', '>', '>gv', opts)
 
 -- Fast to move
-
 keymap('v', '<A-h>', '5h', opts)
-
 keymap('v', '<A-j>', '5j', opts)
 keymap('v', '<A-k>', '5k', opts)
 keymap('v', '<A-l>', '5l', opts)
@@ -82,21 +96,21 @@ keymap('n', '<leader>n', '<cmd>NeoTreeRevealToggle<CR>', opts)
 -- Telescope
 keymap(
   'n',
-  '<C-l>',
+  '<Leader>l',
   '<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>',
   opts
 )
-keymap('n', '<C-f>', '<cmd>Telescope live_grep<CR>', opts)
-keymap('n', '<C-d>', '<cmd>Telescope diagnostics<CR>', opts)
+keymap('n', '<Leader>ff', '<cmd>Telescope live_grep<CR>', opts)
+keymap('n', '<Leader>d', '<cmd>Telescope diagnostics<CR>', opts)
 -- keymap("n", "<leader>s", "<cmd>Telescope git_status<CR>", opts)
-keymap('n', '<C-g>', '<cmd>Telescope git_commits<CR>', opts)
+keymap('n', '<Leader>g', '<cmd>Telescope git_commits<CR>', opts)
 -- keymap('n', '<C-b>', '<cmd>Telescope buffers<CR>', opts)
-keymap('n', '<C-t>', '<cmd>TodoTelescope<CR>', opts)
+keymap('n', '<Leader>t', '<cmd>TodoTelescope<CR>', opts)
 -- keymap("n", "<leader>;", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
-keymap('n', '<C-m>', '<cmd>Telescope file_browser<CR>', opts)
+keymap('n', '<Leader>m', '<cmd>Telescope file_browser<CR>', opts)
 
 -- Flybuf
-keymap('n', '<C-b>', '<cmd>FlyBuf<CR>', opts)
+keymap('n', '<Leader>j', '<cmd>FlyBuf<CR>', opts)
 
 -- Quickfix close
 keymap('n', '<S-z>', '<cmd>cclose<CR>', opts)
@@ -105,9 +119,6 @@ keymap('n', '<S-z>', '<cmd>cclose<CR>', opts)
 
 keymap('n', 'r', '<cmd>ExecutorRun<CR>', opts)
 keymap('n', '<leader>r', '<cmd>ExecutorToggleDetail<CR>', opts)
-
--- outline
-keymap('n', '<leader>o', '<cmd>Lspsaga outline<CR>', opts)
 
 -- Import packages in go files
 keymap('n', '<leader>e', ":<cmd>lua require'internal.func'.import()<CR><CR>", opts)
@@ -126,21 +137,22 @@ keymap('n', '<leader>t', '<cmd>ToggleTerm direction=horizontal<CR>', opts)
 keymap('n', '<C-u>', '<cmd>UndotreeToggle<CR>', opts)
 
 -- Lsp definition
-keymap('n', 'de', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-
--- Lsp saga
-keymap('n', 'gp', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
-keymap('n', 'gn', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+keymap('n', '<Leader>o', '<cmd>Lspsaga outline<CR>', opts)
+keymap('n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
+keymap('n', ']e', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 keymap('n', 'gh', '<cmd>Lspsaga hover_doc<CR>', opts)
 keymap('n', 'ga', '<cmd>Lspsaga code_action<CR>', opts)
 keymap('n', 'gd', '<cmd>Lspsaga peek_definition<CR>', opts)
+keymap('n', 'gp', '<cmd>Lspsaga goto_definition<CR>', opts)
 keymap('n', 'gr', '<cmd>Lspsaga rename<CR>', opts)
-keymap('n', 'gf', '<cmd>Lspsaga finder<CR>', opts)
-keymap('n', 'gs', '<cmd>Lspsaga show_line_diagnostics<CR>', opts)
-keymap('n', 'go', '<cmd>Lspsaga outline<CR>', opts)
--- keymap('n', 'gt', '<cmd>Lspsaga term_toggle<CR>', opts)
+keymap('n', 'gh', '<cmd>Lspsaga finder<CR>', opts)
+keymap('n', 'gi', '<cmd>Lspsaga finder imp<CR>', opts)
+keymap('n', '<Leader>dw', '<cmd>Lspsaga show_workspace_diagnostics<CR>', opts)
+keymap('n', '<Leader>db', '<cmd>Lspsaga show_buf_diagnostics<CR>', opts)
 
 -- Diffview
 keymap('n', 'do', '<cmd>DiffviewOpen<CR>', opts)
 keymap('n', 'dc', '<cmd>DiffviewClose<CR>', opts)
 keymap('n', 'dh', '<cmd>DiffviewFileHistory<CR>', opts)
+keymap('n', '[g', '<cmd>lua require"gitsigns".prev_hunk()<CR>', opts)
+keymap('n', ']g', '<cmd>lua require"gitsigns".next_hunk()<CR>', opts)

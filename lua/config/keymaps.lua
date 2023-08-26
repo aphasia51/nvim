@@ -104,9 +104,9 @@ keymap('n', '<Leader>ff', '<cmd>Telescope live_grep<CR>', opts)
 keymap('n', '<Leader>d', '<cmd>Telescope diagnostics<CR>', opts)
 -- keymap("n", "<leader>s", "<cmd>Telescope git_status<CR>", opts)
 keymap('n', '<Leader>g', '<cmd>Telescope git_commits<CR>', opts)
--- keymap('n', '<C-b>', '<cmd>Telescope buffers<CR>', opts)
+keymap('n', '<Leader>b', '<cmd>Telescope buffers<CR>', opts)
 keymap('n', '<Leader>t', '<cmd>TodoTelescope<CR>', opts)
--- keymap("n", "<leader>;", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
+keymap("n", "<leader>c", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap('n', '<Leader>m', '<cmd>Telescope file_browser<CR>', opts)
 
 -- Flybuf

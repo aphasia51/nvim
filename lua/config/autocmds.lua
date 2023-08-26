@@ -82,16 +82,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- last place
-vim.api.nvim_create_autocmd('BufReadPost', {
-  group = my_group,
-  pattern = '*',
-  callback = function()
-    if vim.fn.line('\'"') > 0 and vim.fn.line('\'"') <= vim.fn.line('$') then
-      vim.fn.setpos('.', vim.fn.getpos('\'"'))
-      vim.cmd([[silent! foldopen]])
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd('BufReadPost', {
+--   group = my_group,
+--   pattern = '*',
+--   callback = function()
+--     if vim.fn.line('\'"') > 0 and vim.fn.line('\'"') <= vim.fn.line('$') then
+--       vim.fn.setpos('.', vim.fn.getpos('\'"'))
+--       vim.cmd([[silent! foldopen]])
+--     end
+--   end,
+-- })
 
 api.nvim_create_autocmd('Filetype', {
   group = my_group,

@@ -1,4 +1,13 @@
 return {
+
+  {
+    'nvimdev/dyninput.nvim',
+    event = { 'InsertEnter' },
+    config = function()
+      require('plugins.extra.dyninput')
+    end,
+  },
+
   {
     'kylechui/nvim-surround',
     event = { 'InsertEnter' },
@@ -204,6 +213,7 @@ return {
 
   {
     'nvimdev/dashboard-nvim',
+    enabled = false,
     event = { 'VimEnter' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
@@ -271,15 +281,5 @@ return {
         },
       })
     end,
-  },
-
-  {
-    'nvimdev/dyninput.nvim',
-    enabled = false,
-    event = { 'InsertEnter' },
-    config = function()
-      require('plugins.extra.dyninput')
-    end,
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
   },
 }

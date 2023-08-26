@@ -282,4 +282,16 @@ return {
       })
     end,
   },
+
+  {
+    'nvimdev/template.nvim',
+    cmd = { 'Template' },
+    config = function()
+      require('template').setup({
+        temp_dir = '~/.config/nvim/template',
+        author = 'aphasia',
+      })
+      require('telescope').load_extension('find_template')
+    end,
+  },
 }

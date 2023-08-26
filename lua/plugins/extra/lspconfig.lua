@@ -2,9 +2,9 @@ local lspconfig = require('lspconfig')
 
 local signs = {
   Error = '',
-  Warn = '',
-  Info = '',
-  Hint = '',
+  Warn = ' ',
+  Info = ' ',
+  Hint = ' ',
 }
 
 for type, icon in pairs(signs) do

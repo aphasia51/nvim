@@ -32,7 +32,6 @@ return {
         symbol_in_winbar = {
           enable = true,
           hide_keyword = true,
-          ignore_patterns = { '%w_spec' },
         },
         ui = {
           kind = {

@@ -77,15 +77,21 @@ return {
     ft = { 'c', 'cpp', 'rust', 'lua', 'go', 'typescript', 'javascript', 'javascriptreact' },
     config = function()
       local ft = require('guard.filetype')
-      ft('c'):fmt('clang-format')
-      ft('cpp'):fmt('clang-format')
-      ft('lua'):fmt('stylua')
+      ft('c'):fmt({
+        cmd = 'clang-format',
+        stdin = true,
+        ignore_patterns = { 'neovim', 'vim' },
+      })
+
+      ft('lua'):fmt({
+        cmd = 'stylua',
+        args = { '-' },
+        stdin = true,
+        ignore_patterns = '%w_spec%.lua',
+      })
       ft('go'):fmt('lsp'):append('golines')
       ft('rust'):fmt('rustfmt')
-
-      for _, item in ipairs({ 'typescript', 'javascript', 'typescriptreact', 'javascriptreact' }) do
-        ft(item):fmt('prettier')
-      end
+      ft('typescript', 'javascript', 'typescriptreact', 'javascriptreact'):fmt('prettier')
 
       require('guard').setup({
         -- fmt_on_save = false,

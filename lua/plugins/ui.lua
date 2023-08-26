@@ -3,6 +3,9 @@ return {
     'aphasia51/zephyr-nvim',
     dev = true,
     lazy = false,
+    config = function()
+      vim.cmd('colorscheme ' .. 'zephyr')
+    end,
   },
 
   {
@@ -16,6 +19,7 @@ return {
   {
     'lewis6991/gitsigns.nvim',
     event = { 'InsertEnter' },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       local status_ok, gitsigns = pcall(require, 'gitsigns')
       if not status_ok then
@@ -50,7 +54,7 @@ return {
             dashboard = true,
             zsh = true,
             tmux = true,
-            toml = true
+            toml = true,
           },
           style = {
             { fg = '#3f444a' },

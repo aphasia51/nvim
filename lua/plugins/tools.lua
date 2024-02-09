@@ -1,5 +1,4 @@
 return {
-
   {
     'nvimdev/dyninput.nvim',
     event = { 'InsertEnter' },
@@ -56,11 +55,7 @@ return {
     'norcalli/nvim-colorizer.lua',
     ft = { 'lua', 'css', 'html', 'sass', 'less', 'typescriptreact' },
     config = function()
-      local status_ok, colorizer = pcall(require, 'colorizer')
-      if not status_ok then
-        return
-      end
-      colorizer.setup({ '*' }, {
+      require('colorizer').setup({ '*' }, {
         RGB = true,
         RRGGBB = true,
         names = false,
@@ -141,6 +136,33 @@ return {
   {
     'mbbill/undotree',
     cmd = { 'UndotreeToggle' },
+  },
+
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    event = { 'BufRead' },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+      require('neo-tree').setup({
+        window = {
+          width = 26,
+          mappings = {
+            ['o'] = { 'open', nowait = true },
+            ['oc'] = 'noop',
+            ['od'] = 'noop',
+            ['og'] = 'noop',
+            ['om'] = 'noop',
+            ['on'] = 'noop',
+            ['os'] = 'noop',
+            ['ot'] = 'noop',
+          },
+        },
+      })
+    end,
   },
 
   {
@@ -264,21 +286,6 @@ return {
         callback = function()
           vim.cmd('Dashboard')
         end,
-      })
-    end,
-  },
-
-  {
-    'nvim-neo-tree/neo-tree.nvim',
-    cmd = { 'NeoTreeRevealToggle' },
-    config = function()
-      require('neo-tree').setup({
-        window = {
-          width = 26,
-          mappings = {
-            ['o'] = 'open',
-          },
-        },
       })
     end,
   },

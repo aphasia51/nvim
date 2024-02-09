@@ -91,7 +91,7 @@ keymap('v', ',', '0', opts)
 -- ***   Plugins keymaps    *** --
 -- ============================ --
 
-keymap('n', '<leader>n', '<cmd>NeoTreeRevealToggle<CR>', opts)
+keymap('n', '<leader>n', '<cmd>Neotree reveal toggle<CR>', opts)
 
 -- Telescope
 keymap(
@@ -106,7 +106,7 @@ keymap('n', '<Leader>d', '<cmd>Telescope diagnostics<CR>', opts)
 keymap('n', '<Leader>g', '<cmd>Telescope git_commits<CR>', opts)
 keymap('n', '<Leader>b', '<cmd>Telescope buffers<CR>', opts)
 keymap('n', '<Leader>t', '<cmd>TodoTelescope<CR>', opts)
-keymap("n", "<leader>c", "<cmd>Telescope current_buffer_fuzzy_find<CR>", opts)
+keymap('n', '<leader>c', '<cmd>Telescope current_buffer_fuzzy_find<CR>', opts)
 keymap('n', '<Leader>m', '<cmd>Telescope file_browser<CR>', opts)
 
 -- Flybuf
@@ -145,7 +145,7 @@ keymap('n', 'ga', '<cmd>Lspsaga code_action<CR>', opts)
 keymap('n', 'gd', '<cmd>Lspsaga peek_definition<CR>', opts)
 keymap('n', 'gp', '<cmd>Lspsaga goto_definition<CR>', opts)
 keymap('n', 'gr', '<cmd>Lspsaga rename<CR>', opts)
-keymap('n', 'gh', '<cmd>Lspsaga finder<CR>', opts)
+keymap('n', 'gf', '<cmd>Lspsaga finder<CR>', opts)
 keymap('n', 'gi', '<cmd>Lspsaga finder imp<CR>', opts)
 keymap('n', '<Leader>dw', '<cmd>Lspsaga show_workspace_diagnostics<CR>', opts)
 keymap('n', '<Leader>db', '<cmd>Lspsaga show_buf_diagnostics<CR>', opts)

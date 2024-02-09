@@ -73,6 +73,9 @@ return {
 
   {
     'nvimdev/guard.nvim',
+    dependencies = {
+      'nvimdev/guard-collection',
+    },
     -- event = { 'BufRead' },
     ft = { 'c', 'cpp', 'rust', 'lua', 'go', 'typescript', 'javascript', 'javascriptreact' },
     config = function()
